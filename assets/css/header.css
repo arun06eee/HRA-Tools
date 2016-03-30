@@ -1,0 +1,341 @@
+#personal {
+     position: absolute;
+     right: 0px;
+}
+
+#personal li {
+     display: inline;
+}
+
+#personal li a {
+     border-right: 1px solid #F6D500;
+     color: #F6D500;
+     padding: 2px 10px;
+     text-decoration: none;
+}
+
+#personal li a:hover {
+     text-decoration: underline;
+}
+
+#logo {
+     background-image: url("/content/images/Logo.png");
+     background-position: 0px 15px;
+     background-repeat: no-repeat;
+     background-size: contain;
+     height: 60px;
+     line-height: 60px;
+     overflow: visible;
+     width: 137px;
+}
+
+#topBar {
+     background: none repeat scroll 0px 0px #5B5B5B;
+     height: 60px;
+     line-height: 60px;
+     padding-left: 20px;
+     width: 100%;
+}
+
+.smallHeader {
+     background: none repeat scroll 0% 0% green;
+     height: 60px;
+     left: 0px;
+     top: 0px;
+     width: 100%;
+}
+
+#footer {
+     background: url("/images/footer_bar.gif") repeat-x scroll 0% 0% #F2F2F2;
+     bottom: 0px;
+     clear: both;
+     color: #999999;
+     font-size: 11px;
+     height: 31px;
+     width: 100%;
+}
+
+#footer span.left {
+    
+}
+
+#footer span.right {
+    
+}
+
+#applications {
+     float: right;
+     font-size: 13px;
+     font-weight: bold;
+     height: 23px;
+}
+
+#applications li {
+     display: inline;
+}
+
+#applications li a {
+     color: white;
+     height: 23px;
+     padding: 2px 15px;
+     text-decoration: none;
+}
+
+#applications li a:hover {
+     text-decoration: underline;
+}
+
+#applications li.selected a {
+     background: none repeat scroll 0px 0px #5B5B5B;
+     color: #F6D500;
+}
+
+#applications li.selected a:hover {
+     text-decoration: none;
+}
+
+#menubar {
+     background: none repeat scroll 0px 0px #5B5B5B;
+     height: auto;
+     padding-left: 7px;
+     vertical-align: middle;
+}
+
+#menubar A {
+     color: white;
+     font-size: 11px;
+     line-height: normal;
+     margin-left: 6px;
+     margin-right: 6px;
+     padding: 5px 9px;
+     text-decoration: none;
+}
+
+#menubar A:hover {
+     text-decoration: underline;
+}
+
+#header {
+     background: none repeat scroll 0px 0px #E4E4E4;
+     border-bottom: 1px solid #E4E4E4;
+     border-top: 2px solid #E4E4E4;
+     margin: 10px;
+     padding: 8px 7px 8px 10px;
+}
+
+#header table {
+     border: 0px none;
+}
+
+.hdrtitle {
+     color: #2E2E2E;
+     font-family: Helvetica;
+     font-size: 14px;
+     font-weight: bold;
+}
+
+.hdrdetail {
+     color: #5B5B5B;
+     font-size: 12px;
+     font-weight: bold;
+}
+
+.hdrdetail .hdrdata {
+     color: #5B5B5B;
+}
+
+.module, .form {
+     background: none repeat scroll 0% 0% #EEEEEE;
+     border: 1px solid #E4E4E4;
+     font-family: Helvetica;
+     margin: 0px;
+}
+
+.form tr, .form td {
+     padding: 5px 0px 10px;
+     vertical-align: top;
+}
+
+.form .invisible {
+     height: 0px;
+}
+
+.formClass {
+     background: none repeat scroll 0% 0% #EEEEEE;
+     border: 1px solid #CCCCCC;
+     font-family: Helvetica;
+     margin: 0px;
+}
+
+.formClass tr, .formClass td {
+     padding: 1px 0px;
+     vertical-align: top;
+     white-space: nowrap;
+}
+
+.formClass .invisible {
+     height: 0px;
+}
+
+.tableClass {
+     background: none repeat scroll 0% 0% #EEEEEE;
+     border: 0px solid #CCCCCC;
+     font-family: Helvetica;
+     margin: 0px;
+     width: 100%;
+}
+
+.tableClass tr, .tableClass td {
+     padding: 1px 0px;
+     vertical-align: top;
+     white-space: nowrap;
+}
+
+.tableClass .invisible {
+     height: 0px;
+}
+
+.moduleHeader {
+     background: none repeat scroll 0px 0px #DBDBDB;
+     height: 25px;
+}
+
+.moduleHeader td {
+     border: 1px none #E4E4E4;
+     color: #5B5B5B;
+     font: bold 14px Helvetica;
+     padding: 1px 4px 1px 1px;
+}
+
+.moduleHeader a, .moduleHeader a:visited, .moduleHeader a:active {
+     color: #2e2e2e;
+     font: 13px Helvetica;
+     text-align: right;
+     text-decoration: none;
+}
+
+.moduleHeader a:hover {
+     text-decoration: underline;
+}
+
+.filterSectionHeader {
+     background: none repeat scroll 0px 0px #5B5B5B;
+     height: 25px;
+}
+
+.filterSectionHeader td {
+     border: 0px none;
+     color: white;
+     font: bold 13px Helvetica;
+     padding: 1px 4px 1px 1px;
+}
+
+.moduleContent {
+     min-height: 8px;
+}
+
+.moduleContent>table, .wordwrap{
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+.moduleContent a, .moduleContent a:visited, .moduleContent a:active {
+     color: #5B5B5B;
+     line-height: 150%;
+     text-decoration: none;
+	 padding-left: 5px;
+}
+
+.moduleContent .date a, .moduleContent .date a:visited, .moduleContent .date a:active {
+     color: green;
+     white-space: nowrap;
+}
+
+.moduleContent a.action, .moduleContent a.action:visited, .moduleContent a.action:active {
+     font-size: 8pt;
+     text-decoration: none;
+     white-space: nowrap;
+	 padding-left: 5px;
+}
+
+.moduleContent a:hover {
+     text-decoration: underline;
+}
+
+.infoModule td.label {
+     color: #5B5B5B;
+}
+
+.infoModule .deviceName, .infoModule .deviceName a {
+     color: #5B5B5B;
+     font-family: Helvetica;
+     font-size: 16px;
+     font-style: italic;
+     font-weight: bold;
+}
+
+#usagetabs {
+     font-size: 13px;
+     font-weight: bold;
+     height: 23px;
+}
+
+#usagetabs li {
+     display: inline;
+}
+
+#usagetabs li a {
+     background: none repeat scroll 0% 0% #E5E5E5;
+     border-color: #5B5B5B;
+     border-style: solid;
+     border-width: 1px 1px 0px;
+     color: #5B5B5B;
+     height: 23px;
+     padding: 2px 15px;
+     text-decoration: none;
+}
+
+#usagetabs li a:hover {
+     text-decoration: underline;
+}
+
+#usagetabs li.selected a {
+     background: none repeat scroll 0% 0% #DCE1E4;
+}
+
+#usagetabs li.selected a:hover {
+     text-decoration: none;
+}
+
+.highlight {
+     color: #2e2e2e;
+     text-align: justify;
+}
+
+.left {
+     float: left;
+}
+
+.right {
+     float: right;
+}
+
+.unused {
+     background: none repeat scroll 0% 0% red;
+}
+
+#hide {
+     color: #5B5B5B;
+     cursor: pointer;
+     font-size: 12px;
+     font-weight: bold;
+     width: 100px;
+}
+
+#hide td:hover {
+     text-decoration: underline;
+}

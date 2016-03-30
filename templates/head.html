@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<meta https-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="shortcut icon" href="{{ baseurl }}/assets/img/favicon.ico">
+
+
+{% if title %}
+<title>Zydesoft-{{title}}</title>
+{% else %}
+<title>ZydeSoft</title>
+{% endif %}
+
+<!-- Css Style -->
+<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/font-awesome.min.css" />
+
+<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/common.css" />
+
+{% if viewemployee %}
+<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/viewemployee.css">
+{% endif %}
+
+
+{% if signin %}
+	<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/style.css">
+{% else %}
+	<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/dashboard.css">
+{% endif %}

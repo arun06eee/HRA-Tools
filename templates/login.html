@@ -1,0 +1,48 @@
+<html>
+<head>
+	{% block head %}
+		{% include 'head.html' %}
+		{% include 'scripts.html' %}
+	{% endblock %}
+</head>
+<body>
+
+	<div id="Core">
+		<article>
+			<form autocomplete="OFF" action="{{baseurl}}/login" method="POST" name="loginform">
+				<div id="LoginContainer">
+					<div id="LoginArea">
+						<div style="padding-top:20px">
+							<img src="{{baseurl}}/assets/img/zydesoft-logo.png" class="Logo"/>
+						</div>
+						<div style="clear:both;position:relative;margin-top:20px;">
+							<input id="username" class="FormField" type="text" name="username" size="20" maxlength="50" on>
+							<div id="LoginUsernameImg"><img src="{{baseurl}}/assets/img/Icon_FieldUsername.png" width="43" height="36"></div>
+						</div>
+						<div style="clear:both;position:relative;margin-top:15px;">
+							<input id="password" class="FormField" type="password" name="password" size="20">
+							<div id="LoginPasswordImg"><img src="{{baseurl}}/assets/img/Icon_FieldPassword.png" width="43" height="36"></div>
+						</div>
+						<div id="LoginBtnArea">
+							<div style="float:left; line-height:26px">
+								<a href="{{baseurl}}/login">Forgot Password</a>
+							</div>
+							<div style="float:right">
+								<input id="loginBtn" type="submit" value="LOG IN" class="LightButton">
+							</div>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
+			</form>
+		</article>
+	</div>
+	<footer class="footer ">
+		<div class="container-fluid">
+			<p class="text-muted pull-right"> <span style="color:#B4BE31">&#169;</span> <span style="color:#59A77A">Zyde</span><span style="color:#44A5E3">Soft</span> Solution Pvt Ltd.,</p>
+		</div>
+	</footer>
+
+	
+</body>
+<html>

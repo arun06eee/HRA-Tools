@@ -1,0 +1,4267 @@
+/* Axeda COLORS & FONTS CSS Document */
+
+/************************* HTML Global elements *************************/
+
+body { 
+  /* Background Color sets Background for Login Page*/
+  color: #333;
+  /*font-family: Helvetica, Arial, sans-serif;*/
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  font-size: 13px;
+  background: #1A2E4E;
+  background-attachment: fixed;
+}
+
+a:hover {
+  color: #21355A;
+  text-decoration: underline;
+}
+
+a {
+  color: #555555;
+  text-decoration: none;
+}
+
+/************************* Login Page *************************/
+/*Login Area Text Styling*/
+#LoginArea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #FFFFFF;
+    background-color: #0F2132;
+  border-color: #112231 !important;
+
+}
+
+/*Login Area Text Hover*/
+#LoginArea a {
+  color: #939699;
+}
+
+#LoginContainer a {
+  color: #939699; 
+}
+
+.Form {
+  clear:both;
+}
+
+/*Login Form Boxes*/
+.FormField {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #555555;
+    border-color: #555555;
+}
+
+/*Login Form Boxe on Click Border Color*/
+.FormField:focus {
+    border-color: #FFC527;
+}
+
+/*Login Button*/
+.LightButton {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #383838;
+  text-align:center;
+  text-transform: uppercase;
+  background: #FFC231;
+}
+
+/*Error Text*/
+.Error {
+  color: #2974B7;
+}
+
+
+/************************* Header Elements *************************/
+#Navigation {
+}
+
+
+/*Navigation Bar*/
+#Navigation .Background {
+    background: #0072d0;
+}
+
+/*Nav Bar Application Buttons or Links*/
+#Navigation .Item {
+  color: #FFF;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  border-color: #015397 !important;
+  background: #007ce2;
+}
+
+/*Nav Bar Application Buttons or Links - HOVER*/
+#Navigation .Item:hover {
+  background: #0072d0;
+}
+
+
+/*Nav Bar Show More Links Button*/
+#Navigation #ShowAllButton {
+  border-color: #015397 !important;
+  background: #007ce2;  
+}
+
+/*Nav Bar User Button*/
+#Navigation #UserButton {
+  background: #fcb531; 
+}
+
+/*Active Application Font Color */
+.ActiveLink {
+    color: #FAB441;
+}
+
+.SearchAreaInput {
+    background-color: #082031;
+    color: #ADAEAD;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+/*Search Box Focus*/
+.SearchFocus {
+    color: #000000;
+    background-color: #FFFFFF;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+/*** User Menu ***/
+/*Styles the number and circle color floating above the message icon */
+#AlertCount #Count {
+  background-color: #0F2133;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #FFF;
+  font-weight: bold;
+}
+
+/*The Style for the Pop Up Displayed when the User Icon is clicked */
+#PopUpUserInfo {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: left;
+  color: #FFF;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/*The style for the arrow displayed at the top of the user info box */
+#PopUpUserInfo .BoxArrow {
+  border-color: transparent transparent #0f2135 transparent;
+  _border-color: #000000 #000000 #0f2135 #000000;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000'); 
+}
+
+/* The style for the list of links themselves*/
+#PopUpUserInfo .LinkList {
+  background-color: #0F2135;
+}
+
+#PopUpUserInfo .LinkList a {
+}
+
+/*The style for each individual link in the list of links for the user menu*/
+#PopUpUserInfo .LinkList .Items {
+  border-bottom-color:#0B4D93;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+}
+
+/*The syle for the items in the list when the mouse if hovering over them*/
+#PopUpUserInfo .LinkList .Items:hover {
+  background-color: #0071D6;
+}
+
+#PopUpUserInfo .LinkList .Items:hover:last-child {
+    background-color: #0071D6;
+}
+
+#PopUpUserInfo .LinkList .Items:hover:first-child {
+    background-color: #0071D6;
+}
+
+/*** More Links (Show All/Quicklinks) Menu ***/
+/* The Pop Up that is whown when the Show All Button is clicked*/
+#Navigation #PopUpNavigation {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+/* Title text within the Navigation Pop Up*/
+#Navigation #PopUpNavigation .Title {
+    color: #FFFFFF;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/*The color of the arrow floating above the pop up box*/
+#Navigation #PopUpNavigation .BoxArrow {
+  border-color: transparent transparent #0f2135 transparent;
+  _border-color: #000000 #000000 #0f2135 #000000;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000'); 
+}
+
+/*The styles associated with the box itself*/
+#Navigation #PopUpNavigation .LinkList {
+  background-color: #0F2135;
+}
+
+/*Hidden Apps Sub List*/
+#Navigation #SortHiddenSubList .Item {
+  color: #CCC;
+  background: #083a6d;
+}
+
+/*Cancel and Save Buttons*/
+#PopUpNavigation .Button {
+  background: #F2F2F2; 
+  color: #505050;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+
+
+/****************Search Menu****************/
+#PopUpSearchResults {
+    background-color: #E7E7E7;
+  
+}
+
+/***Search Menu Title Text***/
+#PopUpSearchResults .Title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666666;
+    font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+#PopUpSearchResults #AdvancedSearchLink{
+  cursor: pointer;
+}
+
+/***Search Menu Results Text***/
+#PopUpSearchResults .SubMenuItem {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 12px;
+    line-height: 28px;
+    background-color: #FFFFFF;
+}
+
+#PopUpSearchResults .SubMenuMore {
+    text-wrap: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+#PopUpSearchResults .SubMenuMore {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666666;
+    font-size: 12px;
+  font-weight: bold;
+    line-height: 28px;
+    background-color: #F5F5F5;
+}
+
+#PopUpSearchResults .SubMenuMore:hover {
+    color: #F2F2F2;
+    background-color: #666666;
+}
+
+
+/************************* SubMenu Elements *************************/
+/*The sub or application specific navigation styling*/
+#ApplicationNavigation {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  color: #fff;
+
+}
+
+/*The application navigation link styles*/
+#ApplicationNavigation .SubApplicationLink {
+  line-height: 20px;
+  padding-right: 50px;
+  cursor: pointer;
+}
+
+/*The pop up Sub>Sub Application navigation menus*/
+#ApplicationNavigation .SubMenu {
+  background-color: #0F2133;
+  border-style: solid;
+  border-color: #0F2133;
+  border-size: 1px;
+}
+
+/*The styles for the link container itself*/
+#ApplicationNavigation .SubMenuItem {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 12px;
+  height: 24px;
+  line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/*The styles for the link when the cursor is hovering over the item*/
+#ApplicationNavigation .SubMenuItem:hover {
+  color: #FFF;
+  background-color: #1773C2;
+}
+
+#ApplicationNavigation .SubMenuBlock:hover {
+    color: #FFF;
+    background-color: #0B71C5;
+}
+
+.SubArrow {
+    color: #fcb531;
+}
+
+/*** More Links Overflow Menu ***/
+#PopUpSubMore .SideMenu {
+    background-color: #0F2133;
+    border-style: solid;
+    border-color: #0F2133;
+    border-size: 3px;
+}
+
+#PopUpSubMore .SubArrow {
+    color: #0B71C5;
+    font-stretch: extra-condensed;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+
+/* The styles for the link container itself*/
+#PopUpSubMore .SideMenuItem {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+}
+
+#PopUpSubMore .SideMenuItem:hover {
+    color: #0071D6;
+}
+
+/*The Style for the Pop Up Displayed when the User Icon is clicked*/
+#PopUpSubMore {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFF;
+    font-size: 13px;
+    font-weight: normal;
+  text-align: left;
+  color: #FFF
+}
+
+/*The style for the arrow displayed at the top of the user info box*/
+#PopUpSubMore .BoxArrow {
+    border-color: transparent transparent #0f2135 transparent;
+    _border-color: #000000 #000000 #0f2135 #000000;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+/*The style for the list of links themselves*/
+#PopUpSubMore .LinkList {
+    background-color: #0F2135;
+}
+
+/*The style for each individual link in the list of links for the user menu*/
+#PopUpSubMore .LinkList .Items {
+    border-bottom-color:#0B4D93;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+}
+
+/*The syle for the items in the list when the mouse if hovering over them*/
+#PopUpSubMore .LinkList .Items:hover {
+    color: #FFC021;
+}
+
+/*Sub Menu Show More Links Button*/
+.StyledButton {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #686868;
+    background: #F2F2F2;
+}
+
+
+/************************* Footer Elements *************************/
+/* Footer Logo- MUST BE DOUBLE SIZE FOR HD DISPLAYS - PNG @ 340x54 */
+#Footer #LogoArea img {
+  width: 170px;
+  height: 27px; 
+}
+
+/*Footer Container*/
+#Footer {
+  background-color: #0F2132;
+}
+#Footer a {
+    color: #0B71C5;
+}
+
+/* Styling for the Copyright text*/
+#Footer #Copyright {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #9B9FA5;
+  font-size: 13px;
+}
+
+
+
+
+/************************* General Body Elements *************************/
+/************************* User Attributes Page *************************/
+.LegacyPod {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.LegacyPod .Icon {
+  position: relative;
+  float: left;
+}
+
+.LegacyPod .Title {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #848684;
+  text-transform: uppercase;
+  font-size: 21px;
+  line-height: 36px;
+}
+
+.Title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+.LegacyPod .Contents {
+  background-color: #FFF;
+  border-color: #C9C9C9;
+}
+
+.LegacyPod .Contents .Title {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.FormLabel {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #848684;
+}
+
+.FormFieldArea {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+.FormFieldArea .FormField {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  border-color: #C9C9C9;
+}
+
+.FormFieldArea .FormField:focus {
+  border-color: #949694;
+}
+/*
+.FormFieldArea .FormField:valid {
+  border-color: #C5E1C9;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  background-color: #F1F7F0;
+}
+*/
+.FormFieldArea .FormField:invalid {
+  border-color: #F7D3D3;
+  background-color: #F7F0F2;
+}
+
+.FormButtonBar {
+  line-height: 30px;
+  text-alight: right;
+}
+
+.form {
+  background-color: #FFF;
+  border-color: #FFF;
+}
+
+.FormItem .Instructions {
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  color: #000;
+}
+
+.arrow_box {
+  background-color: rgba(240, 249, 254, .7);
+}
+
+.arrow_box:after, .arrow_box:before {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  border-color: rgba(23, 39, 68, 0);
+  border-right-color: rgba(240, 249, 254, .7);
+}
+
+.arrow_box:before {
+  border-color: rgba(23, 39, 68, 0);
+  border-right-color: rgba(240, 249, 254, .7);
+}
+
+.StickyTitle {
+  font-family: "TheGreatEscape";
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.StickyNote {
+  text-align: left;
+  font-family: "TheGreatEscape";
+  font-size: 11px;
+  background: #FFC427;
+}
+
+.FormButton {
+  color: #FFF;
+  background-color: #858585;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/*********************HOME PAGE ELEMENTS******************/
+/***Global Grey Body Area***/
+#MainArea {
+  background-color: #f5f5f5;
+}
+
+
+/*** Home Page App Styles ***/
+/*Styling pertaining to the left most column in a 3 column grid*/
+#MainArea #LeftColumn {
+}
+
+/*The center column styling in a 3 column grid, the left column in a 2 or the only column in a single*/
+#MainArea #MainColumn {
+}
+
+/* The right most column in the 2 and 3 colyumn template*/
+#MainArea #RightColumn {
+  background-color: #E4E4E4;
+}
+
+/*** Help Button ***/
+#HelpButton {
+  background-image: url(../images/helpup.png);
+  width: 31px;
+  height: 29px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 13px;
+  z-index: 10;
+  background-size: contain;
+}
+
+#HelpButton:hover {
+  background-image: url(../images/helpdown.png);
+}
+
+/*** Help Menu ***/
+/*The Style for the Pop Up Displayed when the Pod Help Icon is clicked*/
+#PopUpPodHelp {
+  font-family:  Helvetica, Arial, sans-serif;
+  color: #848684;
+  font-size: 13px;
+}
+
+/*The style for the arrow displayed at the top of the pod help list box*/
+#PopUpPodHelp .BoxArrow {
+  border-color: transparent transparent #f7f7f7 transparent;
+  _border-color: #000000 #000000 #f7f7f7 #000000;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+/*The style for the list of links themselves*/
+#PopUpPodHelp .LinkList {
+  background-color: #f7f7f7;
+}
+
+/*The style for each individual link in the list of pod help links*/
+#PopUpPodHelp .LinkList .Items {
+  border-bottom-color:#848684;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+}
+
+
+/*The syle for the items in the list when the mouse if hovering over them*/
+#PopUpPodHelp .LinkList .Items:hover {
+  background-color: #848684;
+  color: #f7f7f7;
+}
+
+
+
+/************************* RANDOM BODY *************************/
+.Confirm {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: #FFFFFF;
+  text-align: center;
+  background: rgba(255,255,255,0.8);
+}
+
+.Confirm .Container {
+  text-align: center;
+}
+.Confirm label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;  
+}
+
+.Confirm .Box {
+    color: #FFFFFF;
+  background-color: #0F2133;
+  text-align: left;
+}
+
+.Confirm .Button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    color: #fff;
+    background: #0B76CE;
+}
+
+.Confirm .ConfirmButtons {
+  text-align: center; 
+}
+
+.PodConfig input {
+  font-family: Arial;
+  font-size: 12px;
+  font-width: bold;
+  border-color: #B6BAC1;
+}
+
+.PodConfig .Title {
+  color: #000000;
+}
+
+.PodConfig .SubTitle {
+
+}
+
+.AboutTitle {
+    background-color:#0071d6;
+    padding: 10px;
+}
+
+.AboutBody  {
+    margin: 0px;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000;
+    font-size: 14px;
+}
+
+#PodArea {
+  text-align: left;
+}
+
+#PodArea .Title {
+  color: #C1C1C1;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+}
+
+#PodArea .SubTitle {
+  color: #0B71C5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+}
+
+
+.PodConfig {
+  background-color: #EDF9FD;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: #0B71C5;
+  padding: 20px;
+}
+
+#EditPageArea {
+    background-color: #0F2133;
+}
+
+.hdrdetail {
+  color: #5B5B5B; 
+}
+
+.breadcrumbTrail a {
+  color: #fff;  
+}
+.topbar {
+  background-color: #1773C2;  
+}
+
+.Controls_Toggle {
+  font-size: 9px; 
+  font-family: Arial, Helvetica, sans-serif; 
+  color: #999;
+}
+
+.Pod .Title {
+    font-family: "Helvetica Neue, Helvetica, Arial, sans-serif";
+    color: #525552;
+    font-size: 24px;
+}
+
+.TitleLarge {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 45px;
+    color: rgba(209, 209, 209, 0.8);
+}
+
+
+.Pod .Box {
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #eef1f4 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #eef1f4));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #eef1f4 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #eef1f4 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #eef1f4 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #eef1f4 100%);
+    border-color: #C9C9C9;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #525552;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+#EditPodPage .Title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    color: #525552;
+}
+
+#EditPodPage .Button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    color: #fff;
+    background: #0B76CE;
+}
+
+/******************** Filter Button Styles *********************/
+
+
+.FilterButton {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #fff;
+    background: #666666;
+}
+
+.FilterButton:hover {
+    background-color: #BEBEBE;
+}
+
+/************************* WEB FONTS *************************/
+/* Embeded Fonts used by the system, can be replaced but must be updated where referenced */
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url("../fonts/HelveticaNeue.eot");
+  src: local("Helvetica Neue"), 
+  url('../fonts/HelveticaNeue.eot?#iefix') format('eot'),
+  url('../fonts/HelveticaNeue.woff') format('woff'),
+  url('../fonts/HelveticaNeue.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TheGreatEscape';
+  src: url("../fonts/TheGreatEscape.eot?#iefix") format('eot');
+  src: url('../fonts/TheGreatEscape.woff') format('woff'), url('../fonts/TheGreatEscape.ttf') format('truetype'), url('../fonts/TheGreatEscape.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url("/styles/header.css");
+
+body {
+     color: black;
+     font: 12px Helvetica,sans-serif;
+     margin: 0px;
+}
+
+input, select, option {
+     color: black;
+     font: 12px Helvetica,sans-serif;
+}
+
+textarea {
+     color: black;
+     font: 12px Helvetica,sans-serif;
+     resize: none;
+     width: 100%;
+}
+
+table {
+     border-collapse: collapse;
+     padding: 2px;
+     table-layout: fixed;
+}
+
+#content\.service\.device\.case td {
+     width: 115px;
+}
+
+table .buttons {
+     width: 100%;
+}
+
+td {
+     font-size: 11px;
+}
+
+.bodytext {
+     color: black;
+     font-size: 11px;
+}
+
+#constants {
+     height: 17px;
+     position: absolute;
+     right: 0px;
+     top: 0px;
+}
+
+#constants A {
+     color: white;
+     font-size: 10px;
+     line-height: 12px;
+     text-decoration: none;
+}
+
+#constants A:hover {
+     text-decoration: underline;
+}
+
+#constantsTable {
+     background-image: url("/images/skin.jpg");
+     color: white;
+     font-size: 10px;
+     line-height: 12px;
+}
+
+#loggedinText {
+     color: red;
+     font-size: 10px;
+     line-height: 12px;
+}
+
+.subheadBar {
+     padding: 0px 26px 0px 8px;
+}
+
+.copyright {
+     background: none repeat scroll 0% 0% red;
+     padding-left: 10px;
+}
+
+#mainMenuLeft {
+     color: #000000;
+     font-size: 11px;
+     margin-top: 16px;
+}
+
+#mainMenuLeft .welcomeMessage {
+     color: #515252;
+     font-size: 13px;
+     font-weight: bold;
+}
+
+#mainMenuLeft .subMessage {
+     color: #5B5B5B;
+     font-size: 12px;
+     font-weight: bold;
+}
+
+#mainMenuLeft .sectionHeader {
+     border-bottom: 1px solid #5B5B5B;
+     color: #5B5B5B;
+     font-size: 16px;
+     font-weight: bold;
+     margin-bottom: 16px;
+     width: 350px;
+}
+
+#mainMenuLeft .sectionHeader IMG {
+     vertical-align: text-bottom;
+}
+
+#mainMenuLeft .subsection {
+     padding-bottom: 20px;
+}
+
+#mainMenuLeft .subsection A {
+     color: #5B5B5B;
+     font-size: 12px;
+     font-weight: bold;
+     text-decoration: underline;
+}
+
+.dhtmlMenu {
+     background: none repeat scroll 0px 0px #5B5B5B;
+     border-left: medium none #5B5B5B;
+     border-right: 1px solid #5B5B5B;
+     margin: 0px;
+     padding: 0px;
+     position: absolute;
+     top: auto;
+}
+
+.dhtmlMenu A, .dhtmlMenu TABLE TD {
+     border-bottom: 1px solid #5B5B5B;
+     border-top: 1px solid #5B5B5B;
+     color: white;
+     display: block;
+     font-size: 10px;
+     padding-bottom: 3px;
+     padding-top: 3px;
+     text-decoration: none;
+}
+
+.dhtmlMenu A:hover {
+     text-decoration: underline;
+}
+
+.dhtmlActionMenu {
+     background: none repeat scroll 0px 0px #5B5B5B;
+     border-left: 1px solid #5B5B5B;
+     border-right: 1px solid #5B5B5B;
+     margin: 0px;
+     padding: 0px;
+     position: absolute;
+     top: 80px;
+}
+
+.dhtmlActionMenu TD {
+     border-bottom: 1px solid #5B5B5B;
+     border-top: 1px solid #5B5B5B;
+     color: #FFFFFF;
+     display: block;
+     font-size: 10px;
+     padding-bottom: 8px;
+     padding-top: 3px;
+     text-decoration: none;
+}
+
+.dhtmlActionMenu A:hover {
+     text-decoration: underline;
+}
+
+.dhtmlActionMenu A, .dhtmlActionMenu A:visited, .dhtmlActionMenu A:active {
+     color: #FFFFFF;
+     text-decoration: none;
+}
+
+.tabName {
+     color: #5B5B5B;
+     font-family: Helvetica;
+     font-size: 16px;
+     font-style: italic;
+     font-weight: bold;
+     padding: 0px 10px 5px;
+     width: 100%;
+}
+
+.tabName .subtitle {
+     font-size: 12px;
+}
+
+.tableHeader {
+     background: none repeat scroll 0% 0% #C2C2C2;
+     color: #000000;
+     font-size: 11px;
+     font-weight: bold;
+     height: 17px;
+     padding-left: 10px;
+}
+
+.lightTitle {
+     background: none repeat scroll 0% 0% #F1F4F6;
+     color: #5C5C5C;
+     font-size: 11px;
+     height: 20px;
+     padding-left: 10px;
+}
+
+.lightTitle A {
+     color: #000000;
+     font-size: 11px;
+     text-decoration: underline;
+}
+
+.darkTitle {
+     background: none repeat scroll 0% 0% #DCE4E7;
+     color: #5C5C5C;
+     font-size: 11px;
+     height: 20px;
+     padding-left: 10px;
+}
+
+.darkTitle A {
+     color: #000000;
+     font-size: 11px;
+     text-decoration: underline;
+}
+
+.lightData, .lightData TD {
+     background: none repeat scroll 0px 0px #F5F5F5;
+     color: #000000;
+     font-size: 11px;
+     padding-left: 10px;
+     word-wrap: break-word;
+}
+
+.emptyTable {
+     background: none repeat scroll 0px 0px #F5F5F5;
+     color: #777777;
+     font-size: 11px;
+     padding-left: 10px;
+}
+
+.tableMessage {
+     background: none repeat scroll 0px 0px #F5F5F5;
+     color: #5B5B5B;
+     font-size: 11px;
+     padding-left: 10px;
+}
+
+.lightData A {
+     color: #5B5B5B;
+     font-size: 11px;
+     text-decoration: none;
+}
+
+.lightData A:hover {
+     text-decoration: underline;
+}
+
+.darkData {
+     background: none repeat scroll 0px 0px #EEEEEE;
+     color: #000000;
+     font-size: 11px;
+     padding-left: 10px;
+     word-wrap: break-word;
+}
+
+.darkData TD {
+     background: none repeat scroll 0px 0px #EEEEEE;
+     color: #000000;
+     font-size: 11px;
+     padding-left: 10px;
+}
+
+.darkData A {
+     color: #5B5B5B;
+     font-size: 11px;
+     text-decoration: none;
+}
+
+.darkData A:hover {
+     text-decoration: underline;
+}
+
+.bottom12 {
+     margin-bottom: 12px;
+}
+
+.bottom60 {
+     margin-bottom: 60px;
+}
+
+.highlightData {
+     background-color: #FDE4B3;
+     color: #000000;
+     font-size: 11px;
+     padding-left: 10px;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+.highlightData A {
+     color: #000000;
+     font-size: 11px;
+     text-decoration: underline;
+}
+
+.highlightData TD {
+     padding-left: 10px;
+}
+
+.highlightData A:hover {
+     text-decoration: underline;
+}
+
+.summaryData {
+     background-color: #FDE4B3;
+     color: #000000;
+     font-size: 11px;
+     padding-left: 10px;
+}
+
+.summaryData A {
+     color: #000000;
+     font-size: 11px;
+     text-decoration: underline;
+}
+
+.summaryData TD {
+     padding-left: 10px;
+}
+
+.summaryData A:hover {
+     text-decoration: underline;
+}
+
+.interestingData {
+     color: red;
+}
+
+.formHeader {
+     color: #5B5B5B;
+     font-size: 12px;
+     font-weight: bold;
+}
+
+.scriptDisabled {
+     color: red;
+     font: bold 15px Helvetica;
+     padding-left: 18px;
+}
+
+.noJRE {
+     color: red;
+     font: bold 12px Helvetica;
+}
+
+.errorMessage {
+     color: red;
+}
+
+.formSubhead {
+     color: #000000;
+     font-size: 12px;
+     font-weight: bold;
+}
+
+.formGreyHeader {
+     color: #5B5B5B;
+     font-size: 12px;
+     font-weight: bold;
+}
+
+.formDescription {
+     font-style: italic;
+     padding: 10px 25px 12px 0px;
+     width: 73%;
+}
+
+.formText {
+     color: #000000;
+     font-size: 11px;
+}
+
+.disabledLink {
+     color: #808080 ! important;
+     text-decoration: underline;
+}
+
+.gotoDeviceLink {
+     color: #000000;
+     font-size: 13px;
+     font-weight: bold;
+}
+
+A.formLinkPopup:hover, A.formLinkDropDown:hover, A.filterSectionLinkPopup:hover, A.filterSectionLinkDropDown:hover {
+     text-decoration: underline;
+}
+
+A.formLinkPopup, A.formLinkDropDown, A.filterSectionLinkPopup, A.filterSectionLinkDropDown {
+     background-color: transparent;
+     background-position: 100% center;
+     background-repeat: no-repeat;
+     border-width: 0px;
+     font-weight: bold;
+     margin: 0px 3px;
+     padding: 0px 12px 0px 0px;
+     text-decoration: none;
+}
+
+A.formLinkPopup, A.formLinkDropDown {
+     color: #5B5B5B;
+     font-family: Helvetica;
+     font-size: 12px;
+}
+
+A.filterSectionLinkPopup, A.filterSectionLinkDropDown {
+     color: White;
+     font-family: Helvetica;
+     font-size: 12px;
+}
+
+A.formLinkPopup, A.filterSectionLinkPopup {
+     background-image: url("/images/button_popup_blue.gif");
+}
+
+A.formLinkDropDown, A.filterSectionLinkDropDown {
+     background-image: url("/images/button_popdown_blue.gif");
+}
+
+.textinput {
+     background: none repeat scroll 0% 0% white;
+     border: 1px solid #BEBEBE;
+     width: 230px;
+}
+
+.textLabel {
+     color: #000000;
+     font-size: 11px;
+     font-weight: bold;
+}
+
+.textinputSuggest {
+     background: none repeat scroll 0% 0% #FFFFFF;
+     border: 1px solid #BEBEBE;
+     width: 230px;
+}
+
+.textinputlongSuggest {
+     background: none repeat scroll 0% 0% #FFFFFF;
+     border: 1px solid #BEBEBE;
+     width: 300px;
+}
+
+.textinputlong {
+     background: none repeat scroll 0% 0% #FFFFFF;
+     border: 1px solid #BEBEBE;
+     width: 300px;
+}
+
+.textinputdisabled {
+     background-color: #BEBEBE;
+     width: 300px;
+}
+
+.textinputverylong {
+     background: none repeat scroll 0% 0% white;
+     border: 1px solid #BEBEBE;
+     width: 500px;
+}
+
+.textinputshort {
+     background: none repeat scroll 0% 0% white;
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 155px;
+}
+
+.textinputextrashort {
+     background: none repeat scroll 0% 0% white;
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 50px;
+}
+
+.textinputmiddle {
+     background: none repeat scroll 0% 0% white;
+     border: 1px solid #BEBEBE;
+     width: 220px;
+}
+
+.textinputmedium {
+     background: none repeat scroll 0% 0% white;
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 115px;
+}
+
+.textinputwizard {
+     background: none repeat scroll 0% 0% white;
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 180px;
+}
+
+.selectinputwizard {
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 180px;
+}
+
+.selectinput {
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 230px;
+}
+
+.selectinputnowidth {
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+}
+
+.selectinputlong {
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 300px;
+}
+
+.selectinput100 {
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 100px;
+}
+
+.selectinput150 {
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 150px;
+}
+
+.selectinputbig {
+     border: 1px solid #BEBEBE;
+     vertical-align: top;
+     width: 550px;
+}
+
+.smlTextArea {
+     border: 1px solid #BEBEBE;
+     height: 85px;
+     width: 230px;
+}
+
+.largeTextArea {
+     border: 1px solid #BEBEBE;
+     height: 200px;
+     width: 600px;
+}
+
+.buttonNormal {
+     border: 1px outset white;
+     font-size: 11px;
+     height: 23px;
+     margin-top: 10px;
+     width: 88px;
+}
+
+.buttonSelect {
+     border: 1px outset white;
+     font-size: 11px;
+     height: 23px;
+     margin-bottom: 10px;
+     width: 88px;
+}
+
+input.checkbox {
+     margin-left: 15px;
+}
+
+@media print {
+  .noprint { visibility: hidden; }
+}
+
+#topControlBar {
+     color: #5B5B5B;
+     font-size: 12px;
+     font-weight: bold;
+     left: 0px;
+     padding: 9px 10px 10px 0px;
+     top: 93px;
+}
+
+.topWindowTitle {
+     font-size: 14px;
+     font-weight: bold;
+     padding: 2px 6px 0px 0px;
+}
+
+A.detailNav:link, A.detailNav:visited {
+     color: #515252;
+     font-size: 11px;
+     font-weight: bold;
+     text-decoration: none;
+}
+
+A.detailNavSelected:link, A.detailNavSelected:visited {
+     color: #BEBEBE;
+     font-size: 11px;
+     font-weight: bold;
+     text-decoration: none;
+}
+
+.pagingLinks {
+     color: #000000;
+     font-size: 10px;
+     padding-top: 4px;
+     width: 100%;
+}
+
+.pagingLinks A {
+     color: #5B5B5B;
+}
+
+.paging {
+     color: #000000;
+     float: right;
+     font-size: 10px;
+     padding-bottom: 5px;
+     padding-right: 8px;
+     white-space: nowrap;
+}
+
+.paging A {
+     color: #5B5B5B;
+}
+
+.paging IMG {
+     vertical-align: middle;
+}
+
+.currentPage {
+    
+}
+
+.formInstructions {
+     color: #5B5B5B;
+     font-size: 11px;
+     font-weight: bold;
+}
+
+.formInstructionsWider {
+     color: #5B5B5B;
+     font-size: 11px;
+     font-weight: bold;
+     vertical-align: middle;
+     width: 120px;
+}
+
+.dateInput {
+     border: 1px solid #515252;
+     color: #515252;
+     font-size: 10px;
+     height: 18px;
+     margin-left: 8px;
+     padding-left: 5px;
+     width: 60px;
+}
+
+.timeInput {
+     border: 1px solid #515252;
+     color: #515252;
+     font-size: 10px;
+     height: 18px;
+     margin-right: 1px;
+     padding-left: 2px;
+     width: 70px;
+}
+
+SELECT.filter {
+     border: 1px solid #000000;
+     color: #515252;
+     font-size: 10px;
+     height: 18px;
+     width: 150px;
+}
+
+SELECT.filterMedium {
+     border: 1px solid #000000;
+     color: #515252;
+     font-size: 10px;
+     height: 18px;
+     width: 125px;
+}
+
+SELECT.filterWide {
+     border: 1px solid #000000;
+     color: #515252;
+     font-size: 10px;
+     height: 18px;
+     width: 250px;
+}
+
+SELECT.multiFilter {
+     border: 1px solid #000000;
+     color: #515252;
+     font-size: 10px;
+     width: 150px;
+}
+
+TR.tableHeaderRow, TR.tableHeaderRow A {
+     background: none repeat scroll 0% 0% #EEEEEE;
+     color: #000000;
+     font-size: 11px;
+     font-weight: bold;
+     text-decoration: none;
+}
+
+TR.tableHeaderRow A:hover {
+     text-decoration: underline;
+}
+
+TR.tableHeaderRow .columnHeader, TR.tableHeaderRow .columnHeaderSortable {
+     border: 1px solid #BEBEBE;
+     height: 20px;
+     width:100%;
+     padding-left: 10px;
+     padding-right: 10px;
+     white-space: normal;
+}
+
+TR.tableHeaderRow .columnHeaderSortable {
+     color: #5B5B5B;
+}
+
+.subtitle {
+     color: #000000;
+     font-size: 14px;
+     font-weight: bold;
+}
+
+TABLE.controlBar {
+     background: none repeat scroll 0% 0% #DCE1E4;
+     border-color: #FFFFFF;
+     border-style: solid;
+     border-width: 1px 1px 0px;
+     height: 25px;
+     padding: 6px;
+     width: 100%;
+}
+
+.tableNoteLight {
+     background: none repeat scroll 0% 0% #F1F4F6;
+     color: #000000;
+     font-size: 11px;
+     padding: 4px 10px 6px 4px;
+    word-wrap: break-word;
+}
+
+.tableNoteLight A {
+     color: #5B5B5B;
+     text-decoration: none;
+}
+
+.tableNoteDark {
+     background: none repeat scroll 0% 0% #DCE4E7;
+     color: #000000;
+     font-size: 11px;
+     padding: 4px 10px 6px 4px;
+    word-wrap: break-word;
+}
+
+.tableNoteDark A {
+     color: #5B5B5B;
+     text-decoration: none;
+}
+
+.tableNoteLight A:hover, .tableNoteDark A:hover {
+     text-decoration: underline;
+}
+
+.tableInput {
+     border: 1px solid #000000;
+     height: 17px;
+     width: 150px;
+}
+
+.tableCityInput {
+     border: 1px solid #000000;
+     height: 17px;
+     width: 120px;
+}
+
+.tableStateInput {
+     border: 1px solid #000000;
+     height: 17px;
+     width: 30px;
+}
+
+.deviceInformationPanel {
+     border: 1px solid #515252;
+}
+
+.infoLabelLight {
+     background: none repeat scroll 0% 0% #F1F4F6;
+     border-left: 1px solid #FFFFFF;
+     border-right: 1px solid #FFFFFF;
+     color: #666666;
+     height: 17px;
+     padding-left: 12px;
+}
+
+.infoLabelDark {
+     background: none repeat scroll 0% 0% #DCE4E7;
+     border-left: 1px solid #FFFFFF;
+     border-right: 1px solid #FFFFFF;
+     color: #666666;
+     font-size: 11px;
+     padding-left: 12px;
+}
+
+.infoDataLight {
+     background: none repeat scroll 0% 0% #F1F4F6;
+     border-right: 1px solid #FFFFFF;
+     color: #000000;
+     font-size: 11px;
+     padding-left: 12px;
+}
+
+.infoDataDark {
+     background: none repeat scroll 0% 0% #DCE4E7;
+     border-right: 1px solid #FFFFFF;
+     color: #000000;
+     font-size: 11px;
+     padding-left: 12px;
+}
+
+.infoTableHeader {
+     background: none repeat scroll 0% 0% #C2C2C2;
+     border-bottom: 1px solid #FFFFFF;
+     border-left: 1px solid #FFFFFF;
+     border-right: 1px solid #FFFFFF;
+     color: #000000;
+     font-size: 11px;
+     font-weight: bold;
+     padding-left: 10px;
+}
+
+.lightData A.error:link, A.error:visited {
+     color: #990000;
+     font-size: 11px;
+     text-decoration: underline;
+}
+
+.darkData a.error:link, a.error:visited {
+     color: #990000;
+     font-size: 11px;
+     text-decoration: underline;
+}
+
+a.action:link, a.action:visited {
+     color: #5B5B5B;
+     text-decoration: none;
+}
+
+a.action:hover {
+     text-decoration: underline;
+}
+
+.tableNoteHighlight {
+     background: none repeat scroll 0% 0% #FFF089;
+     color: #000000;
+     font-size: 11px;
+     padding: 4px 10px 6px 4px;
+}
+
+.tableNoteHighlight a {
+     color: #5B5B5B;
+     text-decoration: none;
+}
+
+.tableNoteHighlight a:hover {
+     text-decoration: underline;
+}
+
+.searchMenu {
+     background: none repeat scroll 0px 0px #BEBEBE;
+     border-bottom: 1px solid #5B5B5B;
+     border-left: 1px solid #5B5B5B;
+     border-right: 1px solid #5B5B5B;
+     bottom: 5px;
+     color: #FFFFFF;
+     display: none;
+     height: 440px;
+     padding-bottom: 12px;
+     position: absolute;
+     right: 320px;
+     text-align: left;
+     width: 320px;
+     z-index: 3;
+}
+
+.dashboardMenu {
+     background: none repeat scroll 0% 0% #FFFFFF;
+     bottom: 5px;
+     display: none;
+     padding: 5px;
+     position: absolute;
+     right: 360px;
+}
+
+.searchMenuWide {
+     background: none repeat scroll 0px 0px #BEBEBE;
+     border-bottom: 1px solid #5B5B5B;
+     border-left: 1px solid #5B5B5B;
+     border-right: 1px solid #5B5B5B;
+     color: #FFFFFF;
+     display: none;
+     padding-bottom: 12px;
+     position: absolute;
+     z-index: 3;
+}
+
+.searchMenu INPUT {
+     color: #515252;
+     font-size: 10px;
+}
+
+.searchText {
+     color: #FFFFFF;
+     font-size: 11px;
+     font-weight: bold;
+}
+
+.searchValue {
+     color: #FFFFFF;
+     font-size: 10px;
+}
+
+.searchInput {
+     border: 1px solid #000000;
+     height: 18px;
+     width: 150px;
+}
+
+.searchCityInput {
+     border: 1px solid #000000;
+     height: 18px;
+     width: 100px;
+}
+
+.searchStateInput {
+     border: 1px solid #000000;
+     height: 18px;
+     width: 50px;
+}
+
+.searchCountryInput {
+     border: 1px solid #000000;
+     height: 18px;
+     width: 100px;
+}
+
+.searchDateInput {
+     border: 1px solid #000000;
+     height: 18px;
+     width: 120px;
+}
+
+.searchSelect {
+     border: 1px solid #000000;
+     height: 18px;
+     width: 150px;
+}
+
+.searchMultiSelect {
+     border: 1px solid #000000;
+     width: 150px;
+}
+
+.searchButton {
+     font-size: 11px;
+}
+
+.notesMenu {
+     background: none repeat scroll 0px 0px #BEBEBE;
+     border-bottom: 1px solid #5B5B5B;
+     border-left: 1px solid #5B5B5B;
+     border-right: 1px solid #5B5B5B;
+     color: #FFFFFF;
+     display: none;
+     padding: 8px;
+     position: absolute;
+     z-index: 3;
+}
+
+.notesTextarea {
+     color: #666666;
+     font-size: 11px;
+     height: 100px;
+     width: 350px;
+}
+
+.notesButton {
+     font-size: 11px;
+}
+
+.emailMenu {
+     background: none repeat scroll 0% 0% #6B87A1;
+     border-bottom: 1px solid #5B5B5B;
+     border-left: 1px solid #5B5B5B;
+     border-right: 1px solid #5B5B5B;
+     color: #FFFFFF;
+     display: none;
+     font-size: 11px;
+     left: 565px;
+     padding: 8px;
+     position: absolute;
+     z-index: 2;
+}
+
+.emailMenu TD {
+     color: #FFFFFF;
+     font-size: 11px;
+     font-weight: bold;
+     vertical-align: top;
+}
+
+.emailMenu SPAN {
+     font-weight: normal;
+}
+
+.emailMenu SELECT {
+     border: 1px solid #000000;
+     font-size: 11px;
+     width: 225px;
+}
+
+.emailMenu TEXTAREA {
+     border: 1px solid #000000;
+     font-size: 11px;
+     height: 85px;
+     width: 225px;
+}
+
+.emailButton {
+     font-size: 11px;
+}
+
+.emailInput {
+     border: 1px solid #000000;
+     font-size: 11px;
+     width: 225px;
+}
+
+.pagetext {
+     padding-left: 12px;
+     padding-top: 12px;
+}
+
+IMG.disabled {
+     opacity: 0.25;
+}
+
+IMG.grayed {
+    
+}
+
+IMG.grayedAndDisabled {
+    
+}
+
+SPAN.disabled {
+     color: #888888;
+}
+
+SPAN.button {
+    
+}
+
+SPAN.button IMG {
+     vertical-align: middle;
+}
+
+.disabledButtonLink {
+     background-color: #BEBEBE;
+     border-color: #BEBEBE;
+     border-style: solid;
+     border-width: 1px;
+     color: #AAAAAA;
+     cursor: default;
+     font: bold 11px Arial;
+}
+
+td.controlElement {
+     white-space: nowrap;
+     width: 167px;
+}
+
+body.calendarBody {
+     background-color: white;
+     font-size: 11px;
+}
+
+td.calendarDay {
+     background-color: #BEBEBE;
+     font-size: 11px;
+     height: 20px;
+     width: 30px;
+}
+
+td.calendarToday {
+     background-color: #BEBEBE;
+     font-size: 11px;
+     height: 20px;
+     width: 30px;
+}
+
+.calendarDay A {
+     color: #990000;
+     text-decoration: none;
+}
+
+.calendarDay A:hover {
+     color: #990000;
+     font-weight: bold;
+}
+
+.calendarToday A {
+     color: #990000;
+     font-weight: bold;
+     text-decoration: none;
+}
+
+TR.calendarHeaderRow {
+     background-color: #C2C2C2;
+}
+
+TD.calendarHeader {
+     background-color: #BEBEBE;
+     font-size: 11px;
+     font-weight: bold;
+     height: 30px;
+     text-align: center;
+     width: 30px;
+}
+
+.calendarButton {
+     font-size: 11px;
+     height: 23px;
+     margin-top: 10px;
+     padding-right: 4px;
+}
+
+.calendarMonthSelect {
+     border: 1px solid #000000;
+     font-size: 11px;
+}
+
+.calendarYearInput {
+     border: 1px solid #000000;
+     color: #000000;
+     font-size: 11px;
+     padding-left: 50px;
+}
+
+div.errors {
+     color: #990000;
+     font-size: 11px;
+     font-weight: bold;
+     padding-left: 12px;
+}
+
+#errorWindowGround, #warningWindowGround, #confirmWindowGround {
+     position: absolute;
+     text-align: -moz-center;
+     width: 99%;
+     z-index: 999999;
+}
+
+#errorWindow, #warningWindow, #confirmWindow {
+     background-color: #DCE4E7;
+     border: 2px solid black;
+     color: black;
+     font-size: 9pt;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 8px;
+     text-align: left;
+     width: 280px;
+     z-index: 999999;
+}
+
+.errorButton {
+     text-align: center;
+}
+
+.errorTitle {
+     font-weight: bold;
+     padding: 2px;
+     text-align: left;
+}
+
+#warningText, #confirmText {
+     font: 11px Arial,Verdana,Helvetica,sans-serif;
+}
+
+.bigSelect {
+     border: 1px solid #000000;
+     font-size: 11px;
+     height: 85px;
+     width: 200px;
+}
+
+A.return:link, a.return:visited {
+     color: #5B5B5B;
+     font-size: 11px;
+     font-weight: bold;
+     text-decoration: none;
+}
+
+A.return:hover {
+     text-decoration: underline;
+}
+
+.ruleConfigurationDetail {
+     color: #FED653;
+     font-size: 12px;
+     font-weight: bold;
+     padding-right: 5px;
+     padding-top: 0px;
+}
+
+.ruleTitle {
+     color: #5B5B5B;
+     font-size: 12px;
+     font-weight: bold;
+}
+
+.ruleDetail {
+     color: #FED653;
+     font-size: 12px;
+     font-weight: bold;
+}
+
+.ruleTable {
+     border-right: 1px solid #C2C5C6;
+     font-size: 11px;
+     padding-left: 12px;
+}
+
+.ruleTableEnd {
+     padding-left: 12px;
+}
+
+#ruleHeader {
+     background: none repeat scroll 0% 0% #E0E3E4;
+     border-top: 1px solid #C2C5C6;
+     color: #000000;
+     font-size: 11px;
+     font-weight: bold;
+     height: 19px;
+}
+
+#ruleText {
+     font-size: 11px;
+     height: 40px;
+}
+
+#ruleText INPUT {
+     border: 1px solid #000000;
+     vertical-align: middle;
+}
+
+#ruleText SELECT {
+     border: 1px solid #000000;
+     vertical-align: middle;
+}
+
+#ruleNotice {
+     font-size: 11px;
+     font-weight: bold;
+     height: 40px;
+}
+
+#ruleNotice INPUT {
+     border: 1px solid #000000;
+     vertical-align: middle;
+}
+
+.operatorSelect {
+     font-size: 11px;
+     margin-bottom: 10px;
+     margin-top: 10px;
+     width: 45px;
+}
+
+.ruleSelect {
+     width: 180px;
+}
+
+.nameValueInput {
+     border: 1px solid #000000;
+     width: 125px;
+}
+
+TR.formRow TD {
+     padding-bottom: 2px;
+     padding-top: 2px;
+}
+
+TD.control {
+     padding-right: 10px;
+     vertical-align: top;
+    width: auto;
+    white-space: nowrap;
+}
+
+TD.required {
+     text-align: right;
+     vertical-align: top;
+}
+
+TD.label, SPAN.label {
+     padding-right: 10px;
+     vertical-align: top;
+     white-space: nowrap;
+     min-width: 15%;
+}
+
+TABLE.wizard {
+     background: none repeat scroll 0% 0% #E6EAEC;
+     border: 1px solid #CCCCCC;
+     margin: 0px;
+     width: 760px;
+     word-wrap:break-word;
+}
+
+TABLE.maxWidthWizard{
+    width:auto;
+    max-width: none;
+}
+
+A.link {
+     color: #5B5B5B;
+     text-decoration: none;
+}
+
+A.link:hover {
+     text-decoration: underline;
+}
+
+A.deployedStatus {
+     color: #5B5B5B;
+     font: 11px Arial,Verdana,Helvetica,sans-serif;
+     text-decoration: none;
+}
+
+A.deployedStatus:hover {
+     text-decoration: underline;
+}
+
+A.selectdDeployedStatus {
+     color: #5B5B5B;
+     font: bold 13px Arial,Verdana,Helvetica,sans-serif;
+     text-decoration: none;
+}
+
+A.selectdDeployedStatus:hover {
+     text-decoration: underline;
+}
+
+TABLE.wizard IMG {
+     border-width: 0px;
+}
+
+TABLE.wizard A.link:hover {
+     text-decoration: underline;
+}
+
+TABLE.wizard TD {
+     font-size: 11px;
+}
+
+TABLE.wizard TR.title {
+     background: none repeat scroll 0% 0% #DCE1E4;
+}
+
+TABLE.wizard FORM {
+     margin: 0px;
+     padding: 0px;
+}
+
+TABLE.wizard INPUT, SELECT, TEXTAREA {
+     font-size: 11px;
+}
+
+TABLE.wizard INPUT.text, TEXTAREA.text, SELECT.text {
+     background: none repeat scroll 0% 0% white;
+     border: 1px solid #BEBEBE;
+     width: 100%;
+}
+
+INPUT.text[disabled], SELECT.text[disabled] {
+     color: gray;
+}
+
+TABLE.wizard INPUT.checkbox {
+     vertical-align: top;
+}
+
+TABLE.wizard INPUT.textFit {
+     border: 1px solid #7F9DB9;
+}
+
+TABLE.wizard TD.label.center, SPAN.label {
+     vertical-align: middle;
+     white-space: nowrap;
+     min-width: 15%;
+}
+
+TABLE.wizard TD.boldLabel {
+     vertical-align: top;
+     white-space: nowrap;
+     width: 15%;
+}
+
+TABLE.wizard TD.commitLabel, SPAN.label {
+     font-weight: bold;
+}
+
+TABLE.wizard TD.midlabel {
+     width: 50%;
+}
+
+TABLE.wizard SPAN.heading {
+     color: #5B5B5B;
+     font-family: Helvetica;
+     font-size: 16px;
+     font-weight: bold;
+     padding: 10px;
+     width: 100%;
+}
+
+TABLE.wizard TD.instructions {
+     border-bottom: 2px solid #C0C0C0;
+     padding: 10px 2px;
+}
+
+TABLE.wizard TD.filter {
+     font-size: 11px;
+     padding: 10px 10px 0px;
+}
+
+TABLE.wizard TD.instructions A {
+     font-weight: bold;
+}
+
+TABLE.wizard TD.break {
+     background-color: #C0C0C0;
+     height: 2px;
+     width: 100%;
+}
+
+TABLE.wizard TD.content {
+     height: 100%;
+     padding: 10px;
+     vertical-align: top;
+}
+
+TABLE.wizard TD.strong {
+     font-weight: bold;
+}
+
+TABLE.wizard TD.buttons {
+     border-top: 2px solid #C0C0C0;
+     padding: 10px;
+     text-align: right;
+}
+
+TABLE.wizard DIV.rightButtons {
+     padding-bottom: 10px;
+     text-align: right;
+}
+
+TABLE.wizard INPUT.button {
+     border: 1px outset white;
+     font-size: 11px;
+     padding: 0px 4px;
+}
+
+TABLE.wizard .dropButton {
+     background-image: url("/images/button_popup_black.gif");
+     background-position: 90% center;
+     background-repeat: no-repeat;
+     border: 1px outset white;
+     padding: 0px 4px;
+}
+
+DIV.wizardMenu {
+     background-color: #E7E3E7;
+     border: 1px solid #303030;
+     color: black;
+     display: none;
+     margin-left: 1px;
+     padding-bottom: 12px;
+     position: absolute;
+     width: 250px;
+     z-index: 3;
+}
+
+DIV.wizardMenu .searchText {
+     color: black;
+}
+
+DIV.wizardMenu .button {
+     border: 1px outset white;
+     font-size: 11px;
+     padding: 0px 4px;
+}
+
+TABLE.wizard TABLE.form {
+     margin-top: 20px;
+}
+
+TABLE.wizard TABLE.form TD {
+     padding-bottom: 5px;
+     vertical-align: top;
+}
+
+TABLE.wizard DIV.hiddenForm {
+     display: none;
+     height:auto;
+     min-height: 280px;
+     margin-bottom: 5px;
+     margin-top: 5px;
+     width: 100%;
+}
+
+TABLE.wizard DIV.shorterHiddenForm {
+     display: none;
+     min-height: 130px;
+     height:auto;
+     margin-bottom: 5px;
+     margin-top: 5px;
+     width: 100%;
+}
+
+TABLE.wizard DIV.hiddenForm TD {
+     padding-bottom: 3px;
+}
+
+TABLE.wizard SPAN.wizButton {
+     border: 0px solid black;
+     width: 0%;
+}
+
+TABLE.wizard DIV.scrollableArea {
+     background-color: white;
+     border: 1px solid black;
+     overflow: auto;
+}
+
+DIV.scrollable {
+     margin: 0px;
+     overflow-x: auto;
+     padding: 0px;
+}
+
+TABLE.viewer {
+     height: 520px;
+}
+
+tr.expression {
+     background-color: #EEF9FE;
+}
+
+td.function {
+     padding: 5px;
+}
+
+td.operator {
+     padding: 5px;
+}
+
+td.operand {
+     padding: 5px;
+}
+
+.ssv_parent {
+     font: 11px Arial,Verdana,Helvetica,sans-serif;
+     position: relative;
+     text-decoration: none;
+}
+
+.ssv_parent A {
+     color: #5B5B5B;
+     font-size: 11px;
+     position: relative;
+     text-decoration: none;
+     white-space: nowrap;
+}
+
+.ssv_parent A:hover {
+     position: relative;
+     text-decoration: underline;
+}
+
+.ssv_child {
+     background-image: url("/images/snapshot_divider.gif");
+     background-position: left center;
+     background-repeat: repeat-y;
+     display: none;
+     text-decoration: none;
+     white-space: nowrap;
+}
+
+.ssv_indent {
+     margin-left: 16px;
+}
+
+.border {
+     background: none repeat scroll 0% 0% green;
+     border: 1px solid green;
+}
+
+SPAN.task, SPAN.task A, SPAN.task A:visited {
+     color: #5B5B5B;
+     font-family: Helvetica;
+     font-size: 13px;
+     font-weight: bold;
+     padding-left: 5px;
+     text-decoration: none;
+}
+
+SPAN.task A:hover {
+     text-decoration: underline;
+}
+
+.divLink {
+     color: #BEBEBE;
+     cursor: pointer;
+     font-family: Helvetica;
+     font-size: 11px;
+     text-decoration: none;
+}
+
+.divLink:hover {
+     color: #000000;
+     text-decoration: underline;
+}
+
+SPAN.taskinfo {
+     color: gray;
+     font-family: Helvetica;
+     font-size: 12px;
+     padding-left: 10px;
+     text-decoration: none;
+}
+
+SPAN.taskinfo A, SPAN.taskinfo A:visited {
+     color: #5B5B5B;
+     text-decoration: none;
+}
+
+SPAN.taskinfo A:hover {
+     text-decoration: underline;
+}
+
+SPAN.dashboardHeadline {
+     color: #5B5B5B;
+     font-family: Helvetica;
+     font-size: 16px;
+     font-style: italic;
+     font-weight: bold;
+}
+
+SPAN.dashboardText {
+     color: #000000;
+     font-family: Helvetica;
+     font-size: 13px;
+}
+
+TR.moduleSummaryAlternateRow {
+    
+}
+
+.gatewayMessage {
+     background-color: #EBEEEF;
+     border: 1px solid black;
+     font-size: 12px;
+     margin: 10px;
+     padding: 10px;
+}
+
+DIV.breadcrumbTrail {
+     color: #5B5B5B;
+     font-size: 12px;
+     font-weight: bold;
+}
+
+DIV.breadcrumbTrail A {
+     color: #5B5B5B;
+     padding-left: 5px;
+     padding-right: 5px;
+     text-decoration: none;
+}
+
+DIV.breadcrumbTrail A:hover {
+     text-decoration: underline;
+}
+
+.hdrdetail {
+    color: #5B5B5B;
+    text-align: right;
+}
+
+DIV.tree {
+     background-color: white;
+     border: 1px solid #C0C0C0;
+     height: 100%;
+     margin-right: 1px;
+}
+
+DIV.tree TABLE TD A, DIV.tree TABLE TD.selected A {
+     color: #5B5B5B;
+     text-decoration: none;
+     white-space: nowrap;
+}
+
+DIV.tree TABLE TD.selected A {
+     background-color: #5B5B5B;
+     border: 1px solid black;
+     color: white;
+     padding: 0px 2px;
+}
+
+DIV.tree TABLE TD A:hover {
+     text-decoration: underline;
+}
+
+DIV.tree IMG.treeControl {
+     cursor: pointer;
+}
+
+DIV.contextMenu {
+     background-color: white;
+     border-left: 1px solid black;
+     border-right: 1px solid black;
+     border-top: 1px solid black;
+     position: absolute;
+     visibility: hidden;
+}
+
+DIV.contextMenu DIV.item {
+     background-color: white;
+     border-bottom: 1px solid black;
+     height: 20px;
+     padding-left: 2px;
+     width: 200px;
+}
+
+DIV.treeNode, DIV.treeNode IMG, DIV.treeNode TABLE, DIV.treeNode TABLE TR, DIV.treeNode TABLE TD {
+     border: 0px none white;
+     padding: 0px;
+}
+
+DIV.treeNode IMG {
+     height: 18px;
+     width: 18px;
+}
+
+#hierarchyId{
+    width:245px;
+}
+
+.popupMenu {
+     background-color: #5B5B5B;
+     border: 1px solid #5B5B5B;
+     display: none;
+     margin: 0px;
+     padding: 0px;
+     position: absolute;
+}
+
+.popupMenu A.menuLink {
+     border-bottom: 1px solid #5B5B5B;
+     border-top: 1px solid #5B5B5B;
+     color: #FFFFFF;
+     display: block;
+     font-size: 10px;
+     padding-right: 8px;
+     padding-top: 3px;
+     text-decoration: none;
+     white-space: nowrap;
+}
+
+.popupMenu A.menuLink:hover {
+     text-decoration: none;
+}
+
+.popupMenu A.menuLink IMG {
+     border: medium none;
+}
+
+.popupMenu A:hover {
+     background-color: #EBEEEF;
+     color: #5B5B5B;
+     text-decoration: none;
+}
+
+DIV.actionConfirmation {
+     text-align: center;
+}
+
+DIV.contactCard {
+     background-color: #F1F4F6;
+     border: 2px outset black;
+     height: 100%;
+     padding: 4px;
+     width: 100%;
+}
+
+DIV.contactCard table td {
+     border-color: -moz-use-text-color;
+     border-style: none;
+     border-width: 0px;
+}
+
+DIV.contactCard td.label {
+     font-weight: bold;
+}
+
+DIV.contactCard .section {
+     margin-top: 6px;
+}
+
+BODY.popupContent {
+     background-color: #EFEFEF;
+     font-family: Helvetica;
+}
+
+DIV.popupContent {
+     background-color: #EFEFEF;
+     border-color: -moz-use-text-color;
+     border-style: none;
+     border-width: 10px;
+     font-family: Helvetica;
+     padding: 10px;
+     width: 100%;
+}
+
+DIV.popupContent TD.label {
+     font-weight: bold;
+     padding-right: 20px;
+     vertical-align: top;
+}
+
+BODY.popupContentWhite {
+     background-color: #FFFFFF;
+     font-family: Helvectia;
+}
+
+DIV.popupContentWhite {
+     background-color: #FFFFFF;
+     border-color: -moz-use-text-color;
+     border-style: none;
+     border-width: 10px;
+     font-family: Helvetica;
+     padding: 10px;
+     width: 100%;
+}
+
+A.refresh, A.refresh:visited, A.refresh:active {
+     color: #5B5B5B;
+     padding-right: 10px;
+     text-decoration: none;
+}
+
+A.refresh:hover {
+     text-decoration: underline;
+}
+
+#pageDivider {
+     background: none repeat scroll 0px 0px #5B5B5B;
+     height: 2px;
+     width: 100%;
+}
+
+.allwrapper {
+     display: block;
+     overflow: hidden;
+     white-space: pre-line;
+     word-wrap: break-word;
+}
+
+.wrapper {
+     display: block;
+     overflow: hidden;
+     word-wrap: break-word;
+}
+
+.casePopupWindowGround {
+     display: none;
+     position: absolute;
+     text-align: -moz-center;
+     width: 100%;
+}
+
+.casePopupWindow {
+     background-color: #DCE4E7;
+     border-color: black;
+     border-style: solid;
+     border-width: 2px;
+     color: black;
+     font-size: 9pt;
+     padding: 8px;
+     text-align: left;
+     width: 410px;
+     z-index: 1;
+}
+
+#tooltip {
+     background-color: #FEECCC;
+     border: 1px solid #000000;
+     left: 1px;
+     position: absolute;
+     top: 1px;
+     visibility: hidden;
+     width:auto;
+     min-width: 200px;
+     z-index: 3;
+}
+
+TABLE.customObjectResult {
+     background: none repeat scroll 0% 0% #E6EAEC;
+     border: 1px solid #CCCCCC;
+     margin: 0px;
+     width: 100%;
+}
+
+TD.customObjectControl {
+     padding-right: 10px;
+     vertical-align: top;
+}
+
+TD.customObjectRequired {
+     text-align: right;
+     vertical-align: top;
+}
+
+TD.customObjectLabel {
+     padding-right: 4px;
+     vertical-align: top;
+}
+
+#tooltipDiv {
+     background-color: #FEECCC;
+     border: 1px solid #000000;
+     left: 1px;
+     position: absolute;
+     top: 1px;
+     visibility: hidden;
+     white-space: nowrap;
+     z-index: 3;
+}
+
+TD.mutedDeviceBGImg {
+     background-image: url("/images/asset_muted.gif");
+     background-position: left center;
+     background-repeat: no-repeat;
+}
+
+errorWindowGround_off {
+     height: 100%;
+     left: 0px;
+     position: absolute;
+     text-align: center;
+     top: -370px;
+     width: 100%;
+     z-index: 1000;
+}
+
+errorWindowGround_off div {
+     border: 1px solid #000000;
+     margin: 500px auto;
+     padding: 15px;
+     text-align: center;
+     width: 300px;
+}
+
+#pwdPolicy {
+     background-color: #E6EAEC;
+     border: 1px solid #BEBEBE;
+     font: 11px Arial,Verdana,Helvetica,sans-serif;
+     padding: 0px 5px;
+     position: absolute;
+     text-align: left;
+     visibility: hidden;
+     width: 220px;
+}
+
+#editNoteWindow textarea {
+     width: 385px;
+}
+
+form[name="archive-policy-form"] > table {
+    width: auto;
+    max-width: 100%;
+}
+
+.wizard TD.required{
+    width: 10px;
+}
+
+.wizard TD.label{
+    width: 20%;
+    white-space: normal;
+}
+
+.wizard TD.control{
+    width: auto;
+    white-space: normal;
+}
+/* Axeda Desktop POSITIONING CSS Document*/
+
+/************************* HTML Global elements *************************/
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0px;
+    background-position: top;
+    background-repeat: repeat-x;
+    overflow: auto;
+  overflow-x: hidden; 
+}
+
+div {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+img {
+    border: none;
+}
+
+
+/************************* Login Page *************************/
+/*Login Area Container*/
+#LoginContainer {
+    position: absolute;
+    top: 50%;
+    margin-top: -250px;
+    left: 0;
+    width: 100%;
+}
+
+/*Login Area Border*/
+#LoginArea {
+    padding: 20px;
+    position: relative;
+    width: 434px;
+    min-height: 312px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/*Login Page Logo - MUST BE DOUBLE SIZE FOR HD DISPLAYS - PNG @ 418x90*/
+.Logo {
+    height: 45px;
+    width: 209px;
+    -moz-margin-start: 15px;
+}
+
+/*Login User Image*/
+#LoginUsernameImg {
+    position:absolute;
+    z-index:50;
+    width: 43px;
+    height: 36px;
+    left: 58px;
+  -moz-margin-start: 0px;
+    top: 1px;
+}
+
+/*Login User Image*/
+#LoginPasswordImg {
+    position:absolute;
+    z-index:50;
+    width: 43px;
+    height: 36px;
+    left: 58px;
+  -moz-margin-start: 0px;
+    top: 1px;
+}
+
+/*Login Form Field*/
+.FormField {
+    width: 276px;
+    height: 38px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*Login Form Field On Click*/
+.FormField:focus {
+    border-style: solid;
+    border-width: 3px;
+}
+
+/*Login Area Formfield*/
+#LoginArea .FormField {
+    padding-left: 50px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/*Login Button Div*/
+#LoginBtnArea {
+    clear:both;
+    position:relative;
+    margin-top:30px;
+    margin-left: 60px;
+    margin-right: 60px
+}
+
+/*Login Button*/
+.LightButton {
+    width: 104px;
+    height: 26px;
+    border-radius: 3px;
+    border-style: none;
+    cursor: pointer;
+}
+
+
+
+/************************* Header Elements *************************/
+
+#Navigation {
+    clear: both;
+    position: relative;
+    top: 0px;
+    height: 60px;
+}
+
+/*Navigation Bar*/
+#Navigation .Background {
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    z-index: 10;
+ }
+
+/*Logo Position*/
+#Navigation #LogoArea {
+    position: absolute;
+    left: 20px;
+    line-height: 81px;
+    height: 50px;
+    overflow: hidden;
+    z-index: 60;
+    cursor: pointer;
+}
+
+/*Nav Bar Logo - MUST BE DOUBLE SIZE FOR HD DISPLAYS - PNG @ 274x60*/
+#Navigation #LogoArea img {
+  width: 137px;
+  height: 30px;
+}
+
+/*Nav Bar Application Buttons Position*/
+#Navigation #Links {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    z-index: 55;
+}
+
+/*Nav Bar Application Buttons Sizing*/
+#Navigation .Item {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    width: auto;
+    height: 39px;
+    border-radius: 3px;
+  border:solid;
+    border-width: 1px;
+    padding-left: 12px;
+    padding-right: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+/*Nav Bar Application Buttons Icon Positioning*/
+#Navigation .Icon { 
+    position: relative;
+    float: left;
+    line-height: 55px;
+  opacity: 0.7;
+}
+
+/*Nav Bar Application Buttons Text Positioning*/
+#Navigation .Label {
+    position: relative;
+    float: left;
+    left: 12px;
+    padding-right: 7px;
+    line-height: 37px;
+    text-transform: uppercase;
+}
+
+/*Nav Bar Application Show All Button Sizing*/
+#Navigation #ShowAllButton {
+    position: relative;
+    float: right;
+    width: 62px;
+    height: 39px;
+    border:solid;
+    border-width: 1px;
+    border-radius: 3px;
+    padding-left: 10px;
+  margin-right: 10px;
+}
+
+/*Nav Bar Application Show All Button Icon*/
+#Navigation #ShowAllButton .Icon {
+  line-height: 60px;
+}
+
+#Navigation #ActualShowAllButton {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/*Alert Count Positioning */
+#AlertCount {
+    top: -8px;
+  right: -8px;
+    margin-left: 17px;
+    position: absolute;
+    height: 19px;
+  width: 19px;
+    cursor: pointer;
+}
+
+#AlertCount #Count {
+    text-align: center;
+    min-width: 19px;
+    height: 19px;
+    line-height: 20px;
+    border-radius: 10px;
+}
+
+/*Nav Bar Application Userbutton Sizing*/
+#Navigation #UserButton {
+    position: relative;
+    float: right;
+    width: 62px;
+    height: 39px;
+    border-radius: 3px;
+    padding-left: 10px;
+}
+
+/*Nav Bar Application Userbutton Icon*/
+#Navigation #UserButton .Icon {
+  line-height: 58px;
+}
+
+#Navigation #ActualUserButton {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/*** User Menu ***/
+/*The Positioning for the Pop Up Displayed when the User Icon is clicked */
+#UserMenu {
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+
+#PopUpUserInfo {
+    text-transform: none;
+    position: absolute;
+    z-index: 900;
+    height: 225px;
+    width: 149px;
+    right: -8px;
+    top: 28px;
+  display: none;
+  z-index: 1499;
+}
+
+#PopUpUserInfo .BoxArrow {
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 14px 14px 14px;
+    line-height: 0px;
+  z-index: 1499;
+}
+
+#PopUpUserInfo .LinkList {
+    position: absolute;
+    top: 14px;
+    width: 100%;
+    border-radius: 7px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+
+}
+
+#PopUpUserInfo .LinkList .Items {
+    padding-left: 15px;
+    line-height: 42px;
+    height: 42px;
+  cursor: pointer;
+    font-weight: normal;
+}
+
+#PopUpUserInfo .LinkList .Items:hover:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+
+#PopUpUserInfo .LinkList .Items:hover:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+/*** More Links (Show All/Quicklinks) Menu ***/
+#PopUpNavigation {
+    position: absolute;
+    z-index: 1400;
+    min-height: 300px;
+    width: 250px;
+    right: -10px;
+    top: 28px;
+    text-align: left;
+    display: none;
+}
+
+#PopUpNavigation .BoxArrow {
+    position: absolute;
+  z-index: 1500;
+    top: 1px;
+    right: 10px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 14px 14px 14px;
+    line-height: 0px;
+}
+
+#PopUpNavigation .LinkList {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: absolute;
+    top: 14px;
+    width: 100%;
+    border-radius: 7px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+
+}
+
+#PopUpNavigation .LinkList .Item {
+    clear: both;
+    position: relative;
+    float: left;
+    line-height: 42px;
+    margin-top: 10px;
+    height: 42px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#PopUpNavigation .LinkList .ItemNoColor {
+    clear: both;
+    position: relative;
+    float: left;
+    line-height: 42px;
+    margin-top: 10px;
+    height: 42px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#PopUpNavigation .LinkList .Item .Highlight {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 39px;
+    border-radius: 3px;
+    z-index: 450;
+}
+
+#PopUpNavigation .LinkList #VisibleTitle {
+    position: relative;
+    top: 10px;
+    padding-bottom: 10px;
+}
+
+#PopUpNavigation .Icon {
+    position: relative;
+    float: left;
+    line-height: 54px;
+}
+
+#PopUpNavigation .Label {
+  height: 50px;
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+    position: relative;
+    float: left;
+    left: 15px;
+    line-height: 40px;
+    text-transform: uppercase;
+    z-index: 150;
+}
+
+.DropHighlight {
+    clear: both;
+    position: relative;
+    float: left;
+    top: 10px;
+    margin-bottom: 10px;
+    height: 52px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    background-image: url(../images/DropBar.png);
+    background-position: middle;
+    background-repeat: repeat-x;
+}
+
+#SortSubList {
+    width: 83%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    padding-right: 30px;
+    list-style-type: none;
+    min-height: 15px;
+
+}
+
+#SortSubList li {
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#SortHiddenSubList {
+    width: 83%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    padding-right: 30px;
+    list-style-type: none;
+    min-height: 15px;
+}
+
+#SortHiddenSubList li {
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#SaveOrderArea {
+    clear: both;
+    position: relative;
+    float: left;
+    margin-top: 15px;
+  margin-bottom: 5px;
+    width: 100%;
+    display: none;
+}
+
+/************************* Search Elements *************************/
+/*Search Area Positioning*/
+#Navigation #SearchArea {
+    margin-left: 20px;
+    position: relative;
+    float: right;
+    width: 104px;
+    line-height: 39px;
+}
+
+/*Search Area Magnifiing Glass*/
+#Navigation #SearchArea img {
+    position: absolute;
+    left: 11px;
+    top: 11px;
+    cursor: pointer;
+}
+
+/*Search Box*/
+.SearchAreaInput {
+    width: 115px;
+    border-radius: 15px;
+    border-width: 0px;
+    height: 31px;
+    padding-left: 33px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/*Search Box Focus*/
+.SearchFocus {
+    width: 298px;
+    border-radius: 15px;
+    border-width: 0px;
+    height: 31px;
+    padding-left: 33px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/*Search Results Dropdown Size*/
+#PopUpSearchResults {
+    text-transform: none;
+    position: absolute;
+    z-index: 1875;
+    min-height: 100px;
+    width: 272px;
+    right: 18px;
+    top: 34px;
+    text-align: left;
+    border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+
+}
+
+/*Search Results Dropdown Title*/
+#PopUpSearchResults .Title {
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+#PopUpSearchResults .SubMenuItem {
+    text-wrap: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+#PopUpSearchResults .SubMenuItem {
+    cursor: pointer;
+    height: 28px;
+}
+
+#PopUpSearchResults .SubMenuMore {
+    text-wrap: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+#PopUpSearchResults .SubMenuMore {
+    cursor: pointer;
+    height: 28px;
+}
+
+/************************* SubMenu Elements *************************/
+/*Submenu Bar Size*/
+#ApplicationNavigation {
+    position: absolute;
+    bottom: 0px !important;
+    right: 10px;
+    left: 10px;
+    padding-left: 10px;
+  height: 25px;
+}
+
+#ApplicationNavigation a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+#ApplicationNavigation .SubApplicationLink {
+    position: relative;
+    float: left;
+}
+
+#ApplicationNavigation .SubMenu {
+    position: absolute;
+    z-index: 1500;
+    left: -21px;
+    top: 20px;
+    min-width: 300px;
+    min-height: 40px;
+    padding: 7px;
+    border-radius: 7px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+#ApplicationNavigation .SubMenuItem {
+    text-wrap: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  line-height: 23px;
+  overflow: hidden;
+    width:290px;
+}
+
+#ApplicationNavigation .SubMenuBlock {
+    position:relative;
+    display:block;
+    text-align: left;
+    margin-left: 0px;
+}
+
+#ApplicationNavigation a {
+     text-decoration: none;
+}
+
+.SubArrow {
+    font-stretch: extra-condensed;
+    padding-left: 10px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+    font-family: Arial;
+    position: relative;
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 13px;
+}
+
+/*** More Links Overflow Menu ***/
+#PopUpSubMore .SideMenu {
+    position: absolute;
+    z-index: 1500;
+    left: -260px;
+    top: 20px;
+    min-width: 250px;
+    min-height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+#PopUpSubMore .SubArrow {
+    padding-left: 10px;
+    position: relative;
+    float: left;
+  z-index: 1499;
+}
+
+
+#PopUpSubMore .SideMenuItem {
+    text-wrap: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: right;
+  line-height: 23px;
+  overflow: hidden;
+}
+
+#PopUpSubMore {
+    text-transform: none;
+    position: absolute;
+    z-index: 1500;
+    height: 225px;
+    width: 200px;
+    right: 2px;
+    top: 28px;
+  display: none;
+}
+
+#PopUpSubMore .BoxArrow {
+    position: absolute;
+    top: 1px;
+    right: 27px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 14px 14px 14px;
+    line-height: 0px;
+  z-index: 1499;
+}
+
+#PopUpSubMore .LinkList {
+    position: absolute;
+    top: 14px;
+    width: 100%;
+    border-radius: 7px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+#PopUpSubMore .LinkList .Items .SideApplicationLink {
+  height: 42px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#PopUpSubMore .LinkList .Items {
+    padding-left: 15px;
+    line-height: 42px;
+    height: 42px;
+  cursor: pointer;
+}
+
+#PopUpSubMore .LinkList .Items:last-child {
+    border-bottom-width:0px;
+}
+
+#PopUpSubMore .LinkList .Items:hover:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#PopUpSubMore .LinkList .Items:hover:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#PopUpSubMore .LinkList a {
+
+}
+
+
+#MoreSubButton {
+  position: absolute;
+  padding-left: 20px;
+  padding-right: 3px;
+  bottom: 4px;
+  right: 0px;
+  text-transform: uppercase;
+  z-index: 40;
+}
+
+/*Sub Menu Show More Links Button*/
+.StyledButton {
+    min-width: 68px;
+    max-width: 86px;
+    min-width: 68px;
+    height: 20px;
+    border-width: 0px;
+    border-radius: 3px;
+    margin-left: 10px;
+  cursor: pointer;
+}
+
+
+
+/************************* Footer Elements *************************/
+
+#Footer {
+  clear: both;
+    position: relative;
+    height: 80px !important;
+  left: 0px;
+  right: 0px;
+}
+
+#Footer #LogoArea {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    z-index: 60;
+    cursor: pointer;
+}
+
+
+#Footer #Copyright {
+    position: absolute;
+    line-height: 80px;
+    z-index: 1;
+    left: 20px;
+}
+
+/************************* General Body Elements *************************/
+/************************* User Attributes Page *************************/
+.LegacyPod {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.LegacyPod .Icon {
+  position: relative;
+  float: left;
+}
+
+.LegacyPod .Title {
+  position: relative;
+  float: left;
+  left: 10px;
+}
+
+.LegacyPod .Contents {
+  clear: both;
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 1px;
+  min-width: 100px;
+  min-height: 100px;
+  padding: 40px;
+  top: 10px;
+}
+
+.LegacyPod .Contents .Title {
+  text-transform: none;
+  max-width: 500px;
+}
+
+.FormItem {
+  padding-top: 15px;
+  clear:both;
+  position: relative;
+  line-height: 30px;
+}
+
+.FormLabel {
+  position:relative;
+  float: left;
+  width: 130px;
+}
+
+.FormFieldArea {
+  position:relative;
+  float: left;
+  left: 20px;
+}
+
+.FormFieldArea .FormField {
+  width: 200px;
+  height: 28px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.FormFieldArea .FormField:focus {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+}
+/*
+.FormFieldArea .FormField:valid {
+  border-color: #C5E1C9;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  background-color: #F1F7F0;
+}
+*/
+.FormFieldArea .FormField:invalid {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.FormButtonBar {
+  clear:both;
+  position: relative;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.form {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 1px;
+  
+}
+
+.FormItem .Instructions {
+  position: absolute;
+  z-index: 99;
+  left: 242px;
+  width: 300px;
+  line-height: 12px;
+  top: -15px;
+  padding: 10px;
+}
+
+.arrow_box {
+  position: relative;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  border-radius: 6px;
+}
+
+.arrow_box:after, .arrow_box:before {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  border-width: 12px;
+  top: 50%;
+  margin-top: -12px;
+}
+
+.arrow_box:before {
+  border-width: 13px;
+  top: 50%;
+  margin-top: -13px;
+}
+
+.StickyNote {
+  position: absolute;
+  font-size: 11px;
+  right: -235px;
+  top: 20px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -moz-transform:rotate(3deg);
+  -webkit-transform:rotate(3deg);
+  -o-transform:rotate(3deg);
+  -ms-transform:rotate(3deg);
+  filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=.03);
+  min-height: 200px;
+  min-width: 200px;
+  padding: 20px 10px 10px 10px;
+}
+
+
+.StickyTape {
+    width: 111px;
+    height: 49px;
+    background-image: url(../images/StickyTape.png);
+    background-repeat: none;
+    background-position: middle center;
+    position: absolute;
+    top: -27px;
+    left: 30%;
+    z-index: 90;
+}
+
+.FormButtons {
+  cursor: pointer;
+  border-style: none;
+  border-radius: 4px;
+  min-width: 60px;
+  text-align: center;
+  float:right;
+  margin-right: 45px;
+}
+
+
+
+/*************************  RANDOM BODY ************************/
+
+.Confirm {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 9999999999999;
+  display: table;
+}
+
+.Confirm .Container {
+  margin-left: auto;
+  margin-right: auto;
+  display: table-cell;
+  vertical-align: middle;
+  width:100%;
+}
+
+.Confirm .Box {
+  border-radius: 5px;
+  min-width: 250px;
+  min-height: 100px;
+  width: 300px; 
+  padding: 20px;
+  overflow: visible;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Confirm .Button {
+    width: 67px;
+    height: 24px;
+    border-width: 0px; 
+    border-radius: 5px;
+    margin-left: 0px;
+  cursor: pointer;
+    box-shadow: 0px 2px 2px 0px #000;
+}
+
+.PodConfig input {
+  height: 29px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+#editInreportStudio {
+    display: none;
+}
+
+#PopUpNavigation .Button {
+    position: relative;
+    float: left;
+    min-width: 67px;
+    padding:0 7px;
+    height: 24px;
+    border-radius: 4px;
+    line-height: 24px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#Core {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    text-align: center;
+  min-height:100%;
+}
+
+
+#MainArea {
+    clear: both;
+    position: relative;
+    top: 0px;
+    width: 100%;
+    padding: 5px;
+  overflow: visible;
+}
+
+.filterRowLight {
+  overflow: hidden; 
+  width: 100%;
+}
+
+
+#MainArea #LeftColumn {
+
+}
+
+#MainArea #MainColumn {
+    padding-top: 5px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#MainContentArea {
+    overflow-x:auto;
+}
+
+#MainArea #RightColumn {
+    background-image: url(../images/RightColumnShadow.png);
+    background-position: left;
+    background-repeat: repeat-y;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  top: 6px;
+    width: 310px;
+    padding-top: 5px;
+  padding-right: 32px;
+  padding-left: 32px;
+  padding-bottom: 17px;
+}
+
+/****** HELP MENU ELEMENTS *****/
+#PopUpPodHelp {
+    text-transform: none;
+    position: absolute;
+    z-index: 900;
+    height: 225px;
+    min-width: 225px;
+    right: -7px;
+    top: 28px;
+    text-align: left;
+  display: none;
+  
+}
+
+#PopUpPodHelp .BoxArrow {
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 14px 14px 14px;
+    line-height: 0px;
+  z-index: 1500;
+}
+
+#PopUpPodHelp .LinkList {
+    position: absolute;
+    top: 14px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+  z-index: 1501;
+}
+
+#PopUpPodHelp .LinkList .Items {
+    padding-left: 15px;
+    line-height: 42px;
+    height: 42px;
+  cursor: pointer;
+}
+
+#PopUpPodHelp .LinkList .Items:hover:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#PopUpPodHelp .LinkList .Items:hover:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#PopUpPodHelp .LinkList a {
+
+}
+
+#PopUpPodHelp .LinkList .Items:last-child {
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom: 0;
+}
+
+#CloseButton {
+  background-image: url(../images/Button_Close.png);
+  background-size: contain;
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  cursor: pointer;
+}
+
+#EditPodPage {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    left: 10px;
+}
+
+#EditPodPage .Button {
+    width: 67px;
+    height: 24px;
+    border-width: 0px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px 0px #000;
+}
+
+#apn-null-toolbar {
+  display: none !important;
+}
+
+#apn-body-style {
+  padding-top: 0px !important;  
+}
+
+.Pod {
+    clear: both;
+    position: relative;
+    float: left;
+    width: 100%;
+    background-color: #FFF;
+    margin-bottom: 24px;
+}
+
+.Pod .Box {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    padding-left: 20px;
+}
+
+#PodArea {
+  margin-right: -10px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.FullPod {
+  clear:both;
+  width: 100%;
+  position:relative;
+}
+
+.PodConfig {
+  position:absolute;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+}
+
+.PodDetails {
+  position:absolute;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+}
+
+.Indeterminate {
+  position:absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/loading.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.CloseButton {
+  background-image: url(../images/Button_Close.png);
+  background-repeat: no-repeat;
+  background-position: center middle;
+  width: 31px;
+  height: 31px;
+  cursor: pointer;
+  position:absolute;
+  right: -16px;
+  top: -16px;
+  z-index: 10;
+}
+
+.MoveButton {
+  background-image: url(../images/Button_Move.png);
+  background-repeat: no-repeat;
+  background-position: center middle;
+  width: 31px;
+  height: 31px;
+  cursor: pointer;
+  position:absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+}
+
+.Controls_Toggle {
+  width:48px; 
+  height:18px; 
+  background-image: url(../images/Toggle_Background.png); 
+  position:relative;
+  cursor: pointer;
+}
+
+.Controls_Toggle .Handle {
+  background-image:url(../images/Toggle_Control.png); 
+  z-index:4; 
+  position:absolute; 
+  left: 0px; 
+  top: 0px; 
+  width: 21px; 
+  height: 20px;
+}
+
+.Controls_Toggle label {
+  cursor: pointer;
+  text-transform: uppercase;
+  position:absolute; 
+  top: 4px; 
+  z-index: 2; 
+}
+
+.Controls_Toggle .Left {
+  left: 5px; 
+}
+
+.Controls_Toggle .Right {
+  right: 5px; 
+}
+
+.Controls_Toggle select {
+  display: none;
+}
+
+.PodConfig .Label {
+    width: 110px;
+    float: left;
+    margin-left: 10px;
+    line-height: 33px;
+}
+
+.PodConfig .LabelInput {
+    min-width:150px;
+    float: left;
+    margin-left: 10px;
+}
+
+#EditPageArea {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    height: 59px;
+    z-index: 2;
+}
+
+.Rotated {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  top: -4px;
+}
+.truncate {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.wizard select {
+  min-width: 250px;
+    max-width: 320px;
+}
+
+.FilterButton {
+     border-radius: 5px;
+     border-width: 0px;
+     cursor: pointer;
+     height: 24px;
+     margin-left: -2px;
+     margin-right: 5px;
+     margin-top: 7px;
+     width: 67px;
+     -moz-box-sizing: border-box;
+     transition: border 0.15s linear 0s, color 0.15s linear 0s, background-color 0.15s linear 0s;
+}
+
+.FilterButton:hover {
+    transition: border 0.15s linear 0s, color 0.15s linear 0s, background-color 0.15s linear 0s;
+}
+
+/* Add new form*/
+
+.indent-small {
+  margin-left: 5px;
+}
+.form-group.internal {
+  margin-bottom: 0;
+}
+
+.dialog-panel {
+  margin: 10px;
+}
+
+.datepicker-dropdown {
+  z-index: 200 !important;
+}
+
+.panel-body {  
+  
+  background: #e5e5e5; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  #e5e5e5 0%, #ffffff 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e5e5e5), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  #e5e5e5 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  #e5e5e5 0%,#ffffff 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  #e5e5e5 0%,#ffffff 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  #e5e5e5 0%,#ffffff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  font: 600 15px "Open Sans",Arial,sans-serif;
+}
+
+label.control-label {
+  font-weight: 600;
+  color: #777;  
+}

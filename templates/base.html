@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	{# Include the headers #}
+	{% block head %}
+		{% include 'head.html' %}
+	{% endblock %}
+
+<body>
+    <div class="container pdT55">
+
+
+{# Fixed navbar #}
+	{% block navbar %}
+		{% include 'navbar.html' %}
+	{% endblock %}
+
+{# here goes the main content #}
+	{% block content %}
+
+	{% endblock %}
+	
+{# include the general set of scripts #}
+	{% block scripts %}
+		{%  include 'scripts.html' %}
+	{% endblock %}
+	
+{# placeholder for page specific scripts #}
+	{% block pagescripts %}
+{% endblock %}
+
+
+</div>
+
+{# Fixed footer #}
+	{% block footer %}
+		{% include 'footer.html' %}
+	{% endblock %}
+
+
+</body>
+
+{% if debugs %}
+	{#
+		{{ debugs|raw }}
+	#}
+{% endif %}
+
+</html>

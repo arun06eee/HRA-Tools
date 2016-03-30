@@ -1,0 +1,109 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+{% macro jumbotron(jumbotron) %}
+      <div class="jumbotron">
+        <h1>{{ jumbotron.title }}</h1>
+        <p>{{ jumbotron.content }}</p>
+        {% if jumbotron.stats %}
+            <p>Viewed documents: {{ jumbotron.stats.seen }}</p>
+            <p>New documents: {{ jumbotron.stats.unseen }}</p>
+            <p>Total documents: {{ jumbotron.stats.total }}</p>
+        {% endif %}
+        {% if jumbotron.href %}
+            <p><a href="{{ jumbotron.href }}" class="btn btn-primary btn-lg" role="button">{{ jumbotron.hreftext }}</a></p>
+        {% endif %}
+      </div>
+{% endmacro %}
+
+<!-- Macro that builds a panel -->
+{% macro panel(panel) %}
+    <div class="panel {% if panel.style %} panel-{{ panel.style }} {% else %} panel-default {% endif %}">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ panel.title }}</h3>
+        </div>
+        <div class="panel-body">
+            {{ panel.content }}
+        </div>
+    </div>
+{% endmacro %}
+
+<!-- Macro to render a nice list of pages -->
+{% macro page(page) %}
+    <!-- <p>{{ page.created }}</p>
+    <div class="popover-markup"> -->
+        <div class="thumbnail">
+            <i class="fa fa-eye">&nbsp;</i>
+            <div class="head hide">
+                <p>{{ page.title }}</p>
+            </div>
+            <div class="content hide">
+                <h5><small><b>Created at:</b> {{ page.created }}</small></h5>
+                <h5><small><b>Tags:</b>
+                {% for tag in page.tags %}
+                    {{ tag }}&nbsp;
+                {% endfor %}
+                </small></h5>
+                <h5><small><b>Dates:</b><br/>
+                {% for date in page.dates %}
+                    {{ date }}<br/>
+                {% endfor %}
+                </small></h5>
+            </div>
+            <a data-toggle="modal" rel="popover" href="{{ baseurl }}/api/zoom/{{ page.id }}" data-target="#utility">
+                <img src="{{ page.thumb }}"></img>
+            </a>
+        </div>
+  <!--  </div> -->
+{% endmacro %}
+
+<!-- Macro to render a nice list of pages -->
+{% macro newpage(page) %}
+        <div class="thumbnail">
+          {% if page.seen %} <i class="fa fa-eye"></i> {% endif %}
+          <a data-toggle="modal" href="{{ baseurl }}/api/zoom/{{ page.id }}" data-target="#utility">
+              <img src="{{ page.thumb }}"></img>
+            <div class="caption">
+                <h5><small style="color: white;"><b>Created at:</b><br/> {{ page.created }}</small></h5></a>
+                {% if not page.seen %} <h5><small style="color: white;" class="caption-seen" id="seen-{{ page.id }}"><b>Mark seen</b></small></h5> {% endif %} 
+                <h5><small style="color: white;" id="tags-{{ page.id }}"><b>Tags:</b><br/>
+                {% for tag in page.tags %}
+                    <small class="label label-danger"><a href="{{ baseurl }}?tag={{tag}}" style="color: white;">{{ tag }}</a>&nbsp;</small>
+                {% endfor %}
+                </small></h5>
+                <h5><small style="color: white;"><b>Dates:</b><br/>
+                {% for date in page.dates %}
+                    {{ date|date("Y-m-d") }}<br/>
+                {% endfor %}
+                </small></h5>
+                <small style="color: white;"><form class="overlay-form">
+                    <label for="tag">Tag(s):</label>
+                    <input style="color: black;" id="{{ page.id }}" class="caption-input" name="tag" type="text" autofocus/></form></small>
+                <small style="color: white;">
+                    <form class="page-delete-form">
+                        <input style="color:black;" id="{{ page.id }}" class="caption-button" value="Delete" name="delete" type="submit"/>
+                    </form>
+                </small>
+            </div>
+        </div>
+{% endmacro %}
+
+<!-- Macro to render a modal -->
+{% macro modal(modal) %}
+<!-- Modal -->
+<div class="modal fade" id="{{ modal.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">{{ modal.title }}</h4>
+      </div>
+      <div class="modal-body">
+        {{ modal.body }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
