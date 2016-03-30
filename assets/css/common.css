@@ -11,6 +11,22 @@ body{
   border: none;
 
 }
+ul.ui-autocomplete.ui-menu{
+	width:400px;
+	border: 1px solid black;
+	background: #fff;
+}
+ul.ui-autocomplete.ui-menu li{
+	padding: -25px;
+}
+.ui-menu-item{
+	cursor: pointer;
+	border-bottom: 1px solid gray;
+	left: 0px !important;
+}
+ul{
+	list-style-type: none;
+}
 
 .nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
   border-bottom: 3px solid transparent;
@@ -260,7 +276,7 @@ textarea {
 	line-height:25px;
 }
 
-.save-addemployee-btn {
+.save-addemployee-btn, .save-role-btn {
     border: 1px solid #fff;
     background: #197E17;
     margin-top: -10px;

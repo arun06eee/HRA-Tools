@@ -51,16 +51,16 @@ function _pages_viewemployee(){
 	$app->render('viewemployee.html');
 }
 
-function _pages_userrole(){
+function _pages_roleemployee(){
     // Get the basics
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 
 	// Setup the page for rendering
-	$app->view()->appendData( array( 'title' => 'User Role') );
-	$app->view()->appendData( array( 'userrole' => true) );
+	$app->view()->appendData( array( 'title' => 'Role') );
+	$app->view()->appendData( array( 'role' => true) );
 	// Render index view
-	$app->render('userrole.html');
+	$app->render('role.html');
 }
 
 ?>

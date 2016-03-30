@@ -186,7 +186,52 @@ function _api_deleteEmployeeProfile(){
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
+function _api_rolesRecords(){	
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$query = 'SELECT `username`,`zyde_role` FROM '.$env['dbloginCollection'];
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($query);
+		$role  = $stmt->fetchAll(PDO::FETCH_OBJ);
+	}catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
 
+	header("Content-Type: application/json; charset=UTF-8");
+	echo json_encode($role);
+}
+function _api_assignrole(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$sql_query = "select * FROM ".$env['dbaddemployeeCollection']." where client_email_id ='" .$params['username']."'";
+		
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($sql_query);
+		$profile  = $stmt->fetchAll(PDO::FETCH_OBJ);
+	}catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+	
+	$query = "INSERT INTO ".$env['dbloginCollection']."(username, password, zyde_id, zyde_role)"
+			." VALUES ('".$params['username']
+						."','". $params['setpassword']
+						."','". $profile[0]->id
+						."','". $params['employee_role']
+					."')";
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($query);
+		
+		$dbCon = null;
+		
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
 function _api_insertAddEmployeeBuckets(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();

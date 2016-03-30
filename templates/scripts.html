@@ -4,10 +4,13 @@
 <script type="text/javascript" src="{{baseurl}}/assets/js/components/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="{{baseurl}}/assets/js/components/jquery-ui.js"></script>
 <script type="text/javascript" src="{{baseurl}}/assets/js/components/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{baseurl}}/assets/js/components/datatable.min.js"></script>
 
 <script type="text/javascript" src="{{baseurl}}/assets/js/root.js"></script>
 {% if addemployee %}
 	<script type="text/javascript" src="{{baseurl}}/assets/js/addemployee.js"></script>
 {% elseif viewemployee %}
 <script type="text/javascript" src="{{baseurl}}/assets/js/viewemployee.js"></script>
+{% elseif role %}
+<script type="text/javascript" src="{{baseurl}}/assets/js/role.js"></script>
 {% endif %}

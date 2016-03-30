@@ -60,7 +60,7 @@ function _api_logout() {
     // Connect to Mysql 
  
     $username = $app->getCookie('username');
-    if (!$username) {
+    if ($username) {
         $app->deleteCookie('username');
     }
     if(isset($_SESSION["user"])){
@@ -69,11 +69,14 @@ function _api_logout() {
     if (isset($_SESSION['access_token'])){
         unset($_SESSION["access_token"]);
     }
+    if (isset($_SESSION['username'])){
+        unset($_SESSION["username"]);
+    }
     $app->deleteCookie('session');
     session_unset();
 
     $app->log->info('Logged out user: ' . $username);
-    $app->redirect($env['baseurl'] . '/');
+    $app->redirect($env['baseurl'] . '/login');
 }
 
 
