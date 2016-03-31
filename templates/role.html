@@ -6,6 +6,9 @@
 		<h3>Role
 		<button class="btn btn-success save-role-btn pull-right" ><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
 		</h3>
+		<p class="errorstyle bg-danger text-left hidden">
+			<i class="glyphicon"></i> &nbsp;<span class="errormsg"></span>
+		</p>
 	</div>
 	<div class='panel-body'>
 		<form role='form' id="role-submit">
@@ -29,26 +32,30 @@
 							<div class="group">
 								<select id='id_emp_role' class="role-play" zyde-service="employee_role" required>
 									<option></option>
-									<option value="0">Admin</option>
-									<option value="1">Employee</option>
+									<option value="admin">Admin</option>
+									<option value="employee">Employee</option>
 								</select>
 								<span class="highlight"></span>
 								<span class="bar"></span>
 								<label>Employee Role</label>
 							</div>
 						</div>
-						<div class='col-md-4 col-lg-4 col-sm-10 col-md-offset-1 col-lg-offset-1'>
-							<table id="user-roles" class="display" cellspacing="0" width="100%">
-						        <thead>
-						            <tr>
-						                <th>UserName</th>
-						                <th>Roles</th>
-						            </tr>
-						        </thead>
-						    </table>
-					    </div>
+
 					</div>
 				</div>
+				<div class="row form-group">
+					<div class='col-md-10 col-lg-10 col-sm-10 col-md-offset-1 col-lg-offset-1'>
+						<table id="user-roles" class="display" cellspacing="0" width="100%">
+					        <thead>
+					            <tr>
+					                <th>UserName</th>
+					                <th>Employee Number</th>
+					                <th>Roles</th>
+					            </tr>
+					        </thead>
+					    </table>
+				    </div>
+			    </div>
 			</div>
       		<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
 			<input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />

@@ -190,7 +190,7 @@ function _api_rolesRecords(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 	$params = $app->request->get();
-	$query = 'SELECT `username`,`zyde_role` FROM '.$env['dbloginCollection'];
+	$query = 'SELECT `username`,`employee_number`,`zyde_role` FROM '.$env['dbloginCollection'];
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($query);
@@ -198,7 +198,6 @@ function _api_rolesRecords(){
 	}catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
-
 	header("Content-Type: application/json; charset=UTF-8");
 	echo json_encode($role);
 }
@@ -206,6 +205,7 @@ function _api_assignrole(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 	$params = $app->request->get();
+	$result = array();
 	$sql_query = "select * FROM ".$env['dbaddemployeeCollection']." where client_email_id ='" .$params['username']."'";
 		
 	try {
@@ -215,22 +215,50 @@ function _api_assignrole(){
 	}catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
-	
-	$query = "INSERT INTO ".$env['dbloginCollection']."(username, password, zyde_id, zyde_role)"
-			." VALUES ('".$params['username']
-						."','". $params['setpassword']
-						."','". $profile[0]->id
-						."','". $params['employee_role']
-					."')";
+
+	$login_sql_query = "select * FROM ".$env['dbloginCollection']." where username ='" .$params['username']."'";
+		
 	try {
 		$dbCon = getConnection();
-		$stmt   = $dbCon->query($query);
-		
-		$dbCon = null;
-		
-	} catch(PDOException $e) {
+		$stmt   = $dbCon->query($login_sql_query);
+		$login_profile  = $stmt->fetchAll(PDO::FETCH_OBJ);
+	}catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
+	if(count($login_profile) <= 0){
+		$query = "INSERT INTO ".$env['dbloginCollection']."(username, password, zyde_id, zyde_role, employee_number)"
+						." VALUES ('".$params['username']
+									."','". $params['setpassword']
+									."','". $profile[0]->id
+									."','". $params['employee_role']
+									."','". $profile[0]->employee_number
+								."')";
+		try {
+			$dbCon = getConnection();
+			$stmt   = $dbCon->query($query);
+			
+			$dbCon = null;
+			
+		} catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
+		$result['result'] = "Login Created Successfully";
+	}else{
+		$result['result'] = "Login has already created for this user";
+	}
+
+	/*foreach ($login_profile as $key => $value) {
+		foreach ($login_profile[$key] as $skey => $svalue) {
+			exit;
+			if($login_profile[$key]->username != $params['username']){
+				
+			}else{
+				$result['result'] = "Login has already created for this user";
+			}
+		
+		}
+	}*/
+	echo json_encode($result);
 }
 function _api_insertAddEmployeeBuckets(){
 	$app = \Slim\Slim::getInstance();

@@ -1,19 +1,21 @@
 $(function(){
 	var role = {
 		emp_base64String: null,
+		dt:null,
 		init : function () {
 			var that = this,
 			obj = {'csrf_token': $("#csrf_token").val()},
 			usrname = [];
 			that.request($("#baseurl").val()+"/rolerecords", obj, 'get', function(json){
 				this.json = $.parseJSON(json);
-				$('#user-roles').DataTable( {
+				role.dt = $('#user-roles').DataTable( {
 			        "data": this.json,
 			        "columns": [
 			            { "data": "username" },
+			            { "data": "employee_number" },
 			            { "data": "zyde_role" }
 			        ]
-			    } );
+			    });
 			});
 			var controller = $("#baseurl").val() + "/viewemployeebuckets",
 			data = {
@@ -29,18 +31,33 @@ $(function(){
 				role.fnAutocomplete(usrname);
 			});
 
-			var role_record = {};
+			var role_record = {},_this;
 			$(".save-role-btn").click(function(e){
+				var errorArr = [];
+				$(".errorstyle").addClass("hidden");
 				$('.role-play').each(function(i, val) {
-					if($.trim($(this).val()) != "") {		
+					_this = this;
+					var elemLength = $('.role-play').length,
+						$i = i + 1;
+					if($.trim($(this).val()) != "") {
 						if($(this).attr("zyde-service") != undefined){
 							role_record[$(this).attr("zyde-service")] = $(this).val();
+							if(elemLength === $i){
+								role_record['csrf_token'] = $("#csrf_token").val();
+								that.request($("#baseurl").val() + "/assignrole", role_record, 'get', function(json){
+									$('.role-play').val('');
+									json = $.parseJSON(json);
+									that.fnerrorMessage('show', 'role-details', 'glyphicon-ban-circle', json.result, 'bg-danger');
+									return false;
+								});
+							}
 						}
+						$(this).parent().find('.invalid').first().remove();
+					}else{
+						$(this).parent().find('.invalid').first().remove();
+						$(this).parent().append('<span class="invalid"><i class="glyphicon glyphicon-ban-circle"></i>  ' + $(this).parent().find('label').html()  +" is required</span>")
+						errorArr.push( $(this).parent().find('label').html()  +" is required")
 					}
-				});
-				role_record['csrf_token'] = $("#csrf_token").val();
-				that.request($("#baseurl").val() + "/assignrole", role_record, 'get', function(json){
-
 				});
 			});
 		},
