@@ -52,6 +52,8 @@ function _pages_viewemployee(){
 }
 
 function _pages_roleemployee(){
+<<<<<<< b553c3e773f14ecb66548fd977228ddf09b69de8
+=======
     // Get the basics
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
@@ -62,5 +64,20 @@ function _pages_roleemployee(){
 	// Render index view
 	$app->render('role.html');
 }
+
+
+function _pages_userrole(){
+>>>>>>> Issues in page completed
+    // Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'Role') );
+	$app->view()->appendData( array( 'role' => true) );
+	// Render index view
+	$app->render('role.html');
+}
+
 
 ?>

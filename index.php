@@ -1,13 +1,7 @@
 <?php
 require './vendor/autoload.php';
 
-
-
-
-
-
 error_reporting(E_ALL);
-
 
 // Prepare app
 $app = new \Slim\Slim(array(
@@ -93,12 +87,16 @@ $app->get( '/login',								'_pages_login');
 $app->post('/login',								'_api_login');
 $app->get( '/logout',								'_api_logout');
 $app->get('/',						authorize(),    '_api_base');
-$app->get( '/addemployee',  		authorize(),    '_pages_addemployee');
+$app->get( '/addemployee',          authorize(),    '_pages_addemployee');
+$app->get( '/role',                 authorize(),    '_pages_roleemployee');
+$app->get( '/rolerecords',          authorize(),    '_api_rolesRecords');
+$app->get( '/role',                 authorize(),    '_api_viewEmployeeBuckets');
+$app->get( '/assignrole',  		    authorize(),    '_api_assignrole');
 $app->post( '/addemployee',  		authorize(),    '_api_insertAddEmployeeBuckets');
 $app->get( '/viewemployee',  		authorize(),    '_pages_viewemployee');
 $app->get( '/viewemployeebuckets',  authorize(),    '_api_viewEmployeeBuckets');
 $app->get( '/viewemployeeprofile',  authorize(),    '_api_viewEmployeeProfile');
-$app->get( '/updateemployee',      authorize(),	'_api_editEmployeeProfile');
+$app->get( '/updateemployee',       authorize(),	'_api_editEmployeeProfile');
 $app->get( '/deleteemployee',  		authorize(),    '_api_deleteEmployeeProfile');
 $app->get( '/userrole',  		authorize(),    '_pages_userrole');
 
