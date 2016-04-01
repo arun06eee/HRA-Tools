@@ -215,42 +215,56 @@ function _api_assignrole(){
 	}catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
-
-	$login_sql_query = "select * FROM ".$env['dbloginCollection']." where username ='" .$params['username']."'";
+	if(count($profile) > 0){
+		$login_sql_query = "select * FROM ".$env['dbloginCollection']." where username ='" .$params['username']."'";
 		
-	try {
-		$dbCon = getConnection();
-		$stmt   = $dbCon->query($login_sql_query);
-		$login_profile  = $stmt->fetchAll(PDO::FETCH_OBJ);
-	}catch(PDOException $e) {
-		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}
-	if(count($login_profile) <= 0){
-		$query = "INSERT INTO ".$env['dbloginCollection']."(username, password, zyde_id, zyde_role, employee_number, employee_status)"
-						." VALUES ('".$params['username']
-									."','". $params['setpassword']
-									."','". $profile[0]->id
-									."','". $params['employee_role']
-									."','". $profile[0]->employee_number
-									."','". $profile[0]->employee_status
-								."')";
 		try {
 			$dbCon = getConnection();
-			$stmt   = $dbCon->query($query);
-			
-			$dbCon = null;
-			
-		} catch(PDOException $e) {
+			$stmt   = $dbCon->query($login_sql_query);
+			$login_profile  = $stmt->fetchAll(PDO::FETCH_OBJ);
+		}catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
 		}
-		$result['result'] = "Login Created Successfully";
-	}else{
-		if($params['update'] == 'true'){
-			$result['result'] = "Login details are updated for this ".$params['username']." user";
+		if(count($login_profile) <= 0){
+			$query = "INSERT INTO ".$env['dbloginCollection']."(username, password, zyde_id, zyde_role, employee_number, employee_status)"
+							." VALUES ('".$params['username']
+										."','". $params['setpassword']
+										."','". $profile[0]->id
+										."','". $params['employee_role']
+										."','". $profile[0]->employee_number
+										."','". $profile[0]->employee_status
+									."')";
+			try {
+				$dbCon = getConnection();
+				$stmt   = $dbCon->query($query);
+				
+				$dbCon = null;
+				
+			} catch(PDOException $e) {
+				echo '{"error":{"text":'. $e->getMessage() .'}}';
+			}
+			$result['result'] = "Login Created Successfully";
 		}else{
-			$result['result'] = "Login has already created for this user";
-		}
+			if($params['update'] == 'true'){
+				$update_query = "UPDATE ".$env['dbloginCollection']." SET `password` = '" .$params['setpassword']."', `zyde_role` = '".$params['employee_role']."' where employee_number ='" .$profile[0]->employee_number."'";
+				try {
+					$dbCon = getConnection();
+					$stmt   = $dbCon->query($update_query);
+					
+					$dbCon = null;
+					
+				} catch(PDOException $e) {
+					echo '{"error":{"text":'. $e->getMessage() .'}}';
+				}
+				$result['result'] = "Login details are updated for this ".$params['username']." user";
+			}else{
+				$result['result'] = "Login has already created for this user";
+			}
+		}	
+	}else{
+		$result['wrong'] = "Sorry This record is not in our List Please select from autocomplete";
 	}
+	
 	echo json_encode($result);
 }
 function _api_insertAddEmployeeBuckets(){

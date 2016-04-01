@@ -75,21 +75,28 @@ $(function(){
 									that.isAssigneOneTime = false;
 									$('.role-play').val('');
 									json = $.parseJSON(json);
-									that.fnerrorMessage('show', 'role-details', 'glyphicon-ban-circle', json.result, 'bg-danger');
-									var obj = {'csrf_token': $("#csrf_token").val()};
-									that.request($("#baseurl").val()+"/rolerecords", obj, 'get', function(json){
-										json = $.parseJSON(json);
-										for(var act in json){
-											json[act].employee_status = isActive[json[act].employee_status];
-										}
-										/*role.dt.clear();
-									    role.dt.rows.add(json);
-									    $role.dt.draw();*/
-								    	
-									    setTimeout(function(){
-									    	that.fnerrorMessage('hide', 'role-details', 'glyphicon-ban-circle', null, 'bg-danger');
-									    }, 1000);
-									});
+									if(json.result){
+										that.fnerrorMessage('show', 'role-details', 'glyphicon-ban-circle', json.result, 'bg-danger');
+										var obj = {'csrf_token': $("#csrf_token").val()};
+										that.request($("#baseurl").val()+"/rolerecords", obj, 'get', function(json){
+											json = $.parseJSON(json);
+											for(var act in json){
+												json[act].employee_status = isActive[json[act].employee_status];
+											}
+											/*role.dt.clear();
+										    role.dt.rows.add(json);
+										    $role.dt.draw();*/
+									    	
+										    setTimeout(function(){
+										    	that.fnerrorMessage('hide', 'role-details', 'glyphicon-ban-circle', null, 'bg-danger');
+										    }, 3000);
+										});
+									}else{
+										that.fnerrorMessage('show', 'role-details', 'glyphicon-warning-sign', json.wrong, 'bg-danger');
+										setTimeout(function(){
+									    	that.fnerrorMessage('hide', 'role-details', 'glyphicon-warning-sign', null, 'bg-danger');
+									    }, 3000);
+									}
 									return false;
 								});
 							}
@@ -132,6 +139,9 @@ $(function(){
 				error: function() {
 					role.fnerrorMessage('show', 'role-details', 'glyphicon-warning-sign', 'Error occured.Try again', 'bg-danger');
 					console.log('error occured');
+					setTimeout(function(){
+				    	role.fnerrorMessage('hide', 'role-details', 'glyphicon-warning-sign', null, 'bg-danger');
+				    }, 3000);
 				}
 			});
 		}
