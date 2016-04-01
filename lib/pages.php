@@ -76,5 +76,17 @@ function _pages_userrole(){
 	$app->render('role.html');
 }
 
+function _pages_leaveform(){
+    // Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'Add Leave') );
+	$app->view()->appendData( array( 'leaveform' => true) );
+	// Render index view
+	$app->render('leaveform.html');
+}
+
 
 ?>

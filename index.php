@@ -99,6 +99,7 @@ $app->get( '/viewemployeeprofile',  authorize(),    '_api_viewEmployeeProfile');
 $app->get( '/updateemployee',       authorize(),	'_api_editEmployeeProfile');
 $app->get( '/deleteemployee',  		authorize(),    '_api_deleteEmployeeProfile');
 $app->get( '/userrole',  		authorize(),    '_pages_userrole');
+$app->get( '/leaveform',  		authorize(),    '_pages_leaveform');
 
 $app->notFound(function () use ($app) {
 	// make the globals available

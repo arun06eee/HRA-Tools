@@ -392,3 +392,19 @@ textarea {
 	overflow-y : auto;
 	overflow-x : hidden;
 }
+
+.fieldBorder{
+	margin-top: -15px;
+	margin-left: 20px;
+	color:#53627A;
+	background: white;
+	width: 200px;
+	padding-left: 8px;
+	margin-bottom: 25px;
+}
+
+.borderStyle{
+	border: 1px solid #337AB7;
+	margin-top: 15px;
+	border-radius: 5px;
+}
