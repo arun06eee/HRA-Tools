@@ -1,21 +1,47 @@
 $(function(){
 	var role = {
 		emp_base64String: null,
+		isAssigneOneTime: false, 
 		dt:null,
 		init : function () {
 			var that = this,
 			obj = {'csrf_token': $("#csrf_token").val()},
+			isActive = ['Active', 'Inactive'],
 			usrname = [];
 			that.request($("#baseurl").val()+"/rolerecords", obj, 'get', function(json){
 				this.json = $.parseJSON(json);
-				role.dt = $('#user-roles').DataTable( {
+				for(var act in this.json){
+					this.json[act].employee_status = isActive[this.json[act].employee_status];
+				}
+				role.dt = $('#user-roles').dataTable( {
 			        "data": this.json,
+			        "columnDefs": [ {
+			            "targets": -1,
+			            "defaultContent": "<button>Click!</button>"
+			        } ],
 			        "columns": [
 			            { "data": "username" },
 			            { "data": "employee_number" },
-			            { "data": "zyde_role" }
+			            { "data": "zyde_role" },
+			            { "data": "employee_status" },
+			            {
+				            "mData": null,
+				            "bSortable": false,
+				           	"mRender": function (o) { return '<a class="btn btn-info btn-sm btn-edit" href=#/>' + 'Edit' + '</a>'; }
+				        }
 			        ]
 			    });
+				$('#user-roles a.btn-edit').on( 'click', function () {
+					that.isAssigneOneTime = true;
+					var a = $(this).parent().parent(); 
+					a.each(function() { 
+						var getEmpNo = $(this).find('td:nth-child(2)').html(); 
+						var getUserName = $(this).find('td:nth-child(1)').html(); 
+						var getEmpRole = $(this).find('td:nth-child(3)').html();
+						$("#username_id").val(getUserName);
+						$("#id_emp_role").val(getEmpRole);
+					});
+				});
 			});
 			var controller = $("#baseurl").val() + "/viewemployeebuckets",
 			data = {
@@ -28,7 +54,7 @@ $(function(){
 				for(var viewjsn in this.json){
 					usrname.push(this.json[viewjsn].client_email_id);
 				}
-				role.fnAutocomplete(usrname);
+				that.fnAutocomplete(usrname);
 			});
 
 			var role_record = {},_this;
@@ -44,10 +70,26 @@ $(function(){
 							role_record[$(this).attr("zyde-service")] = $(this).val();
 							if(elemLength === $i){
 								role_record['csrf_token'] = $("#csrf_token").val();
+								role_record['update'] = that.isAssigneOneTime;
 								that.request($("#baseurl").val() + "/assignrole", role_record, 'get', function(json){
+									that.isAssigneOneTime = false;
 									$('.role-play').val('');
 									json = $.parseJSON(json);
 									that.fnerrorMessage('show', 'role-details', 'glyphicon-ban-circle', json.result, 'bg-danger');
+									var obj = {'csrf_token': $("#csrf_token").val()};
+									that.request($("#baseurl").val()+"/rolerecords", obj, 'get', function(json){
+										json = $.parseJSON(json);
+										for(var act in json){
+											json[act].employee_status = isActive[json[act].employee_status];
+										}
+										/*role.dt.clear();
+									    role.dt.rows.add(json);
+									    $role.dt.draw();*/
+								    	
+									    setTimeout(function(){
+									    	that.fnerrorMessage('hide', 'role-details', 'glyphicon-ban-circle', null, 'bg-danger');
+									    }, 1000);
+									});
 									return false;
 								});
 							}

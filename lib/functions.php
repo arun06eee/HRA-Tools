@@ -190,7 +190,7 @@ function _api_rolesRecords(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 	$params = $app->request->get();
-	$query = 'SELECT `username`,`employee_number`,`zyde_role` FROM '.$env['dbloginCollection'];
+	$query = 'SELECT `username`,`employee_number`,`zyde_role`,`employee_status` FROM '.$env['dbloginCollection'];
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($query);
@@ -226,12 +226,13 @@ function _api_assignrole(){
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 	if(count($login_profile) <= 0){
-		$query = "INSERT INTO ".$env['dbloginCollection']."(username, password, zyde_id, zyde_role, employee_number)"
+		$query = "INSERT INTO ".$env['dbloginCollection']."(username, password, zyde_id, zyde_role, employee_number, employee_status)"
 						." VALUES ('".$params['username']
 									."','". $params['setpassword']
 									."','". $profile[0]->id
 									."','". $params['employee_role']
 									."','". $profile[0]->employee_number
+									."','". $profile[0]->employee_status
 								."')";
 		try {
 			$dbCon = getConnection();
@@ -244,20 +245,12 @@ function _api_assignrole(){
 		}
 		$result['result'] = "Login Created Successfully";
 	}else{
-		$result['result'] = "Login has already created for this user";
-	}
-
-	/*foreach ($login_profile as $key => $value) {
-		foreach ($login_profile[$key] as $skey => $svalue) {
-			exit;
-			if($login_profile[$key]->username != $params['username']){
-				
-			}else{
-				$result['result'] = "Login has already created for this user";
-			}
-		
+		if($params['update'] == 'true'){
+			$result['result'] = "Login details are updated for this ".$params['username']." user";
+		}else{
+			$result['result'] = "Login has already created for this user";
 		}
-	}*/
+	}
 	echo json_encode($result);
 }
 function _api_insertAddEmployeeBuckets(){
