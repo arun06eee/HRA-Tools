@@ -100,11 +100,35 @@ body{ background:rgba(0, 0, 0, 0.06); }
     border: 1px solid #59A57A;
 }
 .emp_lists_btn{
-	border: none;
-    background: white;
-    text-decoration: underline;
+	background: white;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin-left: 5px;
+    border-radius: 5px
 }
 
+
+#employeeListView table th {
+	text-align :center;
+}
+
+.filterstyle > i {
+	padding: 5px;
+    background: #5BAA7D;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin-left: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    color: white;
+	font-size: 12px !important;
+	cursor:pointer;
+	
+}
+
+#viewemployee_details > .panel-body {
+	text-align:center;
+}
 .footer {
     position: fixed;
     bottom: 0;

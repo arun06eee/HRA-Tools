@@ -11,6 +11,26 @@ $(function() {
 			$(".modal").on('hide.bs.modal', function() {
 				$('.invalid').remove();
 			});
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		}
 
 		ViewEmployee.prototype.initialization = function() {
@@ -45,14 +65,33 @@ $(function() {
 							instance.select_employee_Alphabet_order(e, _value);
 						}
 					});
-					$(".alphaButtons").before(test);
+					$(".alphaButtons").before(test);					
 				}
+
+				var a = '<i class="glyphicon glyphicon-list-alt export-employee" zyde-id="All" title="Download"></i>'
+						+ '<i class="glyphicon glyphicon-th-list" id="tableListView" title="List View" ></i>'
+						+ '<i class="glyphicon glyphicon-th" id="tableGridView" title="Grid View"></i>';
+				
+				$(".alphaButtons").before(a);
+				
+				$("#tableListView").click(function() {			
+					$("#employeeLists").hide("drop", {direction: "left"}, 1000 , function (){
+						$("#employeeListView").show("drop", {direction: "up"}, 1000);
+					});
+				});
+
+				$("#tableGridView").click(function() {
+					$("#employeeListView").hide("drop", {direction: "left"}, 1000, function (){
+						$("#employeeLists").show("drop", {direction: "up"}, 1500);
+					});
+				});
+
 				return $(".save_edited_profile").click(function(e) {
 					var _id = $(".save_edited_profile").attr("get-emp-id");
 					if (_id != '') {
 						instance.edit_employee_profile(e, _id);
 					}
-				})
+				});
 			})(this);
 		};
 
@@ -81,12 +120,55 @@ $(function() {
 					var row = "";
 
 					$.each(arrData[i], function(key,val){
-						if(key != 'trash' && key != 'photo' && key != 'id') {
-							row += '"' + val + '",';
+						if(key != 'trash' && key != 'photo' && key != 'id') {						
+							if(key == 'gender') {			
+								val = (val == 0) ? 'Male' : 'Female';
+								row += '"' + val + '",';
+							}else if(key == 'employee_status') {
+								val = (val == 0) ? 'Active' : 'Inactive';
+								row += '"' + val + '",';			
+							} else {
+								row += '"' + val + '",';
+							}
 
 							if(i == 0) {
 								column += '"' + key.toUpperCase().replace(/_/g, " ") + '",';
 							}
+						}
+						
+						if(key == 'photo') {
+							//console.log(key, val);
+/* 
+							var img = $(this);
+							if(img.attr('zyde-src').split(',')[1] == undefined) {
+								alert("Invalid image Format")
+								return false;
+							}
+ */
+							//var filename = img.attr('filename') || 'Employee';
+							/* 
+							var image_data = atob(val);
+							var arraybuffer = new ArrayBuffer(image_data.length);
+
+							var view = new Uint8Array(arraybuffer);
+							for (var i=0; i<image_data.length; i++) {
+								view[i] = image_data.charCodeAt(i) & 0xff;
+							}
+
+							try {
+								var blob = new Blob([arraybuffer], {type: 'application/octet-stream'});
+								console.log(blob);
+
+							} catch (e) {
+								var bb = new (window.WebKitBlobBuilder || window.MozBlobBuilder);
+								bb.append(arraybuffer);
+								var blob = bb.getBlob('application/octet-stream');
+							}
+							
+							var url = (window.webkitURL || window.URL).createObjectURL(blob);
+
+							row += '"' + val + '",';
+							row += '"' + url + '",'; */	
 						}
 					});
 
@@ -135,9 +217,10 @@ $(function() {
 									+ '<i class="fa fa-file-excel-o export-employee" zyde-id="%id%" title="Download"></i>'
 									+ '<i class="fa fa-trash delete-employee" zyde-id="%id%" title="Trash"></i>'
 									+ '<i class="fa fa-eye eye-employee" zyde-id="%id%" title="View"></i>'
+									+ '<i class="fa fa-download img-download" zyde-src="%photo%" filename="%filename%" ></i>'
 									+ '</span>'
 								+ '</h4>'
-								+ '<img src="%photo%" alt="%name%">'
+								+ '<img src="%photo%" alt="%name%" filename="%filename%">'
 								+ '<div class="col-xs-12 text-center empstyle">'
 										+ '%name% <br/>'
 										+ 'Employee ID : %employee_number%'
@@ -147,7 +230,6 @@ $(function() {
 						+ '</div>';
 
 				var tplList = '<tr class="%currentclass%">'
-								+ '<td><input type="checkbox" /></td>'
 								+ '<td><img src="%photo%" width="30" height="30" /></td>'
 								+ '<td>%name%</td>'
 								+ '<td>%employee_number%</td>'
@@ -155,6 +237,7 @@ $(function() {
 									+ '<i class="fa fa-file-excel-o export-employee" zyde-id="%id%" title="Download"></i>'
 									+ '<i class="fa fa-trash delete-employee" zyde-id="%id%" title="Trash"></i>'
 									+ '<i class="fa fa-eye eye-employee" zyde-id="%id%" title="View"></i>'
+									+ '<i class="fa fa-download img-download" filename="%filename%"  zyde-src="%photo%"></i>'
 								+ '</td>'
 							+ '</tr>';
 
@@ -168,6 +251,7 @@ $(function() {
 					}
 
 					tmp = tpl.replace(/%name%/g, data[i].firstname);
+					tmp = tmp.replace(/%filename%/g, data[i].firstname);
 					tmp = tmp.replace(/%id%/g, data[i].id);
 					tmp = tmp.replace(/%employee_number%/g, data[i].employee_number);
 
@@ -176,6 +260,7 @@ $(function() {
 					tmpArr.push(tmp);
 
 					tmpList = tplList.replace(/%name%/g, data[i].firstname);
+					tmpList = tmpList.replace(/%filename%/g, data[i].firstname);
 					tmpList = tmpList.replace(/%id%/g, data[i].id);
 					tmpList = tmpList.replace(/%employee_number%/g, data[i].employee_number);
 					tmpList = tmpList.replace(/%photo%/g, data[i].photo);
@@ -210,6 +295,7 @@ $(function() {
 				});
 
 				$(".export-employee").unbind('click').click(function(e) {
+					e.preventDefault();
 					var id = $(this).attr('zyde-id');
 					var controller = $("#baseurl").val() + "/viewemployeebuckets",
 					data = {
@@ -219,6 +305,37 @@ $(function() {
 					};
 					init.ajaxCall(controller, 'get', data, init.JSONToCSVConvertor);
 				});
+
+				$(".img-download").click(function(event) {
+					event.preventDefault();
+					var img = $(this);
+					if(img.attr('zyde-src').split(',')[1] == undefined) {
+						alert("Invalid image Format")
+						return false;
+					}
+
+					var filename = img.attr('filename') || 'Employee';
+					var image_data = atob(img.attr('zyde-src').split(',')[1]);
+					var arraybuffer = new ArrayBuffer(image_data.length);
+
+					var view = new Uint8Array(arraybuffer);
+					for (var i=0; i<image_data.length; i++) {
+						view[i] = image_data.charCodeAt(i) & 0xff;
+					}
+
+					try {
+						var blob = new Blob([arraybuffer], {type: 'application/octet-stream'});
+					} catch (e) {
+						var bb = new (window.WebKitBlobBuilder || window.MozBlobBuilder);
+						bb.append(arraybuffer);
+						var blob = bb.getBlob('application/octet-stream');
+					}
+
+					var url = document.createElement('a');
+					url.href = (window.webkitURL || window.URL).createObjectURL(blob);
+					url.download = filename+".jpeg";
+					url.click();
+				})
 			})(this);
 		};
 
@@ -285,17 +402,6 @@ $(function() {
 	$("#employeeLists").show();
 	$("#employeeListView").hide();
 
-	$("#tableListView").click(function() {			
-		$("#employeeLists").hide("drop", {direction: "left"}, 1000 , function (){
-			$("#employeeListView").show("drop", {direction: "up"}, 1000);
-		});
-	});
-
-	$("#tableGridView").click(function() {
-		$("#employeeListView").hide("drop", {direction: "left"}, 1000, function (){
-			$("#employeeLists").show("drop", {direction: "up"}, 1500);
-		});
-	});
 
 	$("#save_emp_id").click(function (e) {
 		$(".errormsg").empty();
@@ -398,6 +504,19 @@ $(function() {
 			}, 5000);
 		});
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	init.initialization();
 
