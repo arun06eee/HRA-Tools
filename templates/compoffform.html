@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class='panel panel-primary dialog-panel' id="leaveform-details">
+	<div class='panel-heading'>
+		<h3>Add CompOff
+			<button class="btn btn-success save-compoffmodule-btn pull-right" ><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
+		</h3>
+		
+		<p class="errorstyle bg-danger text-left hidden">
+			<i class="glyphicon"></i> &nbsp;<span class="errormsg"></span>
+		</p>
+	</div>
+	<div class='panel-body'>
+		<form role='form' id="leaveform-submit">
+			<div class="borderStyle" >
+				<h3 class="fieldBorder">Compoff Module</h3>
+				<div class="row form-group required">
+					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
+						<div class="group">
+							<select class="COM_employee_names" id="com_emp_name" style="min-height: 150px;overflow: auto;" multiple>
+							</select>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>Employee Status</label>
+						</div>
+						<div class="group">
+							<textarea class="form-control compoff_reason compoff_details" rows="5" id="id_compoff_reason" required></textarea>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>Reason of Compoff</label>
+						</div>
+						<div class="group">
+							<textarea class="form-control compoff_comments compoff_details" rows="5" id="id_compoff_comments" required></textarea>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>Comments</label>
+						</div>
+					</div>
+					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
+						<div class="group">
+							<input class="com_start_date com_dates" id='id_start_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>Start Date</label>
+						</div>
+						<div class="group">
+							<input class="com_end_date com_dates" id='id_end_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>End Date</label>
+						</div>
+						<div class="group">
+							<select class="employee_work_hours compoff_details" id="emp_work_hours" required>
+								<option></option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+							</select>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>Hours</label>
+						</div>
+						
+						<div class="group">
+							<select class="compoff_used compoff_details" id="id_compoff_used" required>
+								<option></option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+							</select>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>Compoff Used</label>
+						</div>
+						<div class="group">
+							<select class="bill_clients compoff_details" id="id_bill_clients" required>
+								<option></option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+							</select>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>Bill Clients</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
+			<input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
+		</form>
+	</div>
+</div>
+
+{% endblock %}

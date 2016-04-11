@@ -88,5 +88,28 @@ function _pages_leaveform(){
 	$app->render('leaveform.html');
 }
 
+function _pages_leavemodule(){
+    // Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'Apply leave') );
+	$app->view()->appendData( array( 'leaveform' => true) );
+	// Render index view
+	$app->render('leaveform.html');
+}
+
+function _pages_compoffmodule(){
+    // Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'Add Compoff') );
+	$app->view()->appendData( array( 'compoffform' => true) );
+	// Render index view
+	$app->render('compoffform.html');
+}
 
 ?>

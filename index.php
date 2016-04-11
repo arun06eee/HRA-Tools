@@ -48,6 +48,8 @@ $env['mysqlserver'] = 'mysql://127.0.0.1:3306';
 $env['dbname'] = "zydehra";
 $env['dbloginCollection'] = "zyde_user_login";
 $env['dbaddemployeeCollection'] = "zyde_employee_bucket";
+$env['leaveform'] = "zyde_leave_form";
+$env['compoffform'] = "zyde_compoff_form";
 
 // Load the includes
 require('./lib/api.php');
@@ -98,8 +100,11 @@ $app->get( '/viewemployeebuckets',  authorize(),    '_api_viewEmployeeBuckets');
 $app->get( '/viewemployeeprofile',  authorize(),    '_api_viewEmployeeProfile');
 $app->get( '/updateemployee',       authorize(),	'_api_editEmployeeProfile');
 $app->get( '/deleteemployee',  		authorize(),    '_api_deleteEmployeeProfile');
-$app->get( '/userrole',  		authorize(),    '_pages_userrole');
-$app->get( '/leaveform',  		authorize(),    '_pages_leaveform');
+$app->get( '/userrole',  		    authorize(),    '_pages_userrole');
+$app->get( '/leaveform',            authorize(),    '_pages_leaveform');
+$app->get( '/storeleaveform',       authorize(),    '_api_leavemodule');
+$app->get( '/compoffform',          authorize(),    '_pages_compoffmodule');
+$app->get( '/storecomoffform',  		authorize(),    '_api_compoffmodule');
 
 $app->notFound(function () use ($app) {
 	// make the globals available

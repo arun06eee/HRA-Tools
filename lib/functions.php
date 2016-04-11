@@ -313,5 +313,67 @@ function _api_insertAddEmployeeBuckets(){
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
+function _api_leavemodule(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$result = array();
+	for ($i=0; $i < count($params['employee_status']); $i++) {
+		$employee_status_splited = explode(",", $params['employee_status'][$i]);
+		$employee_number = trim($employee_status_splited[1]);
+		$query = "INSERT INTO ".$env['leaveform']."(employee_number, date_applied, from_date, to_date, leave_type, reason, applied_adp, leave_mode, comments)"
+				." VALUES ('".$employee_number
+							."','". $params['date_applied']
+							."','". $params['from_date']
+							."','". $params['to_date']
+							."','". $params['leave_type']
+							."','". $params['reason']
+							."','". $params['applied_adp']
+							."','". $params['leave_mode']
+							."','". $params['comments']
+						."')";
+		try {
+			$dbCon = getConnection();
+			$stmt   = $dbCon->query($query);
+			
+			$dbCon = null;
+			$result['success'] = "Applied Leave Successfully!!!";
+			echo json_encode($result);
+		} catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
+	}
+}
 
+
+function _api_compoffmodule(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$result = array();
+	for ($i=0; $i < count($params['employee_status']); $i++) {
+		$employee_status_splited = explode(",", $params['employee_status'][$i]);
+		$employee_number = trim($employee_status_splited[1]);
+		$query = "INSERT INTO ".$env['compoffform']."(employee_number, compoff_start_date, compoff_end_date, hours, reason_for_compoff, used, bill_client, comments)"
+				." VALUES ('".$employee_number
+							."','". $params['start_date']
+							."','". $params['end_date']
+							."','". $params['hours']
+							."','". $params['reason']
+							."','". $params['compoff_used']
+							."','". $params['bill_clients']
+							."','". $params['comments']
+						."')";
+		try {
+			$dbCon = getConnection();
+			$stmt   = $dbCon->query($query);
+			
+			$dbCon = null;
+			$result['success'] = "Compoff Applied Leave Successfully!!!";
+			echo json_encode($result);
+		} catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
+	}
+}
 ?>
