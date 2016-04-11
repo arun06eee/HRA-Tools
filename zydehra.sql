@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2016 at 01:03 PM
+-- Generation Time: Apr 11, 2016 at 02:36 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `zydehra`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zyde_compoff_form`
+--
+
+CREATE TABLE IF NOT EXISTS `zyde_compoff_form` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `compoff_start_date` date NOT NULL,
+  `compoff_end_date` date NOT NULL,
+  `hours` int(10) NOT NULL,
+  `reason_for_compoff` varchar(255) NOT NULL,
+  `used` varchar(10) NOT NULL,
+  `bill_client` varchar(10) NOT NULL,
+  `comments` varchar(255) NOT NULL,
+  `employee_number` varchar(55) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `zyde_compoff_form`
+--
+
+INSERT INTO `zyde_compoff_form` (`id`, `compoff_start_date`, `compoff_end_date`, `hours`, `reason_for_compoff`, `used`, `bill_client`, `comments`, `employee_number`) VALUES
+(1, '2016-04-11', '2016-04-13', 17, 'sdsd', 'Yes', 'No', 'aas', '015'),
+(2, '2016-04-11', '2016-04-13', 17, 'sdsd', 'Yes', 'No', 'aas', '12345'),
+(3, '2016-04-07', '2016-04-13', 18, 'zx', 'Yes', 'Yes', 'asdx', '12345');
 
 -- --------------------------------------------------------
 
@@ -83,6 +111,36 @@ INSERT INTO `zyde_employee_bucket` (`id`, `firstname`, `lastname`, `name_as_per_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `zyde_leave_form`
+--
+
+CREATE TABLE IF NOT EXISTS `zyde_leave_form` (
+  `employee_number` varchar(55) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date_applied` date NOT NULL,
+  `from_date` date NOT NULL,
+  `to_date` date NOT NULL,
+  `leave_type` varchar(10) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `applied_adp` varchar(10) NOT NULL,
+  `leave_mode` varchar(10) NOT NULL,
+  `comments` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `zyde_leave_form`
+--
+
+INSERT INTO `zyde_leave_form` (`employee_number`, `id`, `date_applied`, `from_date`, `to_date`, `leave_type`, `reason`, `applied_adp`, `leave_mode`, `comments`) VALUES
+('016', 6, '2016-04-07', '2016-04-07', '2016-04-12', 'Half-Day', 'esdfsdf', 'Yes', 'Compoff Ad', 'asdasdasdsadasd'),
+('12345', 7, '2016-04-07', '2016-04-07', '2016-04-12', 'Half-Day', 'esdfsdf', 'Yes', 'Compoff Ad', 'asdasdasdsadasd'),
+('010', 8, '2016-04-04', '2016-04-19', '2016-04-05', 'Half-Day', 'ad', 'Yes', 'Compoff Ad', 'ad'),
+('1245', 9, '2016-04-17', '2016-04-18', '2016-04-22', 'Full-Day', 'ddsdsds', 'Yes', 'To Be Comp', 'sddds');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `zyde_user_login`
 --
 
@@ -95,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `zyde_user_login` (
   `employee_number` int(25) NOT NULL,
   `employee_status` int(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `zyde_user_login`
@@ -103,9 +161,8 @@ CREATE TABLE IF NOT EXISTS `zyde_user_login` (
 
 INSERT INTO `zyde_user_login` (`id`, `username`, `password`, `zyde_id`, `zyde_role`, `employee_number`, `employee_status`) VALUES
 (1, 'admin', 'admin@123', 1, 'admin', 1, 0),
-(42, 'arun.bala@csireg.com', 'asdasd', 4, 'employee', 10, 0),
-(43, 'ar@gmail.com', 'asd', 9, 'employee', 1234, 0),
-(44, 'arun06eee', 'asd', 8, 'employee', 12345, 0);
+(47, 'arun@gmail.com', 'asd', 6, 'employee', 12345, 1),
+(48, 'asfsdf', 'asdsda', 12, 'employee', 12333, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
