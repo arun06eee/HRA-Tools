@@ -50,6 +50,7 @@ $env['dbloginCollection'] = "zyde_user_login";
 $env['dbaddemployeeCollection'] = "zyde_employee_bucket";
 $env['leaveform'] = "zyde_leave_form";
 $env['compoffform'] = "zyde_compoff_form";
+$env['defaultleave'] = "zyde_default_leave";
 
 // Load the includes
 require('./lib/api.php');
@@ -104,7 +105,9 @@ $app->get( '/userrole',  		    authorize(),    '_pages_userrole');
 $app->get( '/leaveform',            authorize(),    '_pages_leaveform');
 $app->get( '/storeleaveform',       authorize(),    '_api_leavemodule');
 $app->get( '/compoffform',          authorize(),    '_pages_compoffmodule');
-$app->get( '/storecomoffform',  		authorize(),    '_api_compoffmodule');
+$app->get( '/storecomoffform',  	authorize(),    '_api_compoffmodule');
+$app->get( '/leavemaintanance',     authorize(),    '_pages_leavemaintanance');
+$app->get( '/defaultleave',         authorize(),    '_api_defaultleave');
 
 $app->notFound(function () use ($app) {
 	// make the globals available

@@ -62,7 +62,7 @@ $(function(){
 				$("#"+id+" .errorstyle").removeClass('bg-danger bg-success');
 			}
 		},
-		request :  function (url, data,type, callback){
+		request :  function (url, data, type, callback){
 			$.ajax({
 				url: url,
 				type: type,

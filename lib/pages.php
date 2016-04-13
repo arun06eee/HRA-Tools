@@ -112,4 +112,16 @@ function _pages_compoffmodule(){
 	$app->render('compoffform.html');
 }
 
+function _pages_leavemaintanance(){
+    // Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'Leave Maintanance') );
+	$app->view()->appendData( array( 'leavemaintanance' => true) );
+	// Render index view
+	$app->render('leavemaintanance.html');
+}
+
 ?>

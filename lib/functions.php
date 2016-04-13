@@ -376,4 +376,25 @@ function _api_compoffmodule(){
 		}
 	}
 }
+
+function _api_defaultleave(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$result = array();
+	$query = "INSERT INTO ".$env['defaultleave']."(total_leave)"
+			." VALUES ('".$params['set_default_leave']."') ON DUPLICATE KEY UPDATE total_leave='".$params['set_default_leave']."'";
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($query);
+		
+		$dbCon = null;
+		$result['success'] = "Total Leaves are updated Successfully!!!";
+		echo json_encode($result);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+
 ?>
