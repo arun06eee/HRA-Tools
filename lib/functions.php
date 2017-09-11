@@ -27,9 +27,9 @@ function checkPass($db, $username, $password) {
 		}
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}   
-	if($res) { 
-		return true; 
+	}
+	if($res) {
+		return true;
 	}
 	return false;
 }
@@ -85,12 +85,12 @@ function _api_viewEmployeeBuckets(){
 	}catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
-	foreach ($users as $key => $value) {		
+	foreach ($users as $key => $value) {
 		if($users[$key]->trash != 1){
 			$usersTemp[] = $value;
 		}
 	}
-	
+
 	header("Content-Type: application/json; charset=UTF-8");
 	echo json_encode($usersTemp); // Send data to ajax call in jquery.
 }
@@ -113,7 +113,7 @@ function _api_viewEmployeeProfile(){
 	$env = $app->environment();
 	$params = $app->request->get();
 	$id = $params['profile']['_id'];
-	
+
 	$sql_query = "select * FROM ".$env['dbaddemployeeCollection']." where id =" .$id;
 	try {
 		$dbCon = getConnection();
@@ -168,7 +168,7 @@ function _api_editEmployeeProfile(){
 		echo "Successfully updated";
 	}catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	} 
+	}
 }
 
 function _api_deleteEmployeeProfile(){
@@ -186,7 +186,7 @@ function _api_deleteEmployeeProfile(){
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
-function _api_rolesRecords(){	
+function _api_rolesRecords(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 	$params = $app->request->get();
@@ -207,7 +207,7 @@ function _api_assignrole(){
 	$params = $app->request->get();
 	$result = array();
 	$sql_query = "select * FROM ".$env['dbaddemployeeCollection']." where client_email_id ='" .$params['username']."'";
-		
+
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($sql_query);
@@ -217,7 +217,7 @@ function _api_assignrole(){
 	}
 	if(count($profile) > 0){
 		$login_sql_query = "select * FROM ".$env['dbloginCollection']." where username ='" .$params['username']."'";
-		
+
 		try {
 			$dbCon = getConnection();
 			$stmt   = $dbCon->query($login_sql_query);
@@ -237,9 +237,9 @@ function _api_assignrole(){
 			try {
 				$dbCon = getConnection();
 				$stmt   = $dbCon->query($query);
-				
+
 				$dbCon = null;
-				
+
 			} catch(PDOException $e) {
 				echo '{"error":{"text":'. $e->getMessage() .'}}';
 			}
@@ -250,9 +250,9 @@ function _api_assignrole(){
 				try {
 					$dbCon = getConnection();
 					$stmt   = $dbCon->query($update_query);
-					
+
 					$dbCon = null;
-					
+
 				} catch(PDOException $e) {
 					echo '{"error":{"text":'. $e->getMessage() .'}}';
 				}
@@ -260,12 +260,69 @@ function _api_assignrole(){
 			}else{
 				$result['result'] = "Login has already created for this user";
 			}
-		}	
+		}
 	}else{
 		$result['wrong'] = "Sorry This record is not in our List Please select from autocomplete";
 	}
-	
+
 	echo json_encode($result);
+}
+function _api_addtags(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->post();
+	$query = "INSERT INTO ".$env['tags']."(tag_name, tag_desc, tag_color)".
+	" VALUES ('".$params['tag_name']
+				."','".	$params['tag_desc']
+				."','".	$params['tag_color']
+				."')";
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($query);
+
+		$dbCon = null;
+		echo true;
+
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+function _api_showtags() {
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+
+	$sql_query = "select * FROM ".$env['tags'];
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($sql_query);
+		$showtags  = $stmt->fetchAll(PDO::FETCH_OBJ);
+	}catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+
+	header("Content-Type: application/json; charset=UTF-8");
+	echo json_encode($showtags);
+}
+function _api_deletetags(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$query = "DELETE FROM ".$env['tags']
+				." WHERE `tag_name` ="
+				."'"
+				.$params['delete_data']
+				."'";
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($query);
+
+		$dbCon = null;
+		echo true;
+
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
 }
 function _api_insertAddEmployeeBuckets(){
 	$app = \Slim\Slim::getInstance();
@@ -306,9 +363,9 @@ function _api_insertAddEmployeeBuckets(){
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($query);
-		
+
 		$dbCon = null;
-		
+
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
@@ -335,7 +392,7 @@ function _api_leavemodule(){
 		try {
 			$dbCon = getConnection();
 			$stmt   = $dbCon->query($query);
-			
+
 			$dbCon = null;
 			$result['success'] = "Applied Leave Successfully!!!";
 			echo json_encode($result);
@@ -367,7 +424,7 @@ function _api_compoffmodule(){
 		try {
 			$dbCon = getConnection();
 			$stmt   = $dbCon->query($query);
-			
+
 			$dbCon = null;
 			$result['success'] = "Compoff Applied Leave Successfully!!!";
 			echo json_encode($result);
@@ -387,7 +444,7 @@ function _api_defaultleave(){
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($query);
-		
+
 		$dbCon = null;
 		$result['success'] = "Total Leaves are updated Successfully!!!";
 		echo json_encode($result);

@@ -12,7 +12,7 @@ function _api_login() {
 
     // Connect to Mysql
 	$db = "";
-	
+
     // Get the params
     $params = $app->request->post();
 
@@ -20,7 +20,7 @@ function _api_login() {
     foreach ($params as $param => $value) {
         $app->log->debug('Param: ' . $param . " = " . $value);
     }
-	
+
     if (!isset($params['username']) || !isset($params['password'])) {
         $app->view()->appendData( array( 'failmess' => 'Wrong email or password') );
         $app->View()->appendData( array( 'signin' => true) );
@@ -36,7 +36,7 @@ function _api_login() {
             $app->log->debug("Storing username in browser for smooth logins");
         }
     }
-        
+
     // Verify the session
     $res = checkPass($db, $params['username'], $params['password']);
     if ($res) {
@@ -57,8 +57,8 @@ function _api_logout() {
     $app = \Slim\Slim::getInstance();
     $env = $app->environment();
 
-    // Connect to Mysql 
- 
+    // Connect to Mysql
+
     $username = $app->getCookie('username');
     if ($username) {
         $app->deleteCookie('username');
@@ -91,7 +91,7 @@ function getConnection() {
     $conn = null;
 	try {
         $db_username = "root";
-        $db_password = "root";
+        $db_password = "";
         $db_name = "zydehra";
         $conn = new PDO("mysql:host=localhost;dbname=".$db_name, $db_username, $db_password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

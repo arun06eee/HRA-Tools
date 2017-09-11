@@ -51,6 +51,7 @@ $env['dbaddemployeeCollection'] = "zyde_employee_bucket";
 $env['leaveform'] = "zyde_leave_form";
 $env['compoffform'] = "zyde_compoff_form";
 $env['defaultleave'] = "zyde_default_leave";
+$env['tags'] = "zyde_tags";
 
 // Load the includes
 require('./lib/api.php');
@@ -67,9 +68,9 @@ function authorize($role = 'read') {
 
         // Check if user is logged in
         if(!empty($username)) {
-            $app->view()->appendData( array( 'username' => $username ) ); 
+            $app->view()->appendData( array( 'username' => $username ) );
 			error_log('redirect Code ok...so logging in');
-        } else {		
+        } else {
 			error_log('not loggedin so returning to login');
 			$app->redirect($env['baseurl'] . '/login');
         }
@@ -108,6 +109,10 @@ $app->get( '/compoffform',          authorize(),    '_pages_compoffmodule');
 $app->get( '/storecomoffform',  	authorize(),    '_api_compoffmodule');
 $app->get( '/leavemaintanance',     authorize(),    '_pages_leavemaintanance');
 $app->get( '/defaultleave',         authorize(),    '_api_defaultleave');
+$app->get( '/tags',                 authorize(),    '_tags');
+$app->post( '/addtags',             authorize(),    '_api_addtags');
+$app->get( '/showtags',             authorize(),    '_api_showtags');
+$app->get( '/deletetags',          authorize(),    '_api_deletetags');
 
 $app->notFound(function () use ($app) {
 	// make the globals available

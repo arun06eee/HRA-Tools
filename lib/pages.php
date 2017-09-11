@@ -32,7 +32,7 @@ function _pages_addemployee(){
 	// Setup the page for rendering
 	$app->view()->appendData( array( 'title' => 'AddEmployee') );
 	$app->view()->appendData( array( 'addemployee' => true) );
-	
+
 	//$app->view()->appendData( array( 'emp_lastname' => "") );
 
 	// Render index view
@@ -122,6 +122,18 @@ function _pages_leavemaintanance(){
 	$app->view()->appendData( array( 'leavemaintanance' => true) );
 	// Render index view
 	$app->render('leavemaintanance.html');
+}
+
+function _tags(){
+    // Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'tags') );
+	$app->view()->appendData( array( 'tags' => true) );
+	// Render index view
+	$app->render('tags.html');
 }
 
 ?>

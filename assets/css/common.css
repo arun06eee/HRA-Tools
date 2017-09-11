@@ -4,7 +4,7 @@ body{
   font-family: Arial, Helvetica, sans-serif; 
   font-weight: bold; 
   border-color: #555555; 
-  overflow:hidden;
+  overflow:scroll;
 }
 .navbar, .dropdown-menu{
   background: #53627A;
@@ -431,4 +431,7 @@ textarea {
 	border: 1px solid #337AB7;
 	margin-top: 15px;
 	border-radius: 5px;
+}
+.alltags{
+	margin-left: 26px;
 }

@@ -11,26 +11,6 @@ $(function() {
 			$(".modal").on('hide.bs.modal', function() {
 				$('.invalid').remove();
 			});
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		}
 
 		ViewEmployee.prototype.initialization = function() {
