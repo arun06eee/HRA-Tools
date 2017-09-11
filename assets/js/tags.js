@@ -73,7 +73,7 @@ $(function(){
     tagDataResponse: function(data){
         if(data == true){
           var addtag =  '<div class="alert alltags alert-dismissable col-lg-2" style="background-color:'+tag_color+'">'+tag_name+
-                        '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+                        '<a href="#" value="'+tag_name+'" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
                         '</div>';
         }
         $("#showtags").append(addtag);
