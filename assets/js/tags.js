@@ -2,6 +2,8 @@ $(function(){
   var tag_name  = "";
   var tag_desc  = "";
   var tag_color = "";
+  var color = "";
+  var that;
   var tags = {
     init: function(){
       var url = $("#baseurl").val()+"/showtags";
@@ -14,8 +16,8 @@ $(function(){
             $("#NoTags").removeClass('hidden');
           }else{
             for(var i=0;i<response.length;i++){
-                var showtag =  '<div class="alert alltags alert-dismissable col-lg-2" style="background-color:'+response[i].tag_color+'">'+response[i].tag_name+
-                          '<a href="#" value="'+response[i].tag_name+'" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+                var showtag =  '<div class="btn alltags" style="background-color:'+response[i].tag_color+'; color:'+response[i].text_color+'">'+response[i].tag_name+
+                          '<span class="closetag" value="'+response[i].tag_name+'" style="color:'+response[i].text_color+'">&times</span>'+
                           '</div>';
                 $("#showtags").append(showtag);
                 $("#NoTags").addClass('hidden');
@@ -33,6 +35,7 @@ $(function(){
           tag_name = $("#tag_name").val();
           tag_desc = $("#tag_desc").val();
           tag_color = $("#tag_color").val();
+          text_color = $("#color").val();
           if(tag_name == '' && tag_desc == ''){
               tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill all the fields!','bg-danger');
           }else if(tag_name == ''){
@@ -44,7 +47,8 @@ $(function(){
               "csrf_token"  : $("#csrf_token").val(),
               "tag_name"    : tag_name,
               "tag_desc"    : tag_desc,
-              "tag_color"   : tag_color
+              "tag_color"   : tag_color,
+              "color"       : text_color
             };
             if(tmpArr != null){
                 tags.request(tmpArr, tags.tagDataResponse);
@@ -53,7 +57,8 @@ $(function(){
       });
     },
     fnDelete: function(){
-        $('.close').click(function(){
+        $('.closetag').click(function(){
+            that = this;
             var delete_data = {"delete_data" : $(this).attr('value')};
             var url = $("#baseurl").val()+"/deletetags";
             $.ajax({
@@ -61,7 +66,9 @@ $(function(){
                 type: 'GET',
                 data: delete_data,
                 success: function(response) {
-                  console.log(response);
+                  if(response == true){
+                    $(that).closest('.btn').remove();
+                  }
                 },
                 error: function() {
                     tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Error occured.Try again', 'bg-danger');
@@ -72,15 +79,16 @@ $(function(){
     },
     tagDataResponse: function(data){
         if(data == true){
-          var addtag =  '<div class="alert alltags alert-dismissable col-lg-2" style="background-color:'+tag_color+'">'+tag_name+
-                        '<a href="#" value="'+tag_name+'" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
-                        '</div>';
+          var addtag  =  '<div class="btn alltags" style="background-color:'+tag_color+'; color:'+text_color+'">'+tag_name+
+                          '<span class="closetag" value="'+tag_name+'" style="color:'+text_color+'">&times</span>'+
+                          '</div>';
         }
         $("#showtags").append(addtag);
         $("#NoTags").addClass('hidden');
         $("#tag_name").val('');
         $("#tag_desc").val('');
         $('#tag_color').val('');
+        $("#color").val('');
         tags.fnDelete();
     },
 
