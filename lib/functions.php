@@ -271,10 +271,11 @@ function _api_addtags(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 	$params = $app->request->post();
-	$query = "INSERT INTO ".$env['tags']."(tag_name, tag_desc, tag_color)".
+	$query = "INSERT INTO ".$env['tags']."(tag_name, tag_desc, tag_color, text_color)".
 	" VALUES ('".$params['tag_name']
 				."','".	$params['tag_desc']
 				."','".	$params['tag_color']
+				."','". $params['color']
 				."')";
 	try {
 		$dbCon = getConnection();
