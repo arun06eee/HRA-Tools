@@ -43,7 +43,7 @@ function _api_login() {
         #set the session for the user here
         cleanMemberSession($db, $params['username']);
         $app->log->info('User ' . $params['username'] . ' logged in');
-        $app->redirect($env['baseurl'] . '/');
+        $app->redirect($env['baseurl'] . '/addemployee');
     } else {
         $app->log->debug('username or password failed to validate');
         $app->view()->appendData( array( 'failmess' => 'Wrong email or password') );
@@ -91,7 +91,7 @@ function getConnection() {
     $conn = null;
 	try {
         $db_username = "root";
-        $db_password = "";
+        $db_password = "root";
         $db_name = "zydehra";
         $conn = new PDO("mysql:host=localhost;dbname=".$db_name, $db_username, $db_password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

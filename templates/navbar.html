@@ -15,8 +15,8 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#" class="">Home</a></li>
-						<li class=" dropdown">
+						<!-- <li class="active"><a href="#" class="">Home</a></li> -->
+						<li class="dropdown">
 							<a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="{{ baseurl }}/addemployee">Add Employee</a></li>
@@ -24,30 +24,33 @@
 							</ul>
 						</li>
 						<li class=" dropdown">
-							<a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leave System<span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leave Balance<span class="caret"></span></a>
 							<ul class="dropdown-menu">
+								<li><a href="{{baseurl}}/leavemaintanance">Leave config</a></li>
 								<li><a href="{{baseurl}}/leaveform">Add Leave</a></li>
-								<li><a href="{{baseurl}}/compoffform">Add Comp-OFF</a></li>
-								<li><a href="#">Reports</a></li>
-								<li><a href="{{baseurl}}/leavemaintanance">Leave-Maintanance</a></li>
+								<!--<li><a href="{{baseurl}}/compoffform">Add Comp-OFF</a></li>-->
 							</ul>
 						</li>
-						<li class=" dropdown">
+						<!--
+                        <li class=" dropdown">
 							<a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payment Details <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Upload Payment Details</a></li>
 								<li><a href="#">View Payment Details</a></li>
 							</ul>
 						</li>
-						<li><a href="{{ baseurl }}/role" class="">Role</a></li>
+                        -->
+						<!--
+                            <li><a href="{{ baseurl }}/role" class="">Role</a></li>
+                        -->
 						<li><a href="{{ baseurl }}/tags">Tags</a></li>
+				        <li><a href="{{ baseurl }}/reports">Reports</a></li>
 					</ul>
 					<ul class="nav navbar-nav pull-right">
 						<li class=" dropdown">
 							<a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}}&nbsp;&nbsp;<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Change Password</a></li>
-								<li><a href="#">My Profile</a></li>
 							</ul>
 						</li>
 						<li class=""><a href="{{ baseurl }}/logout">Logout</a></li>
