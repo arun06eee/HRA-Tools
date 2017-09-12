@@ -3,22 +3,52 @@ $(function(){
 		emp_base64String: null,
 		init : function () {
 			var that = this;
+            $("#tagsList").empty();
 			var controller = $("#baseurl").val() + "/viewemployeebuckets",
 				data = {
 					alpha: "All",
 					csrf_token: $("#csrf_token").val(),
 					cmd : 'view'
 				};
+            
 			that.request(controller, data, 'get', function(json){
 				var options = '';
 				for (var mainKey in json){
-					var abc = json[mainKey].firstname + ', ' + json[mainKey].employee_number;
+					var abc = json[mainKey].firstname + '(' + json[mainKey].employee_number+')';
 					options += '<option value="' + abc +'">' + abc + '</option>';
 				}
 				$("select#emp_name").html(options);
+                
+                $('#emp_name').SumoSelect({placeholder: 'Employee Status'});
 			});
+            
+            var tagsController = $("#baseurl").val() + "/showtags",
+                tagsData = {};
+            
+            that.request(tagsController, tagsData, 'get', function(json){
+                if(json){
+                    for(var i=0;i<json.length;i++){
+                        var showtag = '<div class="btn tagevent" style="background-color:'+ json[i].tag_color+'">'
+                                +json[i].tag_name+ '</div>';
+                        $("#tagsList").append(showtag);
+                    }
+                }
+                
+                that.fnTagsListAction();
+            });
+
 			that.fnSaveLeaveModule();
 		},
+        fnTagsListAction: function(){
+            $(".tagevent").click(function(){
+                console.log($(this).html());
+                if($(this).hasClass("activeTags")){
+                    $(this).removeClass("activeTags");
+                }else {
+                    $(this).addClass("activeTags");
+                }
+            });
+        },
 		fnSaveLeaveModule: function(){
 			var that = this;
 			$(".save-leavemodule-btn").click(function(event){

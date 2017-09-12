@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/datatable.min.css" />
+<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/sumoselect.min.css" />
 
 <link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/common.css" />
 
@@ -29,4 +30,33 @@
 	<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/style.css">
 {% else %}
 	<link rel="stylesheet" type="text/css" href="{{baseurl}}/assets/css/dashboard.css">
+{% endif %}
+
+
+
+{% if leaveform %}
+<style>
+    .SumoSelect{
+        width: 100%;
+    }
+    .SumoSelect>.optWrapper>.options li.opt {
+        padding: 12px;
+    }
+
+    .activeTags {
+        opacity : 0.8;
+        box-shadow: 4px 3px 3px 0px;
+        border : none;
+    }
+    .tagevent {
+        margin-left: 10px;
+    }
+    
+    #tagsList {
+        border: 1px solid #337ab7;
+        padding: 10px;
+        border-radius: 3px;
+    }
+</style>
+
 {% endif %}

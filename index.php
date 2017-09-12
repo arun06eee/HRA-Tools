@@ -80,7 +80,6 @@ function authorize($role = 'read') {
 
 // Setup the before routing hook
 $app->hook('slim.before.router', function () use ($app) {
-
     // Setup the basic parameters
     $env = $app->environment();
     $app->view()->appendData( array( 'baseurl' => $env['baseurl'] ) );
@@ -92,23 +91,26 @@ $app->post('/login',								'_api_login');
 $app->get( '/logout',								'_api_logout');
 $app->get('/',						authorize(),    '_api_base');
 $app->get( '/addemployee',          authorize(),    '_pages_addemployee');
-$app->get( '/role',                 authorize(),    '_pages_roleemployee');
-$app->get( '/rolerecords',          authorize(),    '_api_rolesRecords');
-$app->get( '/role',                 authorize(),    '_api_viewEmployeeBuckets');
-$app->get( '/assignrole',  		    authorize(),    '_api_assignrole');
+
+//$app->get( '/role',                 authorize(),    '_pages_roleemployee');
+//$app->get( '/rolerecords',          authorize(),    '_api_rolesRecords');
+//$app->get( '/role',                 authorize(),    '_api_viewEmployeeBuckets');
+//$app->get( '/assignrole',  		    authorize(),    '_api_assignrole');
+
 $app->post( '/addemployee',  		authorize(),    '_api_insertAddEmployeeBuckets');
 $app->get( '/viewemployee',  		authorize(),    '_pages_viewemployee');
 $app->get( '/viewemployeebuckets',  authorize(),    '_api_viewEmployeeBuckets');
 $app->get( '/viewemployeeprofile',  authorize(),    '_api_viewEmployeeProfile');
 $app->get( '/updateemployee',       authorize(),	'_api_editEmployeeProfile');
 $app->get( '/deleteemployee',  		authorize(),    '_api_deleteEmployeeProfile');
-$app->get( '/userrole',  		    authorize(),    '_pages_userrole');
+//$app->get( '/userrole',  		    authorize(),    '_pages_userrole');
 $app->get( '/leaveform',            authorize(),    '_pages_leaveform');
 $app->get( '/storeleaveform',       authorize(),    '_api_leavemodule');
 $app->get( '/compoffform',          authorize(),    '_pages_compoffmodule');
 $app->get( '/storecomoffform',  	authorize(),    '_api_compoffmodule');
 $app->get( '/leavemaintanance',     authorize(),    '_pages_leavemaintanance');
 $app->get( '/defaultleave',         authorize(),    '_api_defaultleave');
+
 $app->get( '/tags',                 authorize(),    '_tags');
 $app->post( '/addtags',             authorize(),    '_api_addtags');
 $app->get( '/showtags',             authorize(),    '_api_showtags');
