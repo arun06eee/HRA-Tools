@@ -375,20 +375,18 @@ function _api_leavemodule(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 	$params = $app->request->get();
+	$date = date('Y-m-d');
 	$result = array();
 	for ($i=0; $i < count($params['employee_status']); $i++) {
 		$employee_status_splited = explode(",", $params['employee_status'][$i]);
-		$employee_number = trim($employee_status_splited[1]);
-		$query = "INSERT INTO ".$env['leaveform']."(employee_number, date_applied, from_date, to_date, leave_type, reason, applied_adp, leave_mode, comments)"
-				." VALUES ('".$employee_number
-							."','". $params['date_applied']
+		$employee_number = trim($employee_status_splited[0]);
+		$query = "INSERT INTO ".$env['leaveform']."(employee_number, date_applied, from_date, to_date, reason, tag_name)"
+				." VALUES (		'".	$employee_number
+							."','". $date
 							."','". $params['from_date']
 							."','". $params['to_date']
-							."','". $params['leave_type']
 							."','". $params['reason']
-							."','". $params['applied_adp']
-							."','". $params['leave_mode']
-							."','". $params['comments']
+							."','". $params['tag_name']
 						."')";
 		try {
 			$dbCon = getConnection();

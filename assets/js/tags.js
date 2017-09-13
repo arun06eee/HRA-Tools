@@ -42,6 +42,8 @@ $(function(){
               tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill out Tag Name!','bg-danger');
           }else if(tag_desc == ''){
               tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill out Tag Description!','bg-danger');
+          }else if(tag_color == text_color){
+              tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Tag color and Color Should not same!','bg-danger');
           }else{
             var tmpArr = {
               "csrf_token"  : $("#csrf_token").val(),
