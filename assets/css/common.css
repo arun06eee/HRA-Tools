@@ -1,15 +1,12 @@
-body{ 
-  background: #1A2E4E; 
+body{
   color: #53627A; 
   font-family: Arial, Helvetica, sans-serif; 
   font-weight: bold; 
   border-color: #555555; 
-  overflow:scroll;
+  overflow: auto;
 }
 .navbar, .dropdown-menu{
-  background: #53627A;
-  border: none;
-
+  border-bottom : 1px solid  #afd911;
 }
 ul.ui-autocomplete.ui-menu{
 	width:400px;
@@ -28,6 +25,11 @@ ul{
 	list-style-type: none;
 }
 
+
+.userStyle {
+    text-transform: uppercase;
+}
+
 .nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
   border-bottom: 3px solid transparent;
 }
@@ -36,7 +38,7 @@ ul{
   background: none;
 }
 .navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
- color: #fff;
+ color: #555555;
 }
 ul.dropdown-menu{
 	-webkit-box-shadow: none;
@@ -45,6 +47,7 @@ ul.dropdown-menu{
 	min-width:auto;
 	border-radius:0px;
 }
+/*
 
 .nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
   border-bottom: #C4E17F 3px solid;
@@ -70,19 +73,19 @@ ul.dropdown-menu{
 .nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
   border-bottom: #62C2E4 3px solid;
 }
+*/
 
 .navbar-toggle .icon-bar{
     color: #fff;
     background: #fff;
 }
 .dash_Logo{
-  height: 35px;
+    height: 35px;
+    width: 185px;
 }
 .pdT55{
   padding-top: 55px;
 }
-
-body{ background:rgba(0, 0, 0, 0.06); }
 
 .header-underline {
     font-size: 24px;
@@ -102,9 +105,13 @@ body{ background:rgba(0, 0, 0, 0.06); }
 .emp_lists_btn{
 	background: white;
     text-decoration: none;
-    border: 1px solid #ddd;
+    border: 1px solid #afd911;
     margin-left: 5px;
-    border-radius: 5px
+    border-radius: 5px;
+    margin-bottom: 2px;
+    font-size: 11px;
+    display: block;
+    width: 30px;
 }
 
 
@@ -369,8 +376,8 @@ textarea {
 }
 
 .modal-header{
-	background: #2E563F;
-	color: #fff;
+	background: rgba(175, 217, 17, 0.55);
+	color: #000;
 }
 
 .modal-footer {

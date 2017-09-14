@@ -26,12 +26,10 @@ a {
 /************************* Login Page *************************/
 /*Login Area Text Styling*/
 #LoginArea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  color: #FFFFFF;
-    background-color: #0F2132;
-  border-color: #112231 !important;
-
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #FFFFFF;
+    border-color: #afd911 !important;
 }
 
 /*Login Area Text Hover*/
@@ -2889,8 +2887,16 @@ img {
     padding-bottom :10px;
 }
 
+.pb50{
+    padding-bottom :50px;
+}
+
 .pt10{
     padding-top :10px;
+}
+
+.pt50{
+    padding-top : 50px;
 }
 
 /************************* Login Page *************************/
@@ -2902,8 +2908,13 @@ img {
 .loginIcon .glyphicon {
     font-size: 28px;
 }
-.loginIcon h4{
+.loginIcon h5{
     color:#555555;
+    text-transform: uppercase;
+}
+
+.loginIcon .glyphicon {
+    color: #afd911;
 }
 /*Login Area Border*/
 #LoginArea {
@@ -2913,7 +2924,7 @@ img {
     min-height: 210px;
     border-width: 2px;
     border-style: solid;
-    border-radius: 10px;
+    border-radius: 1px;
     margin-left: auto;
     margin-right: 50px;
     text-align: center;
@@ -2923,14 +2934,19 @@ img {
 .bd-blue {
     border-bottom : 1px solid  #0f2132
 }
+
+.bd-lightGreen {
+    border-bottom : 1px solid  #afd911;
+}
+
 .loginLogo img{
     margin-left: 10px;
     margin-top: 5px; 
 }
 
 .Logo {
-    height: 45px;
-    width: 209px;
+    height: 35px;
+    width: 185px;
     -moz-margin-start: 15px;
 }
 

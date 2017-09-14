@@ -50,9 +50,11 @@ $(function() {
 
 				var a = '<i class="glyphicon glyphicon-list-alt export-employee" zyde-id="All" title="Download"></i>'
 						+ '<i class="glyphicon glyphicon-th-list" id="tableListView" title="List View" ></i>'
-						+ '<i class="glyphicon glyphicon-th" id="tableGridView" title="Grid View"></i>';
+						+ '<i class="glyphicon glyphicon-th" id="tableGridView" title="Grid View"></i>'
+						+ '<i class="glyphicon glyphicon-plus" id="addEmployee" title="Add Employee"></i>';
 				
-				$(".alphaButtons").before(a);
+				//$(".alphaButtons").before(a);
+				$(".itemListButtons").append(a);
 				
 				$("#tableListView").click(function() {			
 					$("#employeeLists").hide("drop", {direction: "left"}, 1000 , function (){
@@ -66,6 +68,11 @@ $(function() {
 					});
 				});
 
+                $("#addEmployee").click(function(){
+                    $("#addEmployeeModal").modal("show");
+                })
+                
+                
 				return $(".save_edited_profile").click(function(e) {
 					var _id = $(".save_edited_profile").attr("get-emp-id");
 					if (_id != '') {

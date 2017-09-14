@@ -1,6 +1,20 @@
-body {
-	overflow:hidden;
+.pr40{
+    padding-right: 40px;
 }
+
+
+.itemListButtons .glyphicon {
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 15px;
+    border: 1px solid #afd911;
+    padding: 5px;
+    text-align: center;
+    color: #afd911;
+    background: #555555;
+}
+
+
 .panel-body {
 	height : 500px;
 	overflow-y:auto;
