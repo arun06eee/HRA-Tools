@@ -3,7 +3,7 @@ $(function(){
 		emp_base64String: null,
 		init : function () {
 			var that = this;
-			$("#id_set_total_leave").on('keypress', function (evt) {
+			$(".num_field").on('keypress', function (evt) {
                 if((evt.which != 46) &&
                     (evt.which != 43) &&
                     (evt.which != 45) &&
@@ -12,23 +12,55 @@ $(function(){
                         evt.preventDefault();
                 }
 			});
-			that.fnSaveLeaveMaintanance();
+			maintanance.fnviewleave();
+			maintanance.fnSaveLeaveMaintanance();
+		},
+		fnviewleave: function(val){
+			var that = this;
+			var controller = $("#baseurl").val() + "/viewldefaultleave";
+			var data = '';
+			if(val == 'true'){
+				$("#leave_table tbody tr").empty();
+			}
+			that.request(controller, data, 'GET', function(json){
+				if(json.length == 0){
+					var td = "<tr><td colspan='3' style='text-align: center;'>No Data Available.!!</td></tr>"
+					$("#addtr").append(td);
+				}else{
+					for(var i=0;i<json.length;i++){
+						var td = "<tr>"
+									+"<td>"+(i+1)+"</td>"
+									+"<td>"+json[i].leave_year+"</td>"
+								 	+"<td>"+json[i].total_leave+"</td></tr>";
+						$("#addtr").append(td);
+					}
+				}
+			});
 		},
 		fnSaveLeaveMaintanance: function(){
 			var that = this;
 			$(".save-totalLeave-btn").click(function(event){
-				var controller = $("#baseurl").val() + "/defaultleave",
-				data = {
-					"csrf_token": $("#csrf_token").val(),
-					"set_default_leave":$("#id_set_total_leave").val()
-				};
-				$(".id_set_total_leave").val('');
-				that.request(controller, data, 'GET', function(json){
-					that.fnerrorMessage('show', 'leavemaintanance-details', 'glyphicon-ok', json.success, 'bg-success');
-					setTimeout(function(){
-				    	that.fnerrorMessage('hide', 'leavemaintanance-details', 'glyphicon-ok', null, 'bg-success');
-				    }, 3000);
-				});
+				var set_total_leave = $("#id_set_total_leave").val();
+				var set_year = $("#set_year").val();
+				if(set_total_leave == '' || set_year == ''){
+					maintanance.fnerrorMessage('show', 'leavemaintanance-details', 'glyphicon-warning-sign', 'Fill all the fields!!', 'bg-danger');
+				}else{
+					var controller = $("#baseurl").val() + "/defaultleave",
+					data = {
+						"csrf_token"		: $("#csrf_token").val(),
+						"set_total_leave"	: set_total_leave,
+						"set_year"			: set_year
+					};
+					$("#id_set_total_leave").val('');
+					$("#set_year").val('');
+					that.request(controller, data, 'GET', function(json){
+						that.fnviewleave('true');
+						that.fnerrorMessage('show', 'leavemaintanance-details', 'glyphicon-ok', json.success, 'bg-success');
+						setTimeout(function(){
+					    	that.fnerrorMessage('hide', 'leavemaintanance-details', 'glyphicon-ok', null, 'bg-success');
+					    }, 3000);
+					});
+				}
 			});
 		},
 		fnerrorMessage: function(type, id, classes, msg, status) {
@@ -55,10 +87,10 @@ $(function(){
 					callback(result);
 				},
 				error: function() {
-					maintanance.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Error occured.Try again', 'bg-danger');
+					maintanance.fnerrorMessage('show', 'leavemaintanance-details', 'glyphicon-warning-sign', 'Error occured.Try again', 'bg-danger');
 					console.log('error occured');
 					setTimeout(function(){
-				    	maintanance.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-warning-sign', null, 'bg-danger');
+				    	maintanance.fnerrorMessage('hide', 'leavemaintanance-details', 'glyphicon-warning-sign', null, 'bg-danger');
 				    }, 3000);
 				}
 			});

@@ -127,6 +127,24 @@ function _api_viewEmployeeProfile(){
 	echo json_encode($profile); // Send data to ajax call in jquery.
 }
 
+function _api_viewDefaultLeave(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+
+	$sql_query = "select * FROM ".$env['defaultleave'];
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($sql_query);
+		$profile  = $stmt->fetchAll(PDO::FETCH_OBJ);
+	}catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+
+	header("Content-Type: application/json; charset=UTF-8");
+	echo json_encode($profile); // Send data to ajax call in jquery.
+}
+
 function _api_editEmployeeProfile(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
@@ -438,8 +456,10 @@ function _api_defaultleave(){
 	$env = $app->environment();
 	$params = $app->request->get();
 	$result = array();
-	$query = "INSERT INTO ".$env['defaultleave']."(total_leave)"
-			." VALUES ('".$params['set_default_leave']."') ON DUPLICATE KEY UPDATE total_leave='".$params['set_default_leave']."'";
+	$query = "INSERT INTO ".$env['defaultleave']."(leave_year, total_leave)"
+				." VALUES (		'".	$params['set_year']
+							."','". $params['set_total_leave']
+						."')";
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($query);

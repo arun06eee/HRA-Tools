@@ -13,15 +13,43 @@
 	</div>
 	<div class='panel-body'>
 		<form role='form' id="total_leave-submit">
-			<div class="borderStyle" >
+			<div class="borderStyle">
 				<h3 class="fieldBorder">Default Leaves</h3>
 				<div class="row form-group required">
-					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
+					<div class='col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1'>
 						<div class="group">
-							<input type='text' maxlength="2" id='id_set_total_leave' zyde-service="set_total_leave" required/>
+							<input type='text' maxlength="4" class="num_field" id="set_year" required/>
 							<span class="highlight"></span>
 							<span class="bar"></span>
-							<label>Set Total Leave</label>
+							<label>Year</label>
+						</div>
+					</div>
+					<div class='col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1'>
+						<div class="group">
+							<input type='text' maxlength="2" class="num_field" id='id_set_total_leave' zyde-service="set_total_leave" required/>
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label>Total Leave</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="borderStyle" style="margin-top: 40px;">
+				<h3 class="fieldBorder">Default Leaves</h3>
+				<div class="container">
+					<div class="row clearfix">
+						<div class="col-md-8 column">
+							<table id="leave_table" class="table table-bordered table-hover">
+								<thead>
+									<tr >
+										<th class="">No.</th>
+										<th class="text-center">Year</th>
+										<th class="text-center">Total Leave</th>
+									</tr>
+								</thead>
+								<tbody id='addtr'>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
