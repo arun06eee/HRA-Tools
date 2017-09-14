@@ -110,6 +110,7 @@ $app->get( '/compoffform',          authorize(),    '_pages_compoffmodule');
 $app->get( '/storecomoffform',  	authorize(),    '_api_compoffmodule');
 $app->get( '/leavemaintanance',     authorize(),    '_pages_leavemaintanance');
 $app->get( '/defaultleave',         authorize(),    '_api_defaultleave');
+$app->get( '/viewldefaultleave',    authorize(),    '_api_viewDefaultLeave');
 
 $app->get( '/tags',                 authorize(),    '_tags');
 $app->post( '/addtags',             authorize(),    '_api_addtags');

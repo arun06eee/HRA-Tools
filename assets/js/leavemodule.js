@@ -1,4 +1,5 @@
 $(function(){
+	var tag_name = "";
 	var leaveM = {
 		emp_base64String: null,
 		init : function () {
@@ -10,7 +11,7 @@ $(function(){
 					csrf_token: $("#csrf_token").val(),
 					cmd : 'view'
 				};
-            
+
 			that.request(controller, data, 'get', function(json){
 				var options = '';
 				for (var mainKey in json){
@@ -18,7 +19,7 @@ $(function(){
 					options += '<option value="' + abc +'">' + abc + '</option>';
 				}
 				$("select#emp_name").html(options);
-                
+
                 $('#emp_name').SumoSelect({placeholder: 'Employee Status'});
 			});
             
@@ -28,7 +29,7 @@ $(function(){
             that.request(tagsController, tagsData, 'get', function(json){
                 if(json){
                     for(var i=0;i<json.length;i++){
-                        var showtag = '<div class="btn tagevent" style="background-color:'+ json[i].tag_color+'">'
+                        var showtag = '<div class="btn tagevent" style="background-color:'+ json[i].tag_color+';color:'+json[i].text_color+'">'
                                 +json[i].tag_name+ '</div>';
                         $("#tagsList").append(showtag);
                     }
@@ -41,7 +42,8 @@ $(function(){
 		},
         fnTagsListAction: function(){
             $(".tagevent").click(function(){
-                console.log($(this).html());
+                tag_name = $(this).html();
+                $(".tagevent").removeClass("activeTags");
                 if($(this).hasClass("activeTags")){
                     $(this).removeClass("activeTags");
                 }else {
@@ -63,21 +65,28 @@ $(function(){
 					"date_applied": $("#id_date_applied").val(),
 					"from_date": $("#id_from_date").val(),
 					"to_date": $("#id_to_date").val(),
-					"leave_type": $("#emp_leave_type").val(),
 					"reason": $("#lve_reason").val(),
-					"applied_adp": $("#applied_ADP").val(),
-					"leave_mode": $("#leave_mode").val(),
-					"comments": $("#lve_comments").val(),
+					"tag_name": tag_name
 				};
-				$("#emp_name option:selected").removeAttr("selected");
-				$(".leave-dates").val('');
-				$(".leave_details").val('');
-				that.request(controller, data, 'GET', function(json){
-					that.fnerrorMessage('show', 'leaveform-details', 'glyphicon-ok', json.success, 'bg-success');
-					setTimeout(function(){
-				    	that.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-ok', null, 'bg-success');
-				    }, 3000);
-				});
+				if(data.employee_status == ""){
+					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Employees!!', 'bg-danger');
+				}else if(data.from_date == "" || data.to_date == ""){
+					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Date!!', 'bg-danger');
+				}else if(data.reason == ""){
+					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Reason should not empty!!', 'bg-danger');
+				}else if(data.tag_name == ""){
+					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Tag!!', 'bg-danger');
+				}else{
+					$("#emp_name option:selected").removeAttr("selected");
+					$(".leave-dates").val('');
+					$(".leave_details").val('');
+					that.request(controller, data, 'GET', function(json){
+						that.fnerrorMessage('show', 'leaveform-details', 'glyphicon-ok', json.success, 'bg-success');
+						setTimeout(function(){
+					    	that.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-ok', null, 'bg-success');
+					    }, 3000);
+					});
+				}
 			});
 		},
 		fnerrorMessage: function(type, id, classes, msg, status) {
@@ -103,13 +112,13 @@ $(function(){
 				success: function(result) {
 					callback(result);
 				},
-				error: function() {
+				/*error: function() {
 					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Error occured.Try again', 'bg-danger');
 					console.log('error occured');
 					setTimeout(function(){
 				    	leaveM.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-warning-sign', null, 'bg-danger');
 				    }, 3000);
-				}
+				}*/
 			});
 		}
 	};

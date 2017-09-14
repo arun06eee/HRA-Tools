@@ -127,6 +127,24 @@ function _api_viewEmployeeProfile(){
 	echo json_encode($profile); // Send data to ajax call in jquery.
 }
 
+function _api_viewDefaultLeave(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+
+	$sql_query = "select * FROM ".$env['defaultleave'];
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($sql_query);
+		$profile  = $stmt->fetchAll(PDO::FETCH_OBJ);
+	}catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+
+	header("Content-Type: application/json; charset=UTF-8");
+	echo json_encode($profile); // Send data to ajax call in jquery.
+}
+
 function _api_editEmployeeProfile(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
@@ -375,20 +393,18 @@ function _api_leavemodule(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 	$params = $app->request->get();
+	$date = date('Y-m-d');
 	$result = array();
 	for ($i=0; $i < count($params['employee_status']); $i++) {
 		$employee_status_splited = explode(",", $params['employee_status'][$i]);
-		$employee_number = trim($employee_status_splited[1]);
-		$query = "INSERT INTO ".$env['leaveform']."(employee_number, date_applied, from_date, to_date, leave_type, reason, applied_adp, leave_mode, comments)"
-				." VALUES ('".$employee_number
-							."','". $params['date_applied']
+		$employee_number = trim($employee_status_splited[0]);
+		$query = "INSERT INTO ".$env['leaveform']."(employee_number, date_applied, from_date, to_date, reason, tag_name)"
+				." VALUES (		'".	$employee_number
+							."','". $date
 							."','". $params['from_date']
 							."','". $params['to_date']
-							."','". $params['leave_type']
 							."','". $params['reason']
-							."','". $params['applied_adp']
-							."','". $params['leave_mode']
-							."','". $params['comments']
+							."','". $params['tag_name']
 						."')";
 		try {
 			$dbCon = getConnection();
@@ -440,8 +456,10 @@ function _api_defaultleave(){
 	$env = $app->environment();
 	$params = $app->request->get();
 	$result = array();
-	$query = "INSERT INTO ".$env['defaultleave']."(total_leave)"
-			." VALUES ('".$params['set_default_leave']."') ON DUPLICATE KEY UPDATE total_leave='".$params['set_default_leave']."'";
+	$query = "INSERT INTO ".$env['defaultleave']."(leave_year, total_leave)"
+				." VALUES (		'".	$params['set_year']
+							."','". $params['set_total_leave']
+						."')";
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($query);
