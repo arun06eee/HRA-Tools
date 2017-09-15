@@ -38,8 +38,8 @@ $(function(){
             var tagsController = $("#baseurl").val() + "/showtags",
                 tagsData = {};
             that.request(tagsController, tagsData, 'get', function(json){
-            	var defaultTags = '<div id="compoff" class="btn tagevent" style="background-color:#00C631; color:#ffffff">Compoff</div>'
-                        				+'<div id="LOP" class="btn tagevent" style="background-color:#FF0014; color:#ffffff">LOP</div>';
+            	var defaultTags = '<div id="compoff" class="btn tagevent" style="background-color:#00C664; color:#ffffff">Compoff</div>'
+                        				+'<div id="LOP" class="btn tagevent" style="background-color:#FF003B; color:#ffffff">LOP</div>';
                 $("#tagsList").append(defaultTags);
                 if(json){
                     for(var i=0;i<json.length;i++){

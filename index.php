@@ -115,7 +115,8 @@ $app->get( '/viewldefaultleave',    authorize(),    '_api_viewDefaultLeave');
 $app->get( '/tags',                 authorize(),    '_tags');
 $app->post( '/addtags',             authorize(),    '_api_addtags');
 $app->get( '/showtags',             authorize(),    '_api_showtags');
-$app->get( '/deletetags',          authorize(),    '_api_deletetags');
+$app->get( '/deletetags',           authorize(),    '_api_deletetags');
+$app->get( '/reports',              authorize(),    '_reports');
 
 $app->notFound(function () use ($app) {
 	// make the globals available
