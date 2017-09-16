@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class='panel panel-primary dialog-panel' id="leaveform-details">
+<div class='panel panel-primary dialog-panel' id="reports">
 	<div class='panel-heading'>
-		<h3>Add Leave
-			<button class="btn btn-success save-leavemodule-btn pull-right" ><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
+		<h3>Reports
+			<button class="btn btn-success save-leavemodule-btn pull-right" ><i class="fa fa-floppy-o"></i> &nbsp;Show</button>
 		</h3>
 		
 		<p class="errorstyle bg-danger text-left hidden">
@@ -12,47 +12,40 @@
 		</p>
 	</div>
 	<div class='panel-body'>
-		<form role='form' id="leaveform-submit">
+		<form role='form' id="reports-form">
 			<div class="borderStyle" >
-				<h3 class="fieldBorder">Leave Module</h3>
+				<h3 class="fieldBorder">Reports Data</h3>
 				
 				<div class="row form-group required">
 					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
 						<div class="group">
-							<select  id="emp_name" class="" required >
+							<select id="employee" class="" required >
 								<option value="">--Select Employee--</option>
 							</select>
 						</div>
                         <div class="group">
-							<input class="leave-dates" id='id_from_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
+							<input class="leave-dates" id='from_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" required/>
 							<span class="highlight"></span>
 							<span class="bar"></span>
 							<label>From Date</label>
 						</div>
 						<div class="group">
-							<input class="leave-dates" id='id_to_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
+							<input class="leave-dates" id='to_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" required/>
 							<span class="highlight"></span>
 							<span class="bar"></span>
 							<label>To Date</label>
 						</div>
-						<div class="group">
-							<textarea class="form-control leave_reason leave_details" rows="5" id="lve_reason" required></textarea>
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>Reason</label>
-						</div>
-
 					</div>
 					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
                         <label>Tags</label>
-						<div id="tagsList"></div>
+						<div id="tags"></div>
 					</div>
-					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1' style="margin-top: 20px;">
-						<div class="avail_leave">
-							<label>Available Leaves: </label>
-							<span id="avail_leave"></span>
-						</div>
-					</div>
+				</div>
+			</div>
+			<div class="borderStyle" style="margin-top:30px">
+				<h3 class="fieldBorder" style="width: 170px">Information</h3>
+				<div class="row form-group required">
+					
 				</div>
 			</div>
 			<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />

@@ -1,5 +1,5 @@
 $(function(){
-	var tag_name = "";
+	var avail_leave = "";
 	var leaveM = {
 		emp_base64String: null,
 		init : function () {
@@ -18,23 +18,35 @@ $(function(){
 					var abc = json[mainKey].firstname + '(' + json[mainKey].employee_number+')';
 					options += '<option value="' + abc +'">' + abc + '</option>';
 				}
-				$("select#emp_name").html(options);
-
+				$("select#emp_name").append(options);
                 $('#emp_name').SumoSelect({placeholder: 'Employee Status'});
+
+				$("select#emp_name").change(function(){
+					var emp_num = $(this).val().match(/\((.*)\)/);
+					if(emp_num != null){
+						avail_leave = "";
+						for (var mainKey in json){
+							if(json[mainKey].employee_number == emp_num[1]){
+								$("#avail_leave").html(json[mainKey].available_leave);
+								avail_leave = json[mainKey].available_leave;
+							}
+						}
+					}
+				});
 			});
             
             var tagsController = $("#baseurl").val() + "/showtags",
                 tagsData = {};
-            
             that.request(tagsController, tagsData, 'get', function(json){
+            	var defaultTags = '<div id="compoff" class="btn tagevent" style="background-color:#00C664; color:#ffffff">Compoff</div>'
+                        				+'<div id="LOP" class="btn tagevent" style="background-color:#FF003B; color:#ffffff">LOP</div>';
+                $("#tagsList").append(defaultTags);
                 if(json){
                     for(var i=0;i<json.length;i++){
-                        var showtag = '<div class="btn tagevent" style="background-color:'+ json[i].tag_color+';color:'+json[i].text_color+'">'
-                                +json[i].tag_name+ '</div>';
+                        var showtag = '<div class="btn tagevent" style="background-color:'+ json[i].tag_color+';color:'+json[i].text_color+'">'+json[i].tag_name+ '</div>';
                         $("#tagsList").append(showtag);
                     }
                 }
-                
                 that.fnTagsListAction();
             });
 
@@ -42,8 +54,6 @@ $(function(){
 		},
         fnTagsListAction: function(){
             $(".tagevent").click(function(){
-                tag_name = $(this).html();
-                $(".tagevent").removeClass("activeTags");
                 if($(this).hasClass("activeTags")){
                     $(this).removeClass("activeTags");
                 }else {
@@ -51,36 +61,68 @@ $(function(){
                 }
             });
         },
+		showDays: function(firstDate,secondDate){
+			// function to calculate count between dats
+
+			var startDay = new Date(firstDate);
+			var endDay = new Date(secondDate);
+			var millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+			var millisBetween = endDay.getTime() - startDay.getTime() ;
+			var days = millisBetween / millisecondsPerDay;
+			return(Math.round(days));
+		},
 		fnSaveLeaveModule: function(){
 			var that = this;
 			$(".save-leavemodule-btn").click(function(event){
-				var selected_employees = [];
-				$('#emp_name :selected').each(function(i, selected){ 
-				  selected_employees[i] = $(selected).text();
-				});
-				var controller = $("#baseurl").val() + "/storeleaveform",
-				data = {
-					"csrf_token": $("#csrf_token").val(),
-					"employee_status":selected_employees,
-					"date_applied": $("#id_date_applied").val(),
-					"from_date": $("#id_from_date").val(),
-					"to_date": $("#id_to_date").val(),
-					"reason": $("#lve_reason").val(),
-					"tag_name": tag_name
-				};
-				if(data.employee_status == ""){
+				var	bool = true,
+					fromDate = $("#id_from_date").val(),
+					toDate = $("#id_to_date").val(),
+					duration = leaveM.showDays(fromDate,toDate)+1;
+
+				if($("#emp_name").val() == ""){
 					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Employees!!', 'bg-danger');
-				}else if(data.from_date == "" || data.to_date == ""){
+					bool = false;
+				}else if($("#id_from_date").val() == "" || $("#id_to_date").val() == ""){
 					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Date!!', 'bg-danger');
-				}else if(data.reason == ""){
+					bool = false;
+				}else if($("#lve_reason").val() == ""){
 					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Reason should not empty!!', 'bg-danger');
-				}else if(data.tag_name == ""){
-					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Tag!!', 'bg-danger');
+					bool = false;
+				}else if(duration <= 0 || isNaN(duration)){
+					console.log(duration);
+					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Enter Valid Dates!!', 'bg-danger');
+					bool = false;
 				}else{
+					//lets start LOP avlidation here!!
+					if(parseInt(avail_leave) < duration){
+						console.log('hi');
+						$("#LOP").addClass('activeTags');
+					}
+				}
+
+				var tag_name = [];
+				$('.activeTags').each(function(i, selected){ 
+				  tag_name[i] = $(selected).text();
+				});
+
+				var controller = $("#baseurl").val() + "/storeleaveform",
+					data = {
+						"csrf_token": $("#csrf_token").val(),
+						"employee_status":$("#emp_name").val(),
+						"from_date": $("#id_from_date").val(),
+						"to_date": $("#id_to_date").val(),
+						"reason": $("#lve_reason").val(),
+						"tag_name": tag_name,
+						"avail_leave": avail_leave
+					};
+
+				if(bool == true){
 					$("#emp_name option:selected").removeAttr("selected");
 					$(".leave-dates").val('');
 					$(".leave_details").val('');
-					that.request(controller, data, 'GET', function(json){
+					$("#LOP").removeClass('activeTags');
+					leaveM.request(controller, data, 'GET', function(json){
 						that.fnerrorMessage('show', 'leaveform-details', 'glyphicon-ok', json.success, 'bg-success');
 						setTimeout(function(){
 					    	that.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-ok', null, 'bg-success');

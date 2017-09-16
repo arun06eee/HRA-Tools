@@ -136,4 +136,15 @@ function _tags(){
 	$app->render('tags.html');
 }
 
+function _reports() {
+	    // Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'reports') );
+	$app->view()->appendData( array( 'tags' => true) );
+	// Render index view
+	$app->render('reports.html');
+}
 ?>

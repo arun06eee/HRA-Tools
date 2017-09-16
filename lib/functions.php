@@ -394,28 +394,25 @@ function _api_leavemodule(){
 	$env = $app->environment();
 	$params = $app->request->get();
 	$date = date('Y-m-d');
+	$tag_name = serialize($params['tag_name']);
 	$result = array();
-	for ($i=0; $i < count($params['employee_status']); $i++) {
-		$employee_status_splited = explode(",", $params['employee_status'][$i]);
-		$employee_number = trim($employee_status_splited[0]);
-		$query = "INSERT INTO ".$env['leaveform']."(employee_number, date_applied, from_date, to_date, reason, tag_name)"
-				." VALUES (		'".	$employee_number
-							."','". $date
-							."','". $params['from_date']
-							."','". $params['to_date']
-							."','". $params['reason']
-							."','". $params['tag_name']
-						."')";
-		try {
-			$dbCon = getConnection();
-			$stmt   = $dbCon->query($query);
+	$query = "INSERT INTO ".$env['leaveform']."(employee_number, date_applied, from_date, to_date, reason, tag_name)"
+			." VALUES (		'".	$params['employee_status']
+						."','". $date
+						."','". $params['from_date']
+						."','". $params['to_date']
+						."','". $params['reason']
+						."','". $tag_name
+					."')";
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($query);
 
-			$dbCon = null;
-			$result['success'] = "Applied Leave Successfully!!!";
-			echo json_encode($result);
-		} catch(PDOException $e) {
-			echo '{"error":{"text":'. $e->getMessage() .'}}';
-		}
+		$dbCon = null;
+		$result['success'] = "Applied Leave Successfully!!!";
+		echo json_encode($result);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
 
