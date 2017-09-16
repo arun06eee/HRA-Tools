@@ -6,8 +6,48 @@
 				<h5 class="modal-title">Employee Details</h5>
 			</div>
 			<div class="modal-body" id="employeeBody">
-				<form role='form' id="addemployee-submit">
-					<div style="border: 1px solid #337AB7;margin-top: 15px;border-radius: 5px;" id="basicinformaton">
+                <section>
+                    <div class="wizard">
+                        <div class="wizard-inner">
+                            <div class="connecting-line"></div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                                        <span class="round-tab">
+                                            <i class="glyphicon glyphicon-folder-open"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                                        <span class="round-tab">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                                    <span class="round-tab">
+                                    <i class="glyphicon glyphicon-picture"></i>
+                                    </span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                                    <span class="round-tab">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="step1">
+                                    <h3>Step 1</h3>
+                                    <p>This is step 1</p>
+                                    
+                        <div style="border: 1px solid #337AB7;margin-top: 15px;border-radius: 5px;" id="basicinformaton">
 						<h3 style="margin-top: -15px;margin-left: 20px;color:#53627A;background: white;width: 200px;padding-left: 8px;margin-bottom: 25px;">Basic Information</h3>
 						<div class="row form-group">
 							<div class="row required">
@@ -153,7 +193,87 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>            
+                                    
+                                    
+                                    
+                                    
+                                </div>
+<!-- step 1 End -->
+                                <div class="tab-pane" role="tabpanel" id="step2">
+                                    <h3>Step 2</h3>
+                                    <p>This is step 2</p>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step3">
+                                    <h3>Step 3</h3>
+                                    <p>This is step 3</p>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                        <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="complete">
+                                    <h3>Complete</h3>
+                                    <p>You have successfully completed all steps.</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            <!--
+                <form role='form' id="addemployee-submit">
+					
 					<div style="border: 1px solid #337AB7;margin-top: 15px;border-radius: 5px;">
 						<h3 style="margin-top: -15px;margin-left: 20px;color:#53627A;background: white;width: 100px;padding-left: 8px;margin-bottom: 25px;">Address</h3>
 						<div class="row form-group">
@@ -298,10 +418,15 @@
 					<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
 					<input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
 				</form>
+                -->
 			</div>
 			<div class="modal-footer">
 				<div class="pull-right">
                     
+                    <ul class="list-inline">
+                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                    </ul>
+
 					<!--
                     <button type="button" class="btn btn-primary btn-cancel" data-dismiss="modal">Cancel</button>
 					<button type="button" id='save_emp_id' class="btn btn-primary btn-save"><i class="fa fa-floppy-o"></i>Save</button>

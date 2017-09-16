@@ -53,10 +53,6 @@ a {
     border-color: #555555;
 }
 
-/*Login Form Boxe on Click Border Color*/
-.FormField:focus {
-    border-color: #FFC527;
-}
 
 /*Login Button*/
 .LightButton {
@@ -490,15 +486,7 @@ a {
 .FormFieldArea .FormField:focus {
   border-color: #949694;
 }
-/*
-.FormFieldArea .FormField:valid {
-  border-color: #C5E1C9;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 4px;
-  background-color: #F1F7F0;
-}
-*/
+
 .FormFieldArea .FormField:invalid {
   border-color: #F7D3D3;
   background-color: #F7F0F2;
@@ -2920,7 +2908,7 @@ img {
 #LoginArea {
     padding: 20px;
     position: relative;
-    width: 434px;
+    width: 400px;
     min-height: 210px;
     border-width: 2px;
     border-style: solid;
@@ -2954,39 +2942,39 @@ img {
 #LoginUsernameImg {
     position:absolute;
     z-index:50;
-    width: 43px;
-    height: 36px;
-    left: 58px;
-  -moz-margin-start: 0px;
+    width: 45px;
+    height: 35px;
+    left: 15px;
+    -moz-margin-start: 0px;
     top: 1px;
 }
 
 /*Login User Image*/
 #LoginPasswordImg {
-    position:absolute;
-    z-index:50;
-    width: 43px;
-    height: 36px;
-    left: 58px;
-  -moz-margin-start: 0px;
-    top: 1px;
+    position :absolute;
+    z-index : 50;
+    width : 45px;
+    height : 35px;
+    left : 15px;
+    -moz-margin-start: 0px;
+    top : 1px;
 }
 
 /*Login Form Field*/
 .FormField {
-    width: 276px;
+    width: 325px;
     height: 38px;
     border-style: solid;
-    border-width: 2px;
-    border-radius: 7px;
-    padding-left: 10px;
+    border-width: 1px;
+    border-radius: 1px;
     padding-right: 10px;
 }
 
 /*Login Form Field On Click*/
 .FormField:focus {
     border-style: solid;
-    border-width: 3px;
+    border-width: 1px;
+    border-color: #afd911
 }
 
 /*Login Area Formfield*/
@@ -3001,8 +2989,8 @@ img {
     clear:both;
     position:relative;
     margin-top:30px;
-    margin-left: 60px;
-    margin-right: 60px
+    margin-left: 15px;
+    margin-right: 15px
 }
 
 /*Login Button*/
@@ -3744,15 +3732,7 @@ img {
   border-style: solid;
   border-radius: 4px;
 }
-/*
-.FormFieldArea .FormField:valid {
-  border-color: #C5E1C9;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 4px;
-  background-color: #F1F7F0;
-}
-*/
+
 .FormFieldArea .FormField:invalid {
   border-width: 2px;
   border-style: solid;

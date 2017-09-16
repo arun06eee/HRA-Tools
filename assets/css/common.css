@@ -5,8 +5,9 @@ body{
   border-color: #555555; 
   overflow: auto;
 }
-.navbar, .dropdown-menu{
-  border-bottom : 1px solid  #afd911;
+.navbar, .dropdown-menu {
+    background: #afd911;
+    border-bottom : 1px solid  #afd911;
 }
 ul.ui-autocomplete.ui-menu{
 	width:400px;
@@ -79,9 +80,10 @@ ul.dropdown-menu{
     color: #fff;
     background: #fff;
 }
-.dash_Logo{
-    height: 35px;
-    width: 185px;
+.dash_Logo {
+        margin-top: -5px;
+        height: 35px;
+        width: 185px;
 }
 .pdT55{
   padding-top: 55px;
