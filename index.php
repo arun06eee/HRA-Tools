@@ -117,6 +117,9 @@ $app->post( '/addtags',             authorize(),    '_api_addtags');
 $app->get( '/showtags',             authorize(),    '_api_showtags');
 $app->get( '/deletetags',           authorize(),    '_api_deletetags');
 $app->get( '/reports',              authorize(),    '_reports');
+$app->get( '/showreports',          authorize(),    '_showreports');
+$app->get( '/changePassword',       authorize(),    '_change_password');
+$app->get( '/passwordreset',        authorize(),    '_resetPassword');
 
 $app->notFound(function () use ($app) {
 	// make the globals available

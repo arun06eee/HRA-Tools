@@ -96,7 +96,6 @@ $(function(){
 				}else{
 					//lets start LOP avlidation here!!
 					if(parseInt(avail_leave) < duration){
-						console.log('hi');
 						$("#LOP").addClass('activeTags');
 					}
 				}
@@ -105,11 +104,11 @@ $(function(){
 				$('.activeTags').each(function(i, selected){ 
 				  tag_name[i] = $(selected).text();
 				});
-
+				var emp_num = $("#emp_name").val().match(/\((.*)\)/);
 				var controller = $("#baseurl").val() + "/storeleaveform",
 					data = {
 						"csrf_token": $("#csrf_token").val(),
-						"employee_status":$("#emp_name").val(),
+						"employee_status":emp_num[1],
 						"from_date": $("#id_from_date").val(),
 						"to_date": $("#id_to_date").val(),
 						"reason": $("#lve_reason").val(),

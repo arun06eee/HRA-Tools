@@ -4,7 +4,7 @@
 <div class='panel panel-primary dialog-panel' id="reports">
 	<div class='panel-heading'>
 		<h3>Reports
-			<button class="btn btn-success save-leavemodule-btn pull-right" ><i class="fa fa-floppy-o"></i> &nbsp;Show</button>
+			<button class="btn btn-success show-report-btn pull-right" ><i class="fa fa-floppy-o"></i> &nbsp;Show</button>
 		</h3>
 		
 		<p class="errorstyle bg-danger text-left hidden">
@@ -19,8 +19,7 @@
 				<div class="row form-group required">
 					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
 						<div class="group">
-							<select id="employee" class="" required >
-								<option value="">--Select Employee--</option>
+							<select multiple id="employee" class="" required>
 							</select>
 						</div>
                         <div class="group">
@@ -44,8 +43,26 @@
 			</div>
 			<div class="borderStyle" style="margin-top:30px">
 				<h3 class="fieldBorder" style="width: 170px">Information</h3>
-				<div class="row form-group required">
-					
+				<div class="container">
+					<div class="row clearfix">
+						<div class="col-md-11 column">
+							<table id="report_table" class="table table-bordered table-hover">
+								<thead id="addHead">
+									<tr>
+									<th class='text-center'>Emp No.</th>
+										<th class='text-center'>Date Applied</th>
+										<th class='text-center'>From Date</th>
+										<th class='text-center'>To Date</th>
+										<th class='text-center'>Tags</th>
+										<th class='text-center'>Reason</th>
+									</tr>
+								</thead>
+								<tbody id='addreportRow'>
+									<tr id="NoReportData"><td colspan="6" class="text-center">Select Employee to Get Report.</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 			<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />

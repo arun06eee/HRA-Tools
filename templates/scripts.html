@@ -5,9 +5,9 @@
 <script type="text/javascript" src="{{baseurl}}/assets/js/components/jquery-ui.js"></script>
 <script type="text/javascript" src="{{baseurl}}/assets/js/components/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{baseurl}}/assets/js/components/datatable.min.js"></script>
+<script type="text/javascript" src="{{baseurl}}/assets/js/components/jquery.sumoselect.min.js"></script>
 
 <script type="text/javascript" src="{{baseurl}}/assets/js/root.js"></script>
-<script type="text/javascript" src="{{baseurl}}/assets/js/reports.js"></script>
 {% if addemployee %}
 	<script type="text/javascript" src="{{baseurl}}/assets/js/addemployee.js"></script>
 {% elseif viewemployee %}
@@ -15,7 +15,6 @@
 {% elseif role %}
 <script type="text/javascript" src="{{baseurl}}/assets/js/role.js"></script>
 {% elseif leaveform %}
-<script type="text/javascript" src="{{baseurl}}/assets/js/components/jquery.sumoselect.min.js"></script>
 <script type="text/javascript" src="{{baseurl}}/assets/js/leavemodule.js"></script>
 {% elseif compoffform %}
 <script type="text/javascript" src="{{baseurl}}/assets/js/compoffmodule.js"></script>
@@ -23,4 +22,8 @@
 <script type="text/javascript" src="{{baseurl}}/assets/js/leavemaintanance.js"></script>
 {% elseif tags%}
 <script type="text/javascript" src="{{baseurl}}/assets/js/tags.js"></script>
+{%elseif reports%}
+<script type="text/javascript" src="{{baseurl}}/assets/js/reports.js"></script>
+{%elseif changePassword%}
+<script type="text/javascript" src="{{baseurl}}/assets/js/changePassword.js"></script>
 {% endif %}

@@ -457,3 +457,15 @@ textarea {
 	margin-bottom:10px !important;
 	margin-right: 10px !important;
 }
+.SumoSelect {
+    width: 100% !important;
+}
+.SumoSelect>.optWrapper>.options li.opt {
+    padding: 12px !important;
+}
+.SumoSelect .select-all>span i, .SumoSelect>.optWrapper.multiple>.options li.opt span i{
+	left: 28px !important;
+}
+.SumoSelect>.optWrapper>.options li label{
+	left: 26px !important;
+}
