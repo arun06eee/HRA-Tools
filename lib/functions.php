@@ -127,6 +127,68 @@ function _api_viewEmployeeProfile(){
 	echo json_encode($profile); // Send data to ajax call in jquery.
 }
 
+function _showreports(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$id = $params['employee'];
+
+	for($i=0; $i<count($id);$i++){
+		if($params['from_date'] != '' && $params['to_date'] != ''){
+			$sql_query = "SELECT * FROM zyde_leave_form INNER JOIN zyde_employee_bucket ON zyde_employee_bucket.employee_number = zyde_leave_form.employee_number WHERE zyde_leave_form.from_date >= "."'".$params['from_date']."'"." AND zyde_leave_form.from_date <= "."'".$params['to_date']."'"." AND zyde_leave_form.employee_number = ".$id[$i];
+			/*$sql_query = "SELECT * FROM ".$env['leaveform']." WHERE from_date >= "."'".$params['from_date']."'"." AND from_date <= "."'".$params['to_date']."'"." AND employee_number = ".$id[$i];*/
+		}else{
+			//$sql_query = "SELECT * FROM ".$env['leaveform']." WHERE employee_number =" .$id[$i];
+			$sql_query = "SELECT * FROM zyde_leave_form INNER JOIN zyde_employee_bucket ON zyde_employee_bucket.employee_number = zyde_leave_form.employee_number WHERE zyde_leave_form.employee_number = ".$id[$i];
+		}
+		try {
+			$dbCon = getConnection();
+			$stmt   = $dbCon->query($sql_query);
+			$profile  = $stmt->fetchAll(PDO::FETCH_OBJ);
+		}catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
+		$result[] = $profile;
+	}
+	foreach($result as $key => $obj){
+		foreach($result[$key] as $val){
+			$tag_name = unserialize($val->tag_name);
+			$res['result'][] = array(
+					'employee_number' => $val->employee_number,
+					'employee_name'	  => $val->name_as_per_record,
+					'date_applied'	  => $val->date_applied,
+					'from_date'		  => $val->from_date,
+					'to_date'		  => $val->to_date,
+					'reason'		  => $val->reason,
+					'tag_name'		  => $tag_name
+				);
+		}
+	}
+	header("Content-Type: application/json; charset=UTF-8");
+	echo json_encode($res); // Send data to ajax call in jquery.
+}
+
+function _resetPassword(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$query = "UPDATE ".$env['dbloginCollection']." SET `password` = '" .$params['password']."' where password ='" .$params['old_password']."'";
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($query);
+		$dbCon = null;
+		$count = $stmt->rowCount();
+		if($count > 0){
+			$result['success'] = "Password Changed Successfully!!!";
+		}else{
+			$result['fail']	= "Old Password not exist!!";
+		}
+		echo json_encode($result);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}		
+}
+
 function _api_viewDefaultLeave(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();

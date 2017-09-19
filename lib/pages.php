@@ -137,14 +137,25 @@ function _tags(){
 }
 
 function _reports() {
-	    // Get the basics
+	// Get the basics
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 
 	// Setup the page for rendering
 	$app->view()->appendData( array( 'title' => 'reports') );
-	$app->view()->appendData( array( 'tags' => true) );
+	$app->view()->appendData( array( 'reports' => true) );
 	// Render index view
 	$app->render('reports.html');
+}
+function _change_password(){
+	// Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'changePassword') );
+	$app->view()->appendData( array( 'changePassword' => true) );
+	// Render index view
+	$app->render('changePassword.html');
 }
 ?>
