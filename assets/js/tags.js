@@ -31,32 +31,38 @@ $(function(){
         }
       });
 
-      $('.save-tags-btn').click(function(){
-          tag_name = $("#tag_name").val();
-          tag_desc = $("#tag_desc").val();
-          tag_color = $("#tag_color").val();
-          text_color = $("#color").val();
-          if(tag_name == '' && tag_desc == ''){
-              tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill all the fields!','bg-danger');
-          }else if(tag_name == ''){
-              tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill out Tag Name!','bg-danger');
-          }else if(tag_desc == ''){
-              tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill out Tag Description!','bg-danger');
-          }else if(tag_color == text_color){
-              tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Tag color and Color Should not same!','bg-danger');
-          }else{
-            var tmpArr = {
-              "csrf_token"  : $("#csrf_token").val(),
-              "tag_name"    : tag_name,
-              "tag_desc"    : tag_desc,
-              "tag_color"   : tag_color,
-              "color"       : text_color
-            };
-            if(tmpArr != null){
-                tags.request(tmpArr, tags.tagDataResponse);
-            }
-          }
-      });
+		$('.save-tags-btn').click(function(){
+
+			tag_name = $("#tag_name").val();
+			tag_desc = $("#tag_desc").val();
+			tag_color = $("#tag_color").val();
+			text_color = $("#color").val();
+			if(tag_name == '' && tag_desc == ''){
+				tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill all the fields!','bg-danger');
+			}else if(tag_name == ''){
+				tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill out Tag Name!','bg-danger');
+			}else if(tag_desc == ''){
+				tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Fill out Tag Description!','bg-danger');
+			}else if(tag_color == text_color){
+				tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Tag color and Color Should not same!','bg-danger');
+			}else{
+				var tmpArr = {
+					"csrf_token"  : $("#csrf_token").val(),
+					"tag_name"    : tag_name,
+					"tag_desc"    : tag_desc,
+					"tag_color"   : tag_color,
+					"color"       : text_color
+				};
+				
+				console.log(tmpArr);
+				
+				if(tmpArr != null){
+					tags.request(tmpArr, tags.tagDataResponse);
+				}
+			}
+
+			return false;
+		});
     },
     fnDelete: function(){
         $('.closetag').click(function(){
@@ -93,7 +99,6 @@ $(function(){
         $("#color").val('');
         tags.fnDelete();
     },
-
     fnerrorMessage: function(type, id, classes, msg, status) {
       if(type == 'show') {
         $("#"+id+" .errorstyle").removeClass("hidden");
@@ -107,13 +112,17 @@ $(function(){
         $("#"+id+" .errorstyle").removeClass('bg-danger bg-success');
       }
     },
-    request :  function (data, callback){
+    request: function (data, callback){
+		console.log(data);
 			var url = $("#baseurl").val()+"/addtags";
+			console.log(url);
+			
 			$.ajax({
 				url: url,
 				type: 'POST',
 				data: data,
 				success: function(result) {
+					console.log(result);
 					callback(result);
 				},
 				error: function() {

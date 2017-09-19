@@ -2,8 +2,11 @@ $(function(){
 	var avail_leave = "";
 	var leaveM = {
 		emp_base64String: null,
+        employeeList : [],
 		init : function () {
 			var that = this;
+            
+            /* Employee List */
             $("#tagsList").empty();
 			var controller = $("#baseurl").val() + "/viewemployeebuckets",
 				data = {
@@ -14,27 +17,15 @@ $(function(){
 
 			that.request(controller, data, 'get', function(json){
 				var options = '';
+                leaveM.employeeList = json;
 				for (var mainKey in json){
 					var abc = json[mainKey].firstname + '(' + json[mainKey].employee_number+')';
 					options += '<option value="' + abc +'">' + abc + '</option>';
 				}
 				$("select#emp_name").append(options);
-                $('#emp_name').SumoSelect({placeholder: 'Employee Status'});
-
-				$("select#emp_name").change(function(){
-					var emp_num = $(this).val().match(/\((.*)\)/);
-					if(emp_num != null){
-						avail_leave = "";
-						for (var mainKey in json){
-							if(json[mainKey].employee_number == emp_num[1]){
-								$("#avail_leave").html(json[mainKey].available_leave);
-								avail_leave = json[mainKey].available_leave;
-							}
-						}
-					}
-				});
+                that.fnTagsListAction();
 			});
-            
+
             var tagsController = $("#baseurl").val() + "/showtags",
                 tagsData = {};
             that.request(tagsController, tagsData, 'get', function(json){
@@ -58,6 +49,19 @@ $(function(){
                     $(this).removeClass("activeTags");
                 }else {
                     $(this).addClass("activeTags");
+                }
+            });
+            $("select#emp_name").unbind("change").change(function(){
+                var emp_num = $(this).val().match(/\((.*)\)/);
+                $("#avail_leave").val("");
+                if(emp_num != null) {
+                    avail_leave = "";
+                    for (var mainKey in leaveM.employeeList){
+                        if(leaveM.employeeList[mainKey].employee_number == emp_num[1]){
+                            $("#avail_leave").val(leaveM.employeeList[mainKey].available_leave);
+                            avail_leave = leaveM.employeeList[mainKey].available_leave;
+                        }
+                    }
                 }
             });
         },
@@ -96,7 +100,6 @@ $(function(){
 				}else{
 					//lets start LOP avlidation here!!
 					if(parseInt(avail_leave) < duration){
-						console.log('hi');
 						$("#LOP").addClass('activeTags');
 					}
 				}

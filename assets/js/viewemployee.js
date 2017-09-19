@@ -12,24 +12,25 @@ $(function() {
 				$('.invalid').remove();
 			});
 		}
-        
-    $(".next-step").click(function (e) {
-        var $active = $('.wizard .nav-tabs li.active');
-        $active.next().removeClass('disabled');
-        nextTab($active);
-    });
-    
-    $(".prev-step").click(function (e) {
-        var $active = $('.wizard .nav-tabs li.active');
-        prevTab($active);
-    });
 
-    function nextTab(elem) {
-        $(elem).next().find('a[data-toggle="tab"]').click();
-    }
-    function prevTab(elem) {
-        $(elem).prev().find('a[data-toggle="tab"]').click();
-    }
+        $(".next-step").click(function (e) {
+            var $active = $('.breadcrumb li.active');
+            $active.next().removeClass('disabled');
+            nextTab($active);
+        });
+
+        $(".prev-step").click(function (e) {
+            var $active = $('.breadcrumb li.active');
+            prevTab($active);
+        });
+
+        function nextTab(elem) {
+            $(elem).next().find('a[data-toggle="tab"]').click();
+        }
+        function prevTab(elem) {
+            console.log($(elem).prev());
+            $(elem).prev().find('a[data-toggle="tab"]').click();
+        }
 
 		ViewEmployee.prototype.initialization = function() {
 			return (function(instance) {
@@ -87,7 +88,7 @@ $(function() {
 				});
 
                 $("#addEmployee").click(function(){
-                    $("#addEmployeeModal").modal("show");
+                    $("#view_employee_details_modal").modal("show");
                 })
                 
                 
@@ -215,22 +216,34 @@ $(function() {
 				listbody.empty();
 				var tmp, tmpArr = [], tmpList, tmpArrList = [], employeeData = data;
 
-				var tpl = '<div class="col-sm-6 col-md-3 col-lg-2 pull-left ml10" >'
+				var tpl = '<div class="col-sm-6 col-md-3 col-lg-3 pull-left ml10" >'
 							+' <div class="thumbnail %currentclass%">'
-								+' <h4>'
-									+ '<span class="label label-info info">'
-									+ '<i class="fa fa-file-excel-o export-employee" zyde-id="%id%" title="Download"></i>'
-									+ '<i class="fa fa-trash delete-employee" zyde-id="%id%" title="Trash"></i>'
-									+ '<i class="fa fa-eye eye-employee" zyde-id="%id%" title="View"></i>'
-									+ '<i class="fa fa-download img-download" zyde-src="%photo%" filename="%filename%" ></i>'
-									+ '</span>'
-								+ '</h4>'
+                                + '<div class="col-xs-12" style="border-bottom: 1px solid #afd911;">'
+                                    + '<div class="col-xs-3 text-center" style="padding: 10px;border-right: 1px solid #afd911;">'
+                                        + '<i class="fa fa-file-excel-o export-employee" zyde-id="%id%" title="Download"></i>'
+                                    + '</div>'
+                                    + '<div class="col-xs-3 text-center" style="padding: 10px;border-right: 1px solid #afd911;">'
+                                        + '<i class="fa fa-trash delete-employee" zyde-id="%id%" title="Trash"></i>'
+                                    + '</div>'
+                                    + '<div class="col-xs-3 text-center" style="padding: 10px;border-right: 1px solid #afd911;">'
+                                        + '<i class="fa fa-eye eye-employee" zyde-id="%id%" title="View"></i>'
+                                    + '</div>'
+                                    + '<div class="col-xs-3 text-center" style="padding: 10px;">'
+                                        + '<i class="fa fa-download img-download" zyde-src="%photo%" filename="%filename%" ></i>'
+                                    + '</div>'
+                                + '</div>'
+                
 								+ '<img src="%photo%" alt="%name%" filename="%filename%">'
 								+ '<div class="col-xs-12 text-center empstyle">'
 										+ '%name% <br/>'
 										+ 'Employee ID : %employee_number%'
 								+ '</div>'
+                
+                
 								+ '<div class="clearfix"></div>'
+                
+                
+                
 							+ '</div>'
 						+ '</div>';
 

@@ -6,84 +6,60 @@
 				<h5 class="modal-title">Employee Details</h5>
 			</div>
 			<div class="modal-body" id="employeeBody">
-                <section>
-                    <div class="wizard">
-                        <div class="wizard-inner">
-                            <div class="connecting-line"></div>
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
-                                        <span class="round-tab">
-                                            <i class="glyphicon glyphicon-folder-open"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li role="presentation" class="disabled">
-                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
-                                        <span class="round-tab">
-                                            <i class="glyphicon glyphicon-pencil"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li role="presentation" class="disabled">
-                                    <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
-                                    <span class="round-tab">
-                                    <i class="glyphicon glyphicon-picture"></i>
-                                    </span>
-                                    </a>
-                                </li>
-                                <li role="presentation" class="disabled">
-                                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
-                                    <span class="round-tab">
-                                        <i class="glyphicon glyphicon-ok"></i>
-                                    </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <form role="form">
-                            <div class="tab-content">
-                                <div class="tab-pane active" role="tabpanel" id="step1">
-                                    <h3>Step 1</h3>
-                                    <p>This is step 1</p>
-                                    
-                        <div style="border: 1px solid #337AB7;margin-top: 15px;border-radius: 5px;" id="basicinformaton">
-						<h3 style="margin-top: -15px;margin-left: 20px;color:#53627A;background: white;width: 200px;padding-left: 8px;margin-bottom: 25px;">Basic Information</h3>
-						<div class="row form-group">
-							<div class="row required">
-								<div class='col-md-4 col-lg-4 col-sm-10 col-md-offset-1 col-lg-offset-1'>
+                <div class="col-lg-offset-2 col-lg-10">
+                    <ol class="breadcrumb breadcrumb-arrow">
+                        <li class="active">
+                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Basic Information">
+                                Basic Information
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Address">
+                                Address
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Bank Details">
+                                Bank Details
+                            </a>
+                        </li>
+                        <li >
+                            <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Contact Information">
+                                Contact Information
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="wizard">
+                    <div class="tab-content">
+                        <!--Step 1 -->
+                        <div class="tab-pane active" role="tabpanel" id="step1">
+                            <div class="row form-group">
+                                <div class='col-md-4 col-lg-4 col-sm-10 col-md-offset-1 col-lg-offset-1'>
 									<div class="fileUpload btn btn-primary">
 										<input type="file" class="upload" value="Change File" id="addemployee_image" >
 									</div>
 								</div>
-								<div class='col-md-4 col-lg-4 col-sm-10 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type='text' id='id_name_as_per_record' zyde-service='name_as_per_record' required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+                                <div class='col-md-4 col-lg-4 col-sm-10 col-md-offset-1 col-lg-offset-1'>
+                                    <div class="form-group">
 										<label>Name as per Record</label>
+										<input type='text' class="form-control" id='id_name_as_per_record' zyde-service='name_as_per_record' required />
 									</div>
-									<div class="group">
-										<input type='text' id='id_first_name' zyde-service="firstname" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>First Name </label>
+										<input type='text' class="form-control" id='id_first_name' zyde-service="firstname" required/>
 									</div>
-									<div class="group">
-										<input type='text' id='id_last_name' zyde-service="lastname" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Last Name</label>
-									</div>
-								</div>
-							</div>
-							<div class="row required">
+										<input type='text' class="form-control" id='id_last_name' zyde-service="lastname" required/>
+									</div> 
+                                </div>
+                            </div>
+                            <div class="row required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type='text' id='id_empno' zyde-service="employee_number" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Employee Number</label>
+										<input type='text' class="form-control" id='id_empno' zyde-service="employee_number" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
@@ -100,337 +76,207 @@
 							</div>
 							<div class="row required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_zyde_biometroic_no' zyde-service="zyde_biometric_number" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Biometric Number</label>
+										<input type="text"  class="form-control" id='id_zyde_biometroic_no' zyde-service="zyde_biometric_number" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_siri_card_no' zyde-service="siri_card_no" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Siri Card</label>
+										<input type="text"  class="form-control" id='id_siri_card_no' zyde-service="siri_card_no" required/>
 									</div>
 								</div>
 							</div>
 							<div class="row required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="email" id='id_personal_email_id' zyde-service="personal_mail_id" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Personal Email Id</label>
+										<input type="email" class="form-control" id='id_personal_email_id' zyde-service="personal_mail_id" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="email" id='id_zyde_client_email_id' zyde-service="client_email_id" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Client Email Id</label>
+										<input type="email" class="form-control" id='id_zyde_client_email_id' zyde-service="client_email_id" required/>
 									</div>
 								</div>
 							</div>
 							<div class="row required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type='text' id='id_zyde_designation' zyde-service="designation" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Designation</label>
+										<input type='text'  class="form-control" id='id_zyde_designation' zyde-service="designation" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input id='id_zyde_joining_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="joining_date" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Joining Date</label>
+										<input id='id_zyde_joining_date' class="form-control"  onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="joining_date" required/>
 									</div>
 								</div>
 							</div>
-							<div class="row form-group required">
+							<div class="row required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input id='id_date_of_birth' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Date of Birth</label>
+										<input id='id_date_of_birth' class="form-control" onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_pan_card' zyde-service="pan_card" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>PAN Card No.</label>
+										<input type="text" id='id_pan_card' class="form-control" zyde-service="pan_card" required/>
 									</div>
 								</div>
 							</div>
-							<div class="row form-group required">
+							<div class="row required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_blood_group' zyde-service="blood_group" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Blood Group</label>
+										<input type="text" class="form-control"  id='id_blood_group' zyde-service="blood_group" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<select id='id_emp_status' zyde-service="employee_status" required>
-											<option></option>
+									<div class="form-group">
+										<label>Employee Status</label>
+										<select id='id_emp_status' class="form-control" zyde-service="employee_status" required>
 											<option value="0">Active</option>
 											<option value="1">InActive</option>
 										</select>
-										<span class="highlight"></span>
-										<span class="bar"></span>
-										<label>Employee Status</label>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>            
-                                    
-                                    
-                                    
-                                    
+                        </div>
+                        <!--Step 1 End -->
+                        <!--Step 2 -->
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <div class="row required">
+                                <div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
+                                    <div class="form-group">
+                                        <label>Permanant Address as per records</label>
+                                        <textarea id='id_per_address' rows="10" class="form-control" zyde-service="permanant_address" required></textarea>
+                                    </div>
                                 </div>
-<!-- step 1 End -->
-                                <div class="tab-pane" role="tabpanel" id="step2">
-                                    <h3>Step 2</h3>
-                                    <p>This is step 2</p>
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                    </ul>
+                                <div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
+                                    <div class="form-group">
+                                        <label>Present Address</label>
+                                        <textarea id='id_pre_address' rows="10" class="form-control" zyde-service="present_address" required></textarea>
+                                    </div>
                                 </div>
-                                <div class="tab-pane" role="tabpanel" id="step3">
-                                    <h3>Step 3</h3>
-                                    <p>This is step 3</p>
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>
-                                        <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane" role="tabpanel" id="complete">
-                                    <h3>Complete</h3>
-                                    <p>You have successfully completed all steps.</p>
-                                </div>
-                                <div class="clearfix"></div>
                             </div>
-                        </form>
-                    </div>
-                </section>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            <!--
-                <form role='form' id="addemployee-submit">
-					
-					<div style="border: 1px solid #337AB7;margin-top: 15px;border-radius: 5px;">
-						<h3 style="margin-top: -15px;margin-left: 20px;color:#53627A;background: white;width: 100px;padding-left: 8px;margin-bottom: 25px;">Address</h3>
-						<div class="row form-group">
-							<div class="row form-group required">
+                        </div>
+                        <!--Step 2 End -->
+                        <!--Step 3-->
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <div class="row required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<textarea id='id_per_address' zyde-service="permanant_address" required></textarea>
-										<span class="highlight"></span>
-										<span class="bar"></span>
-										<label>Permanant Address as per records</label>
-									</div>
-								</div>
-								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<textarea id='id_pre_address' zyde-service="present_address" required></textarea>
-										<span class="highlight"></span>
-										<span class="bar"></span>
-										<label>Present Address</label>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div style="border: 1px solid #337AB7;margin-top: 15px;border-radius: 5px;">
-						<h3 style="margin-top: -15px;margin-left: 20px;color:#53627A;background: white;width: 150px;padding-left: 8px;margin-bottom: 25px;">Bank Details</h3>
-						<div class="row form-group">
-							<div class="row form-group required">
-								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_bank_name' zyde-service="bank_name" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Bank Name</label>
+										<input type="text" class="form-control" id='id_bank_name' zyde-service="bank_name" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_acc_no' zyde-service="bank_acc_no" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Bank Account Number</label>
+										<input type="text" class="form-control" id='id_acc_no' zyde-service="bank_acc_no" required/>
 									</div>
 								</div>
 							</div>
-							<div class="row form-group required">
+                            <div class="row form-group required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_benificiary_name' zyde-service="benificiary_name" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Benificiary Name</label>
+										<input type="text" class="form-control" id='id_benificiary_name' zyde-service="benificiary_name" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_ifsc_code' zyde-service="ifsc_code" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>IFSC Code</label>
+										<input type="text" class="form-control" id='id_ifsc_code' zyde-service="ifsc_code" required/>
 									</div>
 								</div>
 							</div>
-							<div class="row form-group required">
+                            <div class="row required">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_branch_name' zyde-service="branch_name" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Branch Name</label>
+										<input type="text" class="form-control" id='id_branch_name' zyde-service="branch_name" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_branch_address' zyde-service="branch_address" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Branch Address</label>
+										<input type="text" class="form-control" id='id_branch_address' zyde-service="branch_address" required/>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div style="border: 1px solid #337AB7;margin-top: 15px;border-radius: 5px;">
-						<h3 style="margin-top: -15px;margin-left: 20px;color:#53627A;background: white;width: 225px;padding-left: 8px;margin-bottom: 25px;">Contact Information</h3>
-						<div class="row form-group">
-							<div class="row form-group">
+                        </div>
+                        <!--Step 3 End -->
+                        <!--Step 4 -->
+                        <div class="tab-pane" role="tabpanel" id="step4">
+                            <div class="row">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_phno_1' zyde-service="phone_number_1" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Phone Number 1</label>
+										<input type="text" class="form-control" id='id_phno_1' zyde-service="phone_number_1" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_phno_2' zyde-service="phone_number_2" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Phone Number 2</label>
+										<input type="text" class="form-control" id='id_phno_2' zyde-service="phone_number_2" required/>
 									</div>
 								</div>
 							</div>
-							<div class="row form-group">
+							<div class="row">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_emergency_name_1' zyde-service="emergency_contact_person_name_1" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Emergency contact Person Name 1</label>
+										<input type="text" class="form-control" id='id_emergency_name_1' zyde-service="emergency_contact_person_name_1" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_emergency_phno_1' zyde-service="emergency_contact_person_phone_1" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Emergency contact Person Phone 1</label>
+										<input type="text" class="form-control" id='id_emergency_phno_1' zyde-service="emergency_contact_person_phone_1" required/>
 									</div>
 								</div>
 							</div>
-							<div class="row form-group">
+                            <div class="row form-group">
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_emergency_name_2' zyde-service="emergency_contact_person_name_2" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Emergency contact Person Name 2</label>
+										<input type="text" class="form-control" id='id_emergency_name_2' zyde-service="emergency_contact_person_name_2" required/>
 									</div>
 								</div>
 								<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-									<div class="group">
-										<input type="text" id='id_emergency_phno_2'  zyde-service="emergency_contact_person_phone_2" required/>
-										<span class="highlight"></span>
-										<span class="bar"></span>
+									<div class="form-group">
 										<label>Emergency contact Person Phone 2</label>
+										<input type="text" class="form-control" id='id_emergency_phno_2'  zyde-service="emergency_contact_person_phone_2" required/>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
-					<input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
-				</form>
-                -->
+                        </div>
+                        <!--Step 4 End -->
+
+                        <input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
+                        <input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
+                    </div>
+                </div>
 			</div>
 			<div class="modal-footer">
 				<div class="pull-right">
                     
                     <ul class="list-inline">
-                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                        <li><button type="button" class="btn btn-primary prev-step">Back</button></li>
+                        <li><button type="button" class="btn btn-primary next-step">Next</button></li>
                     </ul>
-
-					<!--
+<!--
+					
                     <button type="button" class="btn btn-primary btn-cancel" data-dismiss="modal">Cancel</button>
 					<button type="button" id='save_emp_id' class="btn btn-primary btn-save"><i class="fa fa-floppy-o"></i>Save</button>
-                    -->
+                  -->  
 				</div>
 			</div>
 		</div>

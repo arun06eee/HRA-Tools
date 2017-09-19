@@ -61,6 +61,8 @@ $(function(){
 					    }, 3000);
 					});
 				}
+
+				return false;
 			});
 		},
 		fnerrorMessage: function(type, id, classes, msg, status) {

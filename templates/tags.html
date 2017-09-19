@@ -1,59 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class='panel panel-primary dialog-panel' id="Tags">
-	<div class='panel-heading'>
-		<h3>Tags
-			<button class="btn btn-success save-tags-btn pull-right"><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
-		</h3>
-		<p class="errorstyle bg-danger text-left hidden">
-			<i class="glyphicon"></i> &nbsp;<span class="errormsg"></span>
-		</p>
-	</div>
-	<div class='panel-body'>
-		<form role='form'>
+<div class="row" style="padding-top: 55px" id="Tags">
+    <div class="col-xs-12 col-md-2 col-lg-2 col-sm-12">
+        &nbsp;
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-4 col-sm-12">
+        <form role='form'>
 			<div class="borderStyle" >
-				<h3 class="fieldBorder" style="width: 110px;">Set Tags</h3>
-				<div class="row form-group required">
-					<div class='col-md-6 col-lg-6 col-md-offset-1 col-lg-offset-1'>
-						<div class="group">
-							<input id="tag_name" type='text' required/>
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>Tags Name</label>
-						</div>
-					</div>
-					<div class='col-md-6 col-lg-8 col-md-offset-1 col-lg-offset-1'>
-						<div class="group">
-							<input id="tag_desc" type='text' required/>
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>Tags Description</label>
-						</div>
-					</div>
-					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1' style="margin-top: 15px">
-						<label>Tags Color</label>
-						<input type='color' id="tag_color" value="" required/>
-					</div>
-					<div class='col-md-6 col-lg-6' style="margin-top: 15px">
-						<label>Color</label>
-						<input type='color' id="color" value="" required/>
-					</div>
-				</div>
-			</div>
-			<div class="borderStyle" style="margin-top:30px">
-				<h3 class="fieldBorder" style="width: 170px">Available Tags</h3>
-				<div class="row form-group required">
-					<div id="showtags">
-						<div class="btn alltags" style="background-color:#00C631; color:#ffffff">Compoff</div>
-						<div class="btn alltags" style="background-color:#FF0014; color:#ffffff">LOP</div>
-					</div>
-				</div>
-			</div>
-			<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
-			<input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
-		</form>
-	</div>
-</div>
+                <h3 class="fieldBorder" style="width: 110px;">Set Tags</h3>
+				<p class="errorstyle bg-danger text-left hidden">
+					<i class="glyphicon"></i> &nbsp;<span class="errormsg"></span>
+				</p>
+                <div class='col-md-12 col-lg-12'>
+                    <div class="form-group">
+                        <label>Tags Name</label>
+                        <input id="tag_name" class="form-control" type='text' required/>
+                    </div>
+                </div>
+                <div class='col-md-12 col-lg-12'>
+                    <div class="form-group">
+                        <label>Tags Description</label>
+                        <input class="form-control" id="tag_desc" type='text' required/>
+                    </div>
+                </div>
+                <div class='col-md-12 col-lg-12'>
+                    <div class="form-group">
+                        <label>Tags Color</label>
+                        <input class="form-control" type='color' id="tag_color" value="" required/>
+                    </div>
+                </div>
+                <div class='col-md-12 col-lg-12'>
+                    <div class="form-group">
+                        <label>Color</label>
+                        <input class="form-control" type='color' id="color" value="" required/>
+                    </div>
+                </div>
+                <input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
+                <input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
 
+                <div class="row ">
+                    <div class="form-group col-md-12 col-lg-12">
+                        <button class="LightButton mrR20 save-tags-btn pull-right"><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
+                    </div>
+                </div>
+            </div>
+		</form>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-4 col-sm-12">
+        <div class="borderStyle" style="margin-top:30px">
+            <h3 class="fieldBorder" style="width: 170px">Available Tags</h3>
+            <div class="row form-group required">
+                <div id="showtags">
+                    <div class="btn alltags" style="background-color:#00C631; color:#ffffff">Compoff</div>
+                    <div class="btn alltags" style="background-color:#FF0014; color:#ffffff">LOP</div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
 {% endblock %}

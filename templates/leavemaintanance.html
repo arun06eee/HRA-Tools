@@ -1,63 +1,57 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class='panel panel-primary dialog-panel' id="leavemaintanance-details">
-	<div class='panel-heading'>
-		<h3>Leave Maintanance
-			<button class="btn btn-success save-totalLeave-btn pull-right"><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
-		</h3>
-		
-		<p class="errorstyle bg-danger text-left hidden">
-			<i class="glyphicon"></i> &nbsp;<span class="errormsg"></span>
-		</p>
-	</div>
-	<div class='panel-body'>
-		<form role='form' id="total_leave-submit">
-			<div class="borderStyle">
-				<h3 class="fieldBorder">Default Leaves</h3>
-				<div class="row form-group required">
-					<div class='col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1'>
-						<div class="group">
-							<input type='text' maxlength="4" class="num_field" id="set_year" required/>
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>Year</label>
-						</div>
-					</div>
-					<div class='col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1'>
-						<div class="group">
-							<input type='text' maxlength="2" class="num_field" id='id_set_total_leave' zyde-service="set_total_leave" required/>
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>Total Leave</label>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="borderStyle" style="margin-top: 40px;">
-				<h3 class="fieldBorder">Default Leaves</h3>
-				<div class="container">
-					<div class="row clearfix">
-						<div class="col-md-8 column">
-							<table id="leave_table" class="table table-bordered table-hover">
-								<thead>
-									<tr >
-										<th class="">No.</th>
-										<th class="text-center">Year</th>
-										<th class="text-center">Total Leave</th>
-									</tr>
-								</thead>
-								<tbody id='addtr'>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
-			<input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
-		</form>
-	</div>
+<div class="row" style="padding-top: 55px" id="leavemaintanance-details">
+    <div class="col-xs-12 col-md-4 col-lg-4 col-sm-12">
+        <form role='form' id="total_leave-submit">
+            <div class="borderStyle">
+                <h3 class="fieldBorder" style="width:155px">Leave Config</h3>
+				<p class="errorstyle bg-danger text-left hidden">
+					<i class="glyphicon"></i> &nbsp;<span class="errormsg"></span>
+				</p>
+                <div class='col-md-12 col-lg-12'>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <input type='text' class="form-control" maxlength="4" class="num_field" id="set_year" required/>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-12">
+                    <div class="form-group">
+                        <label>Total Leave</label>
+                        <input type='text' class="form-control" maxlength="2" class="num_field" id='id_set_total_leave' zyde-service="set_total_leave" required/>
+                    </div>
+                </div>
+                <input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
+                <input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
+                <div class="row ">
+                    <div class="form-group col-md-12 col-lg-12">
+                        <button class="LightButton mrR20 save-totalLeave-btn pull-right"><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-12 col-md-8 col-lg-8 col-sm-12">
+        <div class="borderStyle">
+            <h3 class="fieldBorder" style="width:240px;">Leave Config Details</h3>
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-md-12 ">
+                        <table id="leave_table" class="table table-bordered table-hover">
+                            <thead>
+                                <tr >
+                                    <th class="">No.</th>
+                                    <th class="text-center">Year</th>
+                                    <th class="text-center">Total Leave</th>
+                                </tr>
+                            </thead>
+                            <tbody id='addtr'></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
