@@ -10,7 +10,7 @@
         <form role='form' id="leaveform-submit">
             <div class="borderStyle">
                 <h3 class="fieldBorder" style="width: 170px">Leave Module</h3>
-                <div class='col-md-12 col-lg-12'>
+                <div class='col-md-6 col-lg-6'>
                     <div class="form-group">
                         <label>Employee List</label>
                         <select id="emp_name" class="form-control" required >
@@ -18,19 +18,19 @@
                         </select>
                     </div>
                 </div>
-                <div class='col-md-12 col-lg-12'>
+                <div class='col-md-6 col-lg-6'>
                     <div class="form-group">
                         <label>Available Leaves:</label>
                         <input type="text" class="form-control" id="avail_leave" disabled />
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-12">
+                <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>From Date</label>
                         <input class="leave-dates form-control" id='id_from_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-12">
+                <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>To Date</label>
                         <input class="leave-dates form-control" id='id_to_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
@@ -52,7 +52,7 @@
                 <input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
                 <div class="row ">
                     <div class="form-group col-md-12 col-lg-12">
-                        <button class="LightButton mrR20 save-totalLeave-btn pull-right"><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
+                        <button class="LightButton mrR20 save-leavemodule-btn pull-right"><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
                     </div>
                 </div>
             </div>
