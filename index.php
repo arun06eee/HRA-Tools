@@ -86,6 +86,10 @@ $app->hook('slim.before.router', function () use ($app) {
 
 // Define routes
 $app->get( '/login',								'_pages_login');
+
+$app->get( '/forgot',                               '_pages_forgotpassword');
+$app->get( '/forgotpass',                           '_forgot_password');
+
 $app->post('/login',								'_api_login');
 $app->get( '/logout',								'_api_logout');
 $app->get('/',						authorize(),    '_api_base');
