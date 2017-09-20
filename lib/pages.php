@@ -25,6 +25,18 @@ function _pages_login() {
 	$app->render('login.html');
 }
 
+function _pages_forgotpassword(){
+	// Get the basics
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+
+	// Setup the page for rendering
+	$app->view()->appendData( array( 'title' => 'forgotpassword') );
+	$app->view()->appendData( array( 'forgotpassword' => true) );
+	// Render index view
+	$app->render('forgotPassword.html');
+}
+
 function _pages_addemployee(){
     // Get the basics
 	$app = \Slim\Slim::getInstance();

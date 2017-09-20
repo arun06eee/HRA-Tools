@@ -3,6 +3,15 @@
 /**
 * Prepared By: Arun Kumar M, Zydesoft
 */
+	// Import PHPMailer classes into the global namespace
+	// These must be at the top of your script, not inside a function
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+
+	require 'vendor/PHPMailer/PHPMailer/src/Exception.php';
+	require 'vendor/PHPMailer/PHPMailer/src/PHPMailer.php';
+	require 'vendor/PHPMailer/PHPMailer/src/SMTP.php';
+	require 'vendor/autoload.php';
 
 function checkPass($db, $username, $password) {
 	$app = \Slim\Slim::getInstance();
@@ -187,6 +196,49 @@ function _resetPassword(){
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}		
+}
+
+function _forgot_password(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$sql_query = "SELECT * FROM ".$env['dbloginCollection']." WHERE username =" ."'".$params['user_name']."'";
+
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($sql_query);
+		$user  = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$count = $stmt->rowCount();
+	if($count > 0) {
+		$mail = new PHPMailer(true);
+
+		try {
+			//Server settings
+			$mail->SMTPDebug = 2;
+			$mail->isSMTP();
+			$mail->Host = 'smtp.zoho.com';
+			$mail->SMTPAuth = true;
+			$mail->Username = 'dhineshkumar.r@zydesoft.com';
+			$mail->Password = 'Pass123$';
+			$mail->SMTPSecure = 'tls';
+			$mail->Port = 587;
+
+			//Recipients
+			$mail->setFrom('dhineshkumar.r@zydesoft.com', 'ZydeSoft');
+			$mail->addAddress($params['E_mail']);
+
+			//Content
+			$mail->isHTML(true);
+			$mail->Subject = 'Password';
+			$mail->Body    = 'Here is your password '.$user[0]->password;
+
+			$mail->send();
+			echo '{"success" : "Password has been sent"}';
+		} catch (Exception $e) {
+			echo '{"error: "."'.$mail->ErrorInfo.'"}';
+		}
+	}else {
+		echo '{"error":"Username Does Not exist!!"}';
+	}
 }
 
 function _api_viewDefaultLeave(){
