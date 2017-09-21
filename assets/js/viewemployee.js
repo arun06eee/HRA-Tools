@@ -216,7 +216,7 @@ $(function() {
 				listbody.empty();
 				var tmp, tmpArr = [], tmpList, tmpArrList = [], employeeData = data;
 
-				var tpl = '<div class="col-sm-6 col-md-3 col-lg-3 pull-left ml10" >'
+				var tpl = '<div class="col-sm-6 col-md-2 col-lg-2 pull-left ml10" >'
 							+' <div class="thumbnail %currentclass%">'
                                 + '<div class="col-xs-12" style="border-bottom: 1px solid #afd911;">'
                                     + '<div class="col-xs-3 text-center" style="padding: 10px;border-right: 1px solid #afd911;">'

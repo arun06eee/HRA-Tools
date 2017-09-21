@@ -23,6 +23,9 @@ $(function(){
 					options += '<option value="' + abc +'">' + abc + '</option>';
 				}
 				$("select#emp_name").append(options);
+				$("select#employee").append(options);
+                
+                
                 that.fnTagsListAction();
 			});
 
@@ -78,6 +81,25 @@ $(function(){
 		},
 		fnSaveLeaveModule: function(){
 			var that = this;
+
+            $('#radioBtn a').on('click', function(){
+                var sel = $(this).data('title');
+                var tog = $(this).data('toggle');
+
+                $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+                $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+                
+                if(sel == 'add') {
+                    console.log(sel);
+                    $(".reportsList").addClass("hidden");
+                    $(".addList").removeClass("hidden");
+                }else {
+                    $(".addList").addClass("hidden");
+                    $(".reportsList").removeClass("hidden");
+                }
+            })
+            
+            
 			$(".save-leavemodule-btn").click(function(event){
 				var	bool = true,
 					fromDate = $("#id_from_date").val(),

@@ -2,15 +2,28 @@
 {% block content %}
 
 
-<div class="row" style="padding-top: 10px">
+<div class="row" style="padding-top: 10px"  id="leaveform-details">
     <div class="col-xs-12 col-md-4 col-lg-4 col-sm-12" style="margin-bottom: 100px;">
 		<p class="errorstyle bg-danger text-left hidden">
 			<i class="glyphicon"></i> &nbsp;<span class="errormsg"></span>
 		</p>
         <form role='form' id="leaveform-submit">
             <div class="borderStyle">
-                <h3 class="fieldBorder" style="width: 170px">Leave Module</h3>
-                <div class='col-md-6 col-lg-6'>
+                <h3 class="fieldBorder" style="width: 300px">Leave Module 
+                        <div id="radioBtn" class="btn-group" style="padding-left: 15px;">
+                            <a class="btn btn-default btn-sm active" data-toggle="leave" data-title="add">Add</a>
+                            <a class="btn btn-default btn-sm notActive" data-toggle="leave" data-title="reports">Reports</a>
+                        </div>
+                </h3>
+                
+                <div class='col-md-12 col-lg-12 reportsList hidden'>
+                    <div class="form-group">
+                        <label>Employee List</label>
+                        <select id="employee" class="form-control" required>
+                        </select>                        
+                    </div>
+                </div>
+                <div class='col-md-6 col-lg-6 addList'>
                     <div class="form-group">
                         <label>Employee List</label>
                         <select id="emp_name" class="form-control" required >
@@ -18,7 +31,7 @@
                         </select>
                     </div>
                 </div>
-                <div class='col-md-6 col-lg-6'>
+                <div class='col-md-6 col-lg-6 addList'>
                     <div class="form-group">
                         <label>Available Leaves:</label>
                         <input type="text" class="form-control" id="avail_leave" disabled />
@@ -42,7 +55,7 @@
                         <div id="tagsList"></div>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-12">
+                <div class="col-md-12 col-lg-12 addList">
                     <div class="form-group">
                         <label>Reason</label>
                         <textarea class="form-control leave_reason leave_details" rows="5" id="lve_reason" required></textarea>

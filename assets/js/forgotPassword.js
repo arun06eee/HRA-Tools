@@ -17,7 +17,6 @@ $(function(){
 						"E_mail": E_mail
 					};
 					that.request(url, data, 'GET', function(json){
-						console.log(json);
 						if(json.error == ""){
 							forgotPassword.fnerrorMessage('show', 'forgotPassword', 'glyphicon-ok', 'Password sent to your mail', 'bg-success');
 							$("#forgotPassword input").val('');
@@ -29,6 +28,8 @@ $(function(){
 				setTimeout(function(){
 				    forgotPassword.fnerrorMessage('hide', 'forgotPassword', 'glyphicon-warning-sign', null, 'bg-danger');
 				}, 3000);
+                
+                return false;
 			});
 		},
 		isValidEmailAddress: function(emailAddress) {
