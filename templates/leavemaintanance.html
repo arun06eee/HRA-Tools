@@ -43,11 +43,25 @@
                                     <th class="">No.</th>
                                     <th class="text-center">Year</th>
                                     <th class="text-center">Total Leave</th>
+                                    <th class="text-center" style="width: 100px;">Action</th>
                                 </tr>
                             </thead>
                             <tbody id='addtr'></tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteleave" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="height: 88px;">
+                <div class="modal-body">
+                    <p>Are you sure? You want to delete?</p>
+                    <span style="float:right; display:inline">
+                        <button type="button" id='confirmDelete' class="btn btn-warning">Delete</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </span>
                 </div>
             </div>
         </div>

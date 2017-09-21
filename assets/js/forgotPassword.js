@@ -4,23 +4,27 @@ $(function(){
 		init : function () {
 			var that = this;
 			$(".forgot-password-btn").click(function(){
-				var user_name = $("#user_name").val(),
-					E_mail = $("#E_mail").val();
-				if(user_name == "" || E_mail == ""){
-					forgotPassword.fnerrorMessage('show', 'forgotPassword', 'glyphicon-warning-sign', 'Fill all the fields!!', 'bg-danger');
+				var E_mail = $("#E_mail").val();
+				if(E_mail == ""){
+					forgotPassword.fnerrorMessage('show', 'forgotPassword', 'glyphicon-warning-sign', 'Enter Email Address!!', 'bg-danger');
 				}else if(!forgotPassword.isValidEmailAddress(E_mail)){
 					forgotPassword.fnerrorMessage('show', 'forgotPassword', 'glyphicon-warning-sign', 'Enter valid Email Address!!', 'bg-danger');
 				}else{
 					var url = $("#baseurl").val() + "/forgotpass",
 					data = {
-						"user_name": user_name,
 						"E_mail": E_mail
 					};
+					$("#spinner").removeClass('hidden');
+					$(".hidecontent").addClass('hidden');
 					that.request(url, data, 'GET', function(json){
-						if(json.error == ""){
-							forgotPassword.fnerrorMessage('show', 'forgotPassword', 'glyphicon-ok', 'Password sent to your mail', 'bg-success');
+						if(json.success){
+							$("#passWindow").modal('show');
 							$("#forgotPassword input").val('');
+							$("#spinner").addClass('hidden');
+							$(".hidecontent").removeClass('hidden');
 						}else{
+							$("#spinner").addClass('hidden');
+							$(".hidecontent").removeClass('hidden');
 							forgotPassword.fnerrorMessage('show', 'forgotPassword', 'glyphicon-warning-sign', json.error, 'bg-danger');
 						}
 					});

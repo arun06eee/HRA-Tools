@@ -202,7 +202,7 @@ function _forgot_password(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
 	$params = $app->request->get();
-	$sql_query = "SELECT * FROM ".$env['dbloginCollection']." WHERE username =" ."'".$params['user_name']."'";
+	$sql_query = "SELECT * FROM ".$env['dbloginCollection']." WHERE username =" ."'".$params['E_mail']."'";
 
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($sql_query);
@@ -213,7 +213,7 @@ function _forgot_password(){
 
 		try {
 			//Server settings
-			$mail->SMTPDebug = 2;
+			$mail->SMTPDebug = 0;
 			$mail->isSMTP();
 			$mail->Host = 'smtp.zoho.com';
 			$mail->SMTPAuth = true;
@@ -457,6 +457,26 @@ function _api_deletetags(){
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
+function _deletetr(){
+	$app = \Slim\Slim::getInstance();
+	$env = $app->environment();
+	$params = $app->request->get();
+	$query = "DELETE FROM ".$env['defaultleave']
+				." WHERE `leave_year` ="
+				."'"
+				.$params['delete_tr']
+				."'";
+	try {
+		$dbCon = getConnection();
+		$stmt   = $dbCon->query($query);
+
+		$dbCon = null;
+		echo true;
+
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
 function _api_insertAddEmployeeBuckets(){
 	$app = \Slim\Slim::getInstance();
 	$env = $app->environment();
@@ -567,10 +587,16 @@ function _api_defaultleave(){
 	$env = $app->environment();
 	$params = $app->request->get();
 	$result = array();
-	$query = "INSERT INTO ".$env['defaultleave']."(leave_year, total_leave)"
-				." VALUES (		'".	$params['set_year']
-							."','". $params['set_total_leave']
-						."')";
+	if($params['old_year'] == ""){
+		$query = "INSERT INTO ".$env['defaultleave']."(leave_year, total_leave)"
+					." VALUES (		'".	$params['set_year']
+								."','". $params['set_total_leave']
+							."')";
+	}else{
+		$query = "UPDATE ".$env['defaultleave']." SET leave_year = ".$params['set_year']
+						  .","." total_leave = ".$params['set_total_leave']
+						  ." WHERE leave_year = ".$params['old_year'];
+	}
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($query);

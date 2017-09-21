@@ -463,3 +463,14 @@ textarea {
 .SumoSelect>.optWrapper>.options li label{
 	left: 26px !important;
 }
+.deletebtn, .editbtn{
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+    background: #FFC231 !important;
+    border-color: #FFC231 !important;
+}
+.deletebtn{
+    margin-right: 10px !important;
+}

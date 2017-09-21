@@ -122,6 +122,7 @@ $app->get( '/reports',              authorize(),    '_reports');
 $app->get( '/showreports',          authorize(),    '_showreports');
 $app->get( '/changePassword',       authorize(),    '_change_password');
 $app->get( '/passwordreset',        authorize(),    '_resetPassword');
+$app->get( '/deletetabletr',        authorize(),    '_deletetr');
 
 $app->notFound(function () use ($app) {
 	// make the globals available

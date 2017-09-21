@@ -17,7 +17,7 @@ $(function(){
           }else{
             for(var i=0;i<response.length;i++){
                 var showtag =  '<div class="btn alltags" style="background-color:'+response[i].tag_color+'; color:'+response[i].text_color+'">'+response[i].tag_name+
-                          '<span class="closetag" value="'+response[i].tag_name+'" style="color:'+response[i].text_color+'">&times</span>'+
+                          '<span class="closetag" data-toggle="modal" data-target="#deletetag" value="'+response[i].tag_name+'" style="color:'+response[i].text_color+'">&times</span>'+
                           '</div>';
                 $("#showtags").append(showtag);
                 $("#NoTags").addClass('hidden');
@@ -54,8 +54,6 @@ $(function(){
 					"color"       : text_color
 				};
 				
-				console.log(tmpArr);
-				
 				if(tmpArr != null){
 					tags.request(tmpArr, tags.tagDataResponse);
 				}
@@ -64,11 +62,16 @@ $(function(){
 			return false;
 		});
     },
-    fnDelete: function(){
+    fnDelete: function(val){
+        var delete_data = "", url = "";
         $('.closetag').click(function(){
             that = this;
-            var delete_data = {"delete_data" : $(this).attr('value')};
-            var url = $("#baseurl").val()+"/deletetags";
+            delete_data = {"delete_data" : $(this).attr('value')};
+            url = $("#baseurl").val()+"/deletetags";
+
+        });
+
+        $('#confirmDeletetag').click(function(){
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -76,19 +79,21 @@ $(function(){
                 success: function(response) {
                   if(response == true){
                     $(that).closest('.btn').remove();
+                    $("#deletetag").modal('hide');
                   }
                 },
                 error: function() {
                     tags.fnerrorMessage('show', 'Tags', 'glyphicon-warning-sign', 'Error occured.Try again', 'bg-danger');
-                    console.log('error occured');
+                    $("#deletetag").modal('hide');
                 }
             });
         });
+
     },
     tagDataResponse: function(data){
         if(data == true){
           var addtag  =  '<div class="btn alltags" style="background-color:'+tag_color+'; color:'+text_color+'">'+tag_name+
-                          '<span class="closetag" value="'+tag_name+'" style="color:'+text_color+'">&times</span>'+
+                          '<span class="closetag" data-toggle="modal" data-target="#deletetag" value="'+tag_name+'" style="color:'+text_color+'">&times</span>'+
                           '</div>';
         }
         $("#showtags").append(addtag);
@@ -113,7 +118,6 @@ $(function(){
       }
     },
     request: function (data, callback){
-		console.log(data);
 			var url = $("#baseurl").val()+"/addtags";
 			console.log(url);
 			
@@ -122,7 +126,6 @@ $(function(){
 				type: 'POST',
 				data: data,
 				success: function(result) {
-					console.log(result);
 					callback(result);
 				},
 				error: function() {
