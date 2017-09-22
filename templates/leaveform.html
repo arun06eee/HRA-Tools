@@ -19,14 +19,14 @@
                 <div class='col-md-12 col-lg-12 reportsList hidden'>
                     <div class="form-group">
                         <label>Employee List</label>
-                        <select id="employee" class="form-control" required>
+                        <select multiple id="employee" class="form-control">
                         </select>                        
                     </div>
                 </div>
                 <div class='col-md-6 col-lg-6 addList'>
                     <div class="form-group">
                         <label>Employee List</label>
-                        <select id="emp_name" class="form-control" required >
+                        <select id="emp_name" class="form-control">
                             <option value="">--Select Employee--</option>
                         </select>
                     </div>
@@ -40,13 +40,13 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>From Date</label>
-                        <input class="leave-dates form-control" id='id_from_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
+                        <input class="leave-dates form-control id_from_date" onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>To Date</label>
-                        <input class="leave-dates form-control" id='id_to_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
+                        <input class="leave-dates form-control id_to_date" onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-12">
@@ -82,14 +82,14 @@
                             <thead>
                                 <tr >
                                     <th class="">Name</th>
-                                    <th class="text-center">From Data</th>
-                                    <th class="text-center">To Data</th>
+                                    <th class="text-center">From Date</th>
+                                    <th class="text-center">To Date</th>
                                     <th class="text-center">Tags</th>
                                     <th class="text-center">Reason</th>
                                 </tr>
                             </thead>
                             <tbody id='addtr'>
-                                <tr>
+                                <tr id='NoReportData'>
                                     <td colspan="5">No records found...</td>
                                 </tr>
                             </tbody>
@@ -100,66 +100,4 @@
         </div>
     </div>
 </div>
-
-
-<!--
-<div class='panel panel-primary dialog-panel' id="leaveform-details">
-	<div class='panel-heading'>
-		<h3>Add Leave
-			<button class="btn btn-success save-leavemodule-btn pull-right" ><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
-		</h3>
-		
-	</div>
-	<div class='panel-body'>
-		<form role='form' id="leaveform-submit">
-			<div class="borderStyle" >
-				<h3 class="fieldBorder">Leave Module</h3>
-				
-				<div class="row form-group required">
-					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-						<div class="group">
-							<select id="emp_name" class="" required >
-								<option value="">--Select Employee--</option>
-							</select>
-						</div>
-                        <div class="group">
-							<input class="leave-dates" id='id_from_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>From Date</label>
-						</div>
-						<div class="group">
-							<input class="leave-dates" id='id_to_date' onfocusout="(this.type='text')" onfocus="(this.type='date')" zyde-service="date_of_birth" required/>
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>To Date</label>
-						</div>
-						<div class="group">
-							<textarea class="form-control leave_reason leave_details" rows="5" id="lve_reason" required></textarea>
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>Reason</label>
-						</div>
-
-					</div>
-					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1'>
-                        <label>Tags</label>
-						<div id="tagsList"></div>
-					</div>
-					<div class='col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1' style="margin-top: 20px;">
-						<div class="avail_leave">
-							<label>Available Leaves: </label>
-							<span id="avail_leave"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
-			<input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
-		</form>
-	</div>
-</div>
--->
-
-
 {% endblock %}

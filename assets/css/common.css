@@ -461,7 +461,7 @@ textarea {
 	left: 28px !important;
 }
 .SumoSelect>.optWrapper>.options li label{
-	left: 26px !important;
+	padding-left: 26px !important;
 }
 .deletebtn, .editbtn{
     padding-left: 6px !important;

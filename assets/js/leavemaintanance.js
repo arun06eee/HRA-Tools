@@ -109,7 +109,8 @@ $(function(){
 			$('.editbtn').click(function() {
 				var selecttr = "", year = "", leave = "";  
 				selecttr = $(this).closest('tr').find('td');
-				leave = selecttr[0].innerHTML;
+				console.log(selecttr);
+				leave = selecttr[2].innerHTML;
 				year = selecttr[1].innerHTML;
 				$("#id_set_total_leave").val(leave);
 				$("#set_year").val(year);

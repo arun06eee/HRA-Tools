@@ -1,5 +1,7 @@
 $(function(){
 	var avail_leave = "";
+	var addflag = true;
+	var reportflag = false;
 	var leaveM = {
 		emp_base64String: null,
         employeeList : [],
@@ -24,8 +26,8 @@ $(function(){
 				}
 				$("select#emp_name").append(options);
 				$("select#employee").append(options);
-                
-                
+				$('#employee').SumoSelect({placeholder: 'Select Employee'});
+
                 that.fnTagsListAction();
 			});
 
@@ -90,69 +92,124 @@ $(function(){
                 $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
                 
                 if(sel == 'add') {
-                    console.log(sel);
+                    addflag = true;
+                    reportflag = false;
                     $(".reportsList").addClass("hidden");
                     $(".addList").removeClass("hidden");
+                    $("#leaveform-details textarea, #leaveform-details input, #leaveform-details select").val('');
                 }else {
+                	addflag = false;
+                	reportflag = true;
                     $(".addList").addClass("hidden");
                     $(".reportsList").removeClass("hidden");
+					$("#leaveform-details textarea, #leaveform-details input, #leaveform-details select").val('');
                 }
             })
-            
-            
+
 			$(".save-leavemodule-btn").click(function(event){
-				var	bool = true,
-					fromDate = $("#id_from_date").val(),
-					toDate = $("#id_to_date").val(),
+				var	bool = true, tag_name = [],
+					fromDate = $(".id_from_date").val(),
+					toDate = $(".id_to_date").val(),
 					duration = leaveM.showDays(fromDate,toDate)+1;
 
-				if($("#emp_name").val() == ""){
-					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Employees!!', 'bg-danger');
-					bool = false;
-				}else if($("#id_from_date").val() == "" || $("#id_to_date").val() == ""){
-					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Date!!', 'bg-danger');
-					bool = false;
-				}else if($("#lve_reason").val() == ""){
-					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Reason should not empty!!', 'bg-danger');
-					bool = false;
-				}else if(duration <= 0 || isNaN(duration)){
-					console.log(duration);
-					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Enter Valid Dates!!', 'bg-danger');
-					bool = false;
-				}else{
-					//lets start LOP avlidation here!!
-					if(parseInt(avail_leave) < duration){
-						$("#LOP").addClass('activeTags');
+					$('.activeTags').each(function(i, selected){ 
+						tag_name[i] = $(selected).text();
+					});
+				if(addflag){
+					if($("#emp_name").val() == ""){
+						leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Employees!!', 'bg-danger');
+						bool = false;
+					}else if(fromDate == "" || toDate == ""){
+						leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Date!!', 'bg-danger');
+						bool = false;
+					}else if($("#lve_reason").val() == ""){
+						leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Reason should not empty!!', 'bg-danger');
+						bool = false;
+					}else if(duration <= 0 || isNaN(duration)){
+						leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Enter Valid Dates!!', 'bg-danger');
+						bool = false;
+					}else{
+						//lets start LOP avlidation here!!
+						if(parseInt(avail_leave) < duration){
+							$("#LOP").addClass('activeTags');
+						}
+						bool = true;
+						var emp_num = $("#emp_name").val().match(/\((.*)\)/);
+						var controller = $("#baseurl").val() + "/storeleaveform",
+							data = {
+								"csrf_token": $("#csrf_token").val(),
+								"employee_status":emp_num[1],
+								"from_date": fromDate,
+								"to_date": toDate,
+								"reason": $("#lve_reason").val(),
+								"tag_name": tag_name,
+								"avail_leave": avail_leave
+							};
+					}
+
+					if(bool == true){
+						$("#emp_name option:selected").removeAttr("selected");
+						$(".leave-dates").val('');
+						$(".leave_details").val('');
+						$("#avail_leave").val('');
+						$(".activeTags").removeClass('activeTags');
+						leaveM.request(controller, data, 'GET', function(json){
+							that.fnerrorMessage('show', 'leaveform-details', 'glyphicon-ok', json.success, 'bg-success');
+							setTimeout(function(){
+						    	that.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-ok', null, 'bg-success');
+						    }, 3000);
+						});
 					}
 				}
 
-				var tag_name = [];
-				$('.activeTags').each(function(i, selected){ 
-				  tag_name[i] = $(selected).text();
-				});
-				var emp_num = $("#emp_name").val().match(/\((.*)\)/);
-				var controller = $("#baseurl").val() + "/storeleaveform",
-					data = {
-						"csrf_token": $("#csrf_token").val(),
-						"employee_status":emp_num[1],
-						"from_date": $("#id_from_date").val(),
-						"to_date": $("#id_to_date").val(),
-						"reason": $("#lve_reason").val(),
-						"tag_name": tag_name,
-						"avail_leave": avail_leave
-					};
+				if(reportflag){
+					var emp_num = $("#employee").val(), emp_no = [];
+					for(var No in emp_num){	emp_no.push(emp_num[No].match(/\((.*)\)/)[1]);}
 
-				if(bool == true){
-					$("#emp_name option:selected").removeAttr("selected");
-					$(".leave-dates").val('');
-					$(".leave_details").val('');
-					$("#LOP").removeClass('activeTags');
-					leaveM.request(controller, data, 'GET', function(json){
-						that.fnerrorMessage('show', 'leaveform-details', 'glyphicon-ok', json.success, 'bg-success');
-						setTimeout(function(){
-					    	that.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-ok', null, 'bg-success');
-					    }, 3000);
-					});
+	            	var data = {
+	            		employee: emp_no,
+	            		from_date: fromDate,
+	            		to_date: toDate,
+	            		tags: tag_name
+	            	}
+	 
+	            	if(data.employee != ""){
+	            		var showReportController = $("#baseurl").val() + "/showreports";
+	            		that.request(showReportController, data, 'GET', function(json){
+							if(json.length != 0){
+								$("#addreportRow").empty();
+								json = json.result;
+								for(var i=0;i<json.length;i++){
+									$("#NoReportData").empty();
+									var td = "<tr>";
+									if(json[i]['employee_name']){
+										td += "<td>"+json[i]['employee_name']+"</td>";
+									}
+									if(json[i]['date_applied']){
+										td += "<td>"+json[i]['date_applied']+"</td>";
+									}
+									if(json[i]['from_date']){
+										td += "<td>"+json[i]['from_date']+"</td>";
+									}
+									if(json[i]['to_date']){
+										td += "<td>"+json[i]['to_date']+"</td>";
+									}
+									if(json[i]['tag_name']){
+										td += "<td>"+json[i]['tag_name']+"</td>";
+									}else{
+										td += "<td class='text-center'> - </td>";
+									}
+									if(json[i]['reason']){
+										td += "<td>"+json[i]['reason']+"</td>";
+									}else{
+										td += "<td class='text-center'> - </td>";
+									}
+									td += "</tr>";
+									$("#addtr").append(td);
+								}
+							}
+						});
+	            	}
 				}
 			});
 		},
@@ -179,13 +236,6 @@ $(function(){
 				success: function(result) {
 					callback(result);
 				},
-				/*error: function() {
-					leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Error occured.Try again', 'bg-danger');
-					console.log('error occured');
-					setTimeout(function(){
-				    	leaveM.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-warning-sign', null, 'bg-danger');
-				    }, 3000);
-				}*/
 			});
 		}
 	};
