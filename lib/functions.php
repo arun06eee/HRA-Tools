@@ -537,7 +537,9 @@ function _api_leavemodule(){
 						."','". $params['to_date']
 						."','". $params['reason']
 						."','". $tag_name
-					."')";
+					."');".
+					"UPDATE ".$env['dbaddemployeeCollection']." SET available_leave = ".$params['avail_leave']." WHERE employee_number = ".$params['employee_status'];
+
 	try {
 		$dbCon = getConnection();
 		$stmt   = $dbCon->query($query);

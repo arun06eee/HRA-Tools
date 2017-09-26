@@ -10,6 +10,7 @@ $(function(){
             
             /* Employee List */
             $("#tagsList").empty();
+            $("#emp_name").empty();
 			var controller = $("#baseurl").val() + "/viewemployeebuckets",
 				data = {
 					alpha: "All",
@@ -24,8 +25,10 @@ $(function(){
 					var abc = json[mainKey].firstname + '(' + json[mainKey].employee_number+')';
 					options += '<option value="' + abc +'">' + abc + '</option>';
 				}
+				$("select#emp_name").append('<option value="">--Select Employee--</option>');
 				$("select#emp_name").append(options);
 				$("select#employee").append(options);
+				$('#emp_name').SumoSelect({placeholder: 'Select Employee'});
 				$('#employee').SumoSelect({placeholder: 'Select Employee'});
 
                 that.fnTagsListAction();
@@ -52,8 +55,10 @@ $(function(){
             $(".tagevent").click(function(){
                 if($(this).hasClass("activeTags")){
                     $(this).removeClass("activeTags");
+                    return false;
                 }else {
                     $(this).addClass("activeTags");
+                    return false;
                 }
             });
             $("select#emp_name").unbind("change").change(function(){
@@ -65,6 +70,12 @@ $(function(){
                         if(leaveM.employeeList[mainKey].employee_number == emp_num[1]){
                             $("#avail_leave").val(leaveM.employeeList[mainKey].available_leave);
                             avail_leave = leaveM.employeeList[mainKey].available_leave;
+                            if(leaveM.employeeList[mainKey].available_leave == 0){
+                            	$(".tagevent").addClass("hidden");
+                            	$("#LOP").removeClass("hidden");
+                            }else{
+                            	$(".tagevent").removeClass("hidden");
+                            }
                         }
                     }
                 }
@@ -72,7 +83,6 @@ $(function(){
         },
 		showDays: function(firstDate,secondDate){
 			// function to calculate count between dats
-
 			var startDay = new Date(firstDate);
 			var endDay = new Date(secondDate);
 			var millisecondsPerDay = 1000 * 60 * 60 * 24;
@@ -112,9 +122,6 @@ $(function(){
 					toDate = $(".id_to_date").val(),
 					duration = leaveM.showDays(fromDate,toDate)+1;
 
-					$('.activeTags').each(function(i, selected){ 
-						tag_name[i] = $(selected).text();
-					});
 				if(addflag){
 					if($("#emp_name").val() == ""){
 						leaveM.fnerrorMessage('show', 'leaveform-details', 'glyphicon-warning-sign', 'Select Employees!!', 'bg-danger');
@@ -132,19 +139,25 @@ $(function(){
 						//lets start LOP avlidation here!!
 						if(parseInt(avail_leave) < duration){
 							$("#LOP").addClass('activeTags');
+							avail_leave = 0;
+						}else{
+							avail_leave = avail_leave - duration;
 						}
-						bool = true;
+						$('.activeTags').each(function(i, selected){ 
+							tag_name[i] = $(selected).text();
+						});
 						var emp_num = $("#emp_name").val().match(/\((.*)\)/);
 						var controller = $("#baseurl").val() + "/storeleaveform",
-							data = {
-								"csrf_token": $("#csrf_token").val(),
-								"employee_status":emp_num[1],
-								"from_date": fromDate,
-								"to_date": toDate,
-								"reason": $("#lve_reason").val(),
-								"tag_name": tag_name,
-								"avail_leave": avail_leave
-							};
+						data = {
+							"csrf_token": $("#csrf_token").val(),
+							"employee_status":emp_num[1],
+							"from_date": fromDate,
+							"to_date": toDate,
+							"reason": $("#lve_reason").val(),
+							"tag_name": tag_name,
+							"avail_leave": avail_leave
+						};
+						bool = true;
 					}
 
 					if(bool == true){
@@ -155,25 +168,31 @@ $(function(){
 						$(".activeTags").removeClass('activeTags');
 						leaveM.request(controller, data, 'GET', function(json){
 							that.fnerrorMessage('show', 'leaveform-details', 'glyphicon-ok', json.success, 'bg-success');
+							that.init();
 							setTimeout(function(){
-						    	that.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-ok', null, 'bg-success');
-						    }, 3000);
+								that.fnerrorMessage('hide', 'leaveform-details', 'glyphicon-ok', null, 'bg-success');
+							}, 3000);
 						});
 					}
+					return false;
 				}
 
 				if(reportflag){
 					var emp_num = $("#employee").val(), emp_no = [];
 					for(var No in emp_num){	emp_no.push(emp_num[No].match(/\((.*)\)/)[1]);}
-
+					$('.activeTags').each(function(i, selected){ 
+						tag_name[i] = $(selected).text();
+					});
 	            	var data = {
 	            		employee: emp_no,
 	            		from_date: fromDate,
 	            		to_date: toDate,
 	            		tags: tag_name
 	            	}
-	 
+
 	            	if(data.employee != ""){
+	            		$("#report_table_tab").removeClass("hidden");
+	            		$("#report_spinner").removeClass("hidden");
 	            		var showReportController = $("#baseurl").val() + "/showreports";
 	            		that.request(showReportController, data, 'GET', function(json){
 							if(json.length != 0){
@@ -207,9 +226,12 @@ $(function(){
 									td += "</tr>";
 									$("#addtr").append(td);
 								}
+								$("#report_spinner").addClass("hidden");
+								$("#leave_table").removeClass("hidden");
 							}
 						});
 	            	}
+	            	return false;
 				}
 			});
 		},
