@@ -55,7 +55,6 @@ $(function(){
 				}else{
 					var controller = $("#baseurl").val() + "/defaultleave";
 					if(editflag == true){
-						console.log(old_year);
 						data = {
 							"csrf_token"		: $("#csrf_token").val(),
 							"set_total_leave"	: set_total_leave,
@@ -89,6 +88,7 @@ $(function(){
 		fnconfirmDelete: function(){
 			var selecttr = "", deletetr = "", currenttr = "";
 			$('.fa-trash-o').click(function() {
+				$("#total_leave-submit input").val('');
 				currenttr = $(this).closest('tr');
 				selecttr = $(this).closest('tr').find('td');
 				deletetr = selecttr[1].innerHTML;
@@ -109,7 +109,6 @@ $(function(){
 			$('.editbtn').click(function() {
 				var selecttr = "", year = "", leave = "";  
 				selecttr = $(this).closest('tr').find('td');
-				console.log(selecttr);
 				leave = selecttr[2].innerHTML;
 				year = selecttr[1].innerHTML;
 				$("#id_set_total_leave").val(leave);

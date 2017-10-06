@@ -159,6 +159,7 @@ function _showreports(){
 		}
 		$result[] = $profile;
 	}
+	$res = [];
 	foreach($result as $key => $obj){
 		foreach($result[$key] as $val){
 			$tag_name = unserialize($val->tag_name);
@@ -174,7 +175,11 @@ function _showreports(){
 		}
 	}
 	header("Content-Type: application/json; charset=UTF-8");
-	echo json_encode($res); // Send data to ajax call in jquery.
+	if(empty($res)){
+		echo '{"error": "NO data found"}';
+	}else{
+		echo json_encode($res); // Send data to ajax call in jquery.
+	}
 }
 
 function _resetPassword(){

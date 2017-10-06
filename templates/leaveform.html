@@ -3,7 +3,7 @@
 
 
 <div class="row" style="padding-top: 10px"  id="leaveform-details">
-    <div class="col-xs-12 col-md-4 col-lg-4 col-sm-12" style="margin-bottom: 100px;">
+    <div id="leaveform" class="col-xs-12 col-md-4 col-lg-4 col-sm-12 col-md-offset-4" style="margin-bottom: 100px;">
 		<p class="errorstyle bg-danger text-left hidden">
 			<i class="glyphicon"></i> &nbsp;<span class="errormsg"></span>
 		</p>
@@ -59,8 +59,6 @@
                         <textarea class="form-control leave_reason leave_details" rows="5" id="lve_reason" ></textarea>
                     </div>
                 </div>
-                <input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
-                <input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
                 <div class="row ">
                     <div class="form-group col-md-12 col-lg-12">
                         <button class="LightButton mrR20 save-leavemodule-btn pull-right"><i class="fa fa-floppy-o"></i> &nbsp;Save</button>
@@ -84,7 +82,8 @@
                         <table id="leave_table" class="table table-bordered table-hover hidden">
                             <thead>
                                 <tr >
-                                    <th class="">Name</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Date Applied</th>
                                     <th class="text-center">From Date</th>
                                     <th class="text-center">To Date</th>
                                     <th class="text-center">Tags</th>
@@ -102,5 +101,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" id="csrf_token" name="{{csrf_key}}" value="{{csrf_token}}" />
+    <input type="hidden" id="baseurl" name="{{baseurl}}" value="{{baseurl}}" />
 </div>
 {% endblock %}

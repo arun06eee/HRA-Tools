@@ -31,7 +31,6 @@ $(function(){
 				$('#emp_name').SumoSelect({placeholder: 'Select Employee'});
 				$('#employee').SumoSelect({placeholder: 'Select Employee'});
 
-                that.fnTagsListAction();
 			});
 
             var tagsController = $("#baseurl").val() + "/showtags",
@@ -55,10 +54,8 @@ $(function(){
             $(".tagevent").click(function(){
                 if($(this).hasClass("activeTags")){
                     $(this).removeClass("activeTags");
-                    return false;
                 }else {
                     $(this).addClass("activeTags");
-                    return false;
                 }
             });
             $("select#emp_name").unbind("change").change(function(){
@@ -106,15 +103,15 @@ $(function(){
                     reportflag = false;
                     $(".reportsList").addClass("hidden");
                     $(".addList").removeClass("hidden");
-                    $("#leaveform-details textarea, #leaveform-details input, #leaveform-details select").val('');
+                    //$("#leaveform-details textarea, #leaveform-details input, #leaveform-details select").val('');
                 }else {
                 	addflag = false;
                 	reportflag = true;
                     $(".addList").addClass("hidden");
                     $(".reportsList").removeClass("hidden");
-					$("#leaveform-details textarea, #leaveform-details input, #leaveform-details select").val('');
+					//$("#leaveform-details textarea, #leaveform-details input, #leaveform-details select").val('');
                 }
-            })
+            });
 
 			$(".save-leavemodule-btn").click(function(event){
 				var	bool = true, tag_name = [],
@@ -146,6 +143,7 @@ $(function(){
 						$('.activeTags').each(function(i, selected){ 
 							tag_name[i] = $(selected).text();
 						});
+
 						var emp_num = $("#emp_name").val().match(/\((.*)\)/);
 						var controller = $("#baseurl").val() + "/storeleaveform",
 						data = {
@@ -174,7 +172,8 @@ $(function(){
 							}, 3000);
 						});
 					}
-					return false;
+					leaveM.init();
+					//return false;
 				}
 
 				if(reportflag){
@@ -184,6 +183,7 @@ $(function(){
 						tag_name[i] = $(selected).text();
 					});
 	            	var data = {
+	            		csrf_token: $("#baseurl").val(),
 	            		employee: emp_no,
 	            		from_date: fromDate,
 	            		to_date: toDate,
@@ -191,44 +191,59 @@ $(function(){
 	            	}
 
 	            	if(data.employee != ""){
+	            		$("#leaveform").removeClass("col-md-offset-4");
 	            		$("#report_table_tab").removeClass("hidden");
 	            		$("#report_spinner").removeClass("hidden");
 	            		var showReportController = $("#baseurl").val() + "/showreports";
 	            		that.request(showReportController, data, 'GET', function(json){
+	            			if(json.error){
+	            				//that.fnerrorMessage('show', 'leaveform-details', 'glyphicon-ok', json.error, 'bg-success');
+	            				$("#addtr").empty();
+	            				$("#addtr").append('<tr><td class="text-center" colspan="6">No records found...</td></tr>');
+	            			}else
 							if(json.length != 0){
-								$("#addreportRow").empty();
+								$("#addtr").empty();
 								json = json.result;
+								var difference = [];
 								for(var i=0;i<json.length;i++){
 									$("#NoReportData").empty();
-									var td = "<tr>";
-									if(json[i]['employee_name']){
-										td += "<td>"+json[i]['employee_name']+"</td>";
+									difference = [];
+									for(var k=0;k<json[i].tag_name.length;k++){
+										for(var j=0;j<tag_name.length;j++){
+											if(tag_name[j] == json[i].tag_name[k]){
+												difference.push(json[i].tag_name[k]);
+											}
+										}
 									}
-									if(json[i]['date_applied']){
-										td += "<td>"+json[i]['date_applied']+"</td>";
+									if(difference.length > 0){
+										var td = "<tr>";
+										if(json[i]['employee_name']){
+											td += "<td>"+json[i]['employee_name']+"</td>";
+										}
+										if(json[i]['date_applied']){
+											td += "<td>"+json[i]['date_applied']+"</td>";
+										}
+										if(json[i]['from_date']){
+											td += "<td>"+json[i]['from_date']+"</td>";
+										}
+										if(json[i]['to_date']){
+											td += "<td>"+json[i]['to_date']+"</td>";
+										}
+										if(json[i].tag_name){
+											td += "<td>"+difference+"</td>";
+										}
+										if(json[i]['reason']){
+											td += "<td>"+json[i]['reason']+"</td>";
+										}else{
+											td += "<td class='text-center'> - </td>";
+										}
+										td += "</tr>";
+										$("#addtr").append(td);
 									}
-									if(json[i]['from_date']){
-										td += "<td>"+json[i]['from_date']+"</td>";
-									}
-									if(json[i]['to_date']){
-										td += "<td>"+json[i]['to_date']+"</td>";
-									}
-									if(json[i]['tag_name']){
-										td += "<td>"+json[i]['tag_name']+"</td>";
-									}else{
-										td += "<td class='text-center'> - </td>";
-									}
-									if(json[i]['reason']){
-										td += "<td>"+json[i]['reason']+"</td>";
-									}else{
-										td += "<td class='text-center'> - </td>";
-									}
-									td += "</tr>";
-									$("#addtr").append(td);
 								}
-								$("#report_spinner").addClass("hidden");
-								$("#leave_table").removeClass("hidden");
 							}
+							$("#report_spinner").addClass("hidden");
+							$("#leave_table").removeClass("hidden");
 						});
 	            	}
 	            	return false;
